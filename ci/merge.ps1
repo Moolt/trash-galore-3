@@ -38,7 +38,7 @@ Get-ChildItem -Path $tempPath -Directory | ForEach-Object {
     Write-Host "Processing directory: $directoryPath"
     
     # Execute the stitch merge command
-    & stitch merge --source="$directoryPath"
+    & stitch merge --source="$directoryPath" --force
     Write-Host "Executed 'stitch merge' for: $directoryPath"
     
     # Look for datafiles/game.json and add its content to gamesArray
