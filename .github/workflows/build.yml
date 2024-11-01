@@ -18,7 +18,7 @@ jobs:
       - name: Generate version number
         id: version
         run: |
-          $date = (Get-Date -Format "yyMM-dd")
+          $date = (Get-Date -Format "yyyyMMdd")
           $commit = (git rev-parse --short HEAD)
           $version = "$date-$commit"
           "$version" | Out-File -FilePath $env:GITHUB_OUTPUT -Encoding utf8 -Append
