@@ -22,7 +22,7 @@ jobs:
           $commit = (git rev-parse --short HEAD)
           $version = "$date-$commit"
           Add-Content -Path $env:GITHUB_OUTPUT -Value "version=$version"
-        shell: powershell
+        shell: pwsh
 
   merge:
     runs-on: self-hosted
@@ -34,7 +34,7 @@ jobs:
 
       - name: Run merge script
         run: ./ci/merge.ps1
-        shell: powershell
+        shell: pwsh
 
   build_windows:
     runs-on: self-hosted
@@ -43,7 +43,7 @@ jobs:
     steps:
       - name: Run Windows build script
         run: ./ci/build_windows.ps1
-        shell: powershell
+        shell: pwsh
 
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v3
@@ -58,7 +58,7 @@ jobs:
     steps:
       - name: Run Linux build script
         run: ./ci/build_linux.ps1
-        shell: powershell
+        shell: pwsh
 
       - name: Upload Linux artifact
         uses: actions/upload-artifact@v3
@@ -73,7 +73,7 @@ jobs:
     steps:
       - name: Run HTML build script
         run: ./ci/build_html.ps1
-        shell: powershell
+        shell: pwsh
 
       - name: Upload HTML artifact
         uses: actions/upload-artifact@v3
