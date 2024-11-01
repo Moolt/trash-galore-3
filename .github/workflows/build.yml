@@ -13,7 +13,7 @@ jobs:
       release_version: ${{ steps.version.outputs.version }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Generate version number
         id: version
@@ -30,7 +30,7 @@ jobs:
     needs: setup
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Run merge script
         run: ./ci/merge.ps1
@@ -46,7 +46,7 @@ jobs:
         shell: powershell
 
       - name: Upload Windows artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: target-windows.zip
           path: build/target-windows.zip
@@ -61,7 +61,7 @@ jobs:
         shell: powershell
 
       - name: Upload Linux artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: target-linux.AppImage
           path: build/target-linux.AppImage
@@ -76,7 +76,7 @@ jobs:
         shell: powershell
 
       - name: Upload HTML artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: target-html.zip
           path: build/target-html.zip
@@ -87,19 +87,19 @@ jobs:
     needs: [build_windows, build_linux, build_html]
     steps:
       - name: Download Windows artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: target-windows.zip
           path: build
 
       - name: Download Linux artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: target-linux.AppImage
           path: build
 
       - name: Download HTML artifact
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: target-html.zip
           path: build
