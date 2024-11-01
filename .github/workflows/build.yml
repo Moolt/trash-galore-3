@@ -18,11 +18,11 @@ jobs:
       - name: Generate version number
         id: version
         run: |
-          $date = (Get-Date -Format "yyyyMMdd")
+          $date = (Get-Date -Format "yy-MM-dd")
           $commit = (git rev-parse --short HEAD)
           $env:VERSION = "$date-$commit"
           Write-Output "::set-output name=version::$env:VERSION"
-        shell: pwsh
+        shell: powershell
 
   merge:
     runs-on: self-hosted
@@ -34,7 +34,7 @@ jobs:
 
       - name: Run merge script
         run: ./ci/merge.ps1
-        shell: pwsh
+        shell: powershell
 
   build_windows:
     runs-on: self-hosted
@@ -43,7 +43,7 @@ jobs:
     steps:
       - name: Run Windows build script
         run: ./ci/build_windows.ps1
-        shell: pwsh
+        shell: powershell
 
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v2
@@ -58,7 +58,7 @@ jobs:
     steps:
       - name: Run Linux build script
         run: ./ci/build_linux.ps1
-        shell: pwsh
+        shell: powershell
 
       - name: Upload Linux artifact
         uses: actions/upload-artifact@v2
@@ -73,7 +73,7 @@ jobs:
     steps:
       - name: Run HTML build script
         run: ./ci/build_html.ps1
-        shell: pwsh
+        shell: powershell
 
       - name: Upload HTML artifact
         uses: actions/upload-artifact@v2
