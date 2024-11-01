@@ -8,7 +8,7 @@
     "children":[],
     "name":"Default",
   },
-  "defaultScriptType":0,
+  "defaultScriptType":1,
   "Folders":[
     {"$GMFolder":"","%Name":"Animation Curves","folderPath":"folders/Animation Curves.yy","name":"Animation Curves","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Extensions","folderPath":"folders/Extensions.yy","name":"Extensions","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -26,20 +26,26 @@
     {"$GMFolder":"","%Name":"Tile Sets","folderPath":"folders/Tile Sets.yy","name":"Tile Sets","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Timelines","folderPath":"folders/Timelines.yy","name":"Timelines","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
-  "IncludedFiles":[],
+  "IncludedFiles":[
+    {"$GMIncludedFile":"","%Name":"game.json","CopyToMask":-1,"filePath":"datafiles","name":"game.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"games.json","CopyToMask":-1,"filePath":"datafiles","name":"games.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+  ],
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.8.0.169",
+    "IDEVersion":"2024.8.1.171",
   },
   "name":"trash-galore-3",
   "resources":[
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"obj_moo_game_controller","path":"objects/obj_moo_game_controller/obj_moo_game_controller.yy",},},
+    {"id":{"name":"room_moo_main","path":"rooms/room_moo_main/room_moo_main.yy",},},
+    {"id":{"name":"scr_moo_file_handling","path":"scripts/scr_moo_file_handling/scr_moo_file_handling.yy",},},
+    {"id":{"name":"scr_moo_games_metadata","path":"scripts/scr_moo_games_metadata/scr_moo_games_metadata.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"room_moo_main","path":"rooms/room_moo_main/room_moo_main.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
