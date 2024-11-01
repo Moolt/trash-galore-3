@@ -3,7 +3,7 @@ name: Build and Release Artifacts
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   setup:
