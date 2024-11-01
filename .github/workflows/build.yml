@@ -18,7 +18,7 @@ jobs:
       - name: Generate version number
         id: version
         run: |
-          $date = (Get-Date -Format "yy-MM-dd")
+          $date = (Get-Date -Format "yyMMdd")
           $commit = (git rev-parse --short HEAD)
           $env:VERSION = "$date-$commit"
           Write-Output "::set-output name=version::$env:VERSION"
