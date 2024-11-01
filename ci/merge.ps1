@@ -55,7 +55,7 @@ Get-ChildItem -Path $tempPath -Directory | ForEach-Object {
 }
 
 # Step 4: Save the cumulative games data to datafiles/games.json in the root directory
-$finalJson = @{ games = $gamesArray } | ConvertTo-Json -Depth 5
+$finalJson = @{ games = $gamesArray } | ConvertTo-Json -Depth 2
 Set-Content -Path $gamesJsonPath -Value $finalJson
 Write-Host "Accumulated games JSON saved to $gamesJsonPath"
 
