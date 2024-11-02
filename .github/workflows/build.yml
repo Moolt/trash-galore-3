@@ -4,9 +4,9 @@ on:
   push:
     branches:
       - master
-    repository_dispatch:
-      types:
-        - webhook
+  repository_dispatch:
+    types:
+      - webhook
 
 jobs:
   merge:
