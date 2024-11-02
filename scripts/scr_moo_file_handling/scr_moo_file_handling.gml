@@ -1,6 +1,3 @@
-/// @function
-/// @param {String} _file_path
-/// @return {String}
 function file_text_read_string_all(_file_path) {
 	var _file_contents = "";
 	var _file = file_text_open_read(_file_path);
@@ -21,9 +18,6 @@ function file_text_read_string_all(_file_path) {
 	return _file_contents;
 }
 
-/// @function
-/// @param {String} _file_path
-/// @return {Any}
 function json_read_from_file(_file_path) {
 	var _string_content = file_text_read_string_all(_file_path);
 	return json_decode(_string_content);
