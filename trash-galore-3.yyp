@@ -37,14 +37,23 @@
   "name":"trash-galore-3",
   "resources":[
     {"id":{"name":"obj_moo_game_controller","path":"objects/obj_moo_game_controller/obj_moo_game_controller.yy",},},
+    {"id":{"name":"room_moo_game_00","path":"rooms/room_moo_game_00/room_moo_game_00.yy",},},
+    {"id":{"name":"room_moo_game_01","path":"rooms/room_moo_game_01/room_moo_game_01.yy",},},
+    {"id":{"name":"room_moo_game_02","path":"rooms/room_moo_game_02/room_moo_game_02.yy",},},
     {"id":{"name":"room_moo_main","path":"rooms/room_moo_main/room_moo_main.yy",},},
     {"id":{"name":"scr_moo_file_handling","path":"scripts/scr_moo_file_handling/scr_moo_file_handling.yy",},},
     {"id":{"name":"scr_moo_games_metadata","path":"scripts/scr_moo_games_metadata/scr_moo_games_metadata.yy",},},
+    {"id":{"name":"spr_moo_thumb_00","path":"sprites/spr_moo_thumb_00/spr_moo_thumb_00.yy",},},
+    {"id":{"name":"spr_moo_thumb_01","path":"sprites/spr_moo_thumb_01/spr_moo_thumb_01.yy",},},
+    {"id":{"name":"spr_moo_thumb_02","path":"sprites/spr_moo_thumb_02/spr_moo_thumb_02.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
     {"roomId":{"name":"room_moo_main","path":"rooms/room_moo_main/room_moo_main.yy",},},
+    {"roomId":{"name":"room_moo_game_01","path":"rooms/room_moo_game_01/room_moo_game_01.yy",},},
+    {"roomId":{"name":"room_moo_game_00","path":"rooms/room_moo_game_00/room_moo_game_00.yy",},},
+    {"roomId":{"name":"room_moo_game_02","path":"rooms/room_moo_game_02/room_moo_game_02.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
