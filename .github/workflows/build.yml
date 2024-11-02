@@ -102,8 +102,8 @@ jobs:
         id: create_release
         uses: actions/create-release@v1
         with:
-          tag_name: "release-${{ env.commit_hash }}"
-          release_name: "Build ${{ env.commit_hash }}"
+          tag_name: "release-${{ env.commit_hash }}-${{github.run_id}}"
+          release_name: "Build ${{ env.commit_hash }}-${{github.run_id}}"
           draft: false
           prerelease: false
         env:
