@@ -9,13 +9,21 @@ on:
       - webhook
 
 jobs:
-  merge:
+  download:
     runs-on: self-hosted
-    name: Merge Changes
+    name: Download Packages
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Run download script
+        run: ./ci/download.ps1
+        shell: pwsh
+
+  merge:
+    runs-on: self-hosted
+    name: Merge Packages
+    steps:
       - name: Run merge script
         run: ./ci/merge.ps1
         shell: pwsh

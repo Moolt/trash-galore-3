@@ -1,4 +1,4 @@
-$zipUrl = "todo"
+$zipUrl = "https://filebrowser.moolt.de/api/public/dl/MkEJII1E/"
 $zipPath = "packages.zip"
 $extractPath = "packages"
 
