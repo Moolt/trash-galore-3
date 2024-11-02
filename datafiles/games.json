@@ -4,7 +4,7 @@
       "name": "Pixel Art Top Down - Basic",
       "author": "Cainos",
       "description": "Files contain a Unity package and extracted textures for use in other engines.",
-      "startRoom": "room_moo_game_00",
+      "start_room": "room_moo_game_00",
       "images": ["spr_moo_thumb_00"],
       "videos": []
     },
@@ -12,7 +12,7 @@
       "name": "Mystic Woods",
       "author": "Game Endeavor",
       "description": "Create the cutest 2D games with this top-down RPG asset pack!",
-      "startRoom": "room_moo_game_01",
+      "start_room": "room_moo_game_01",
       "images": ["spr_moo_thumb_01"],
       "videos": []
     },
@@ -20,7 +20,7 @@
       "name": "Pixel Adventure",
       "author": "Pixel From",
       "description": "This project contains all the graphic images that are presented in the Demo",
-      "startRoom": "room_moo_game_02",
+      "start_room": "room_moo_game_02",
       "images": ["spr_moo_thumb_02"],
       "videos": []
     }
