@@ -32,10 +32,7 @@ Get-ChildItem -Path $packagesPath -Filter *.zip | ForEach-Object {
     [System.IO.Compression.ZipFile]::ExtractToDirectory($zipFilePath, $destinationPath)
 }
 
-# Step 3: Preparing main project for merge
-& stitch debork --target-project="trash-galore-3.yyp" --force
-
-# Step 4: Process each unpacked directory
+# Step 3: Process each unpacked directory
 Get-ChildItem -Path $tempPath -Directory | ForEach-Object {
     $directoryPath = $_.FullName
     Write-Host "Processing directory: $directoryPath"
@@ -57,6 +54,11 @@ Get-ChildItem -Path $tempPath -Directory | ForEach-Object {
         Write-Host "Processed and deleted $gameJsonPath"
     }
 }
+
+# Step 4:
+Start-Job -ScriptBlock { & stitch open --project .\trash-galore-3.yyp }
+Start-Sleep -Seconds 30
+Stop-Process -Name "GameMaker"
 
 # Step 5: Save the cumulative games data to datafiles/games.json in the root directory
 $finalJson = @{ games = $gamesArray } | ConvertTo-Json -Depth 5
