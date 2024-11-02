@@ -23,6 +23,7 @@ jobs:
   merge:
     runs-on: self-hosted
     name: Merge Packages
+    needs: download
     steps:
       - name: Run merge script
         run: ./ci/merge.ps1
