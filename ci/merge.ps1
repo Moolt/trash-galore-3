@@ -3,6 +3,7 @@ $packagesPath = "$PSScriptRoot\..\packages"
 $tempPath = Join-Path -Path ([System.IO.Path]::GetTempPath()) -ChildPath "gamemaker_packages"
 $rootDatafilesPath = "$PSScriptRoot\..\datafiles"
 $gamesJsonPath = Join-Path -Path $rootDatafilesPath -ChildPath "games.json"
+$projectPath = ".\trash-galore-3.yyp"
 
 # Initialize the cumulative games array
 $gamesArray = @()
@@ -39,7 +40,7 @@ Get-ChildItem -Path $tempPath -Directory | ForEach-Object {
     
     $apiScriptPath = Join-Path -Path $directoryPath -ChildPath "scripts/scr_api"
 
-    # Delete api script
+    # START Delete api script -----------------
     if (Test-Path -Path $apiScriptPath -PathType Container) {
         # Remove the directory and its contents
         Remove-Item -Path $apiScriptPath -Recurse -Force
@@ -47,6 +48,18 @@ Get-ChildItem -Path $tempPath -Directory | ForEach-Object {
     } else {
         Write-Output "Directory '$apiScriptPath' does not exist."
     }
+
+    # Read all lines from the file
+    $packageProject = Get-ChildItem -Path $directoryPath -Filter "*.yyp" | Select-Object -First 1
+    $lines = Get-Content -Path $packageProject.FullName
+
+    # Filter out any lines that contain the string "name":"scr_api"
+    $filteredLines = $lines | Where-Object { $_ -notmatch '"name":"scr_api"' }
+
+    # Write the filtered content back to the file
+    $filteredLines | Set-Content -Path $packageProject.FullName
+
+    # END Delete api script -----------------
 
     # Execute the stitch merge command
     & stitch debork --target-project="$directoryPath" --force
