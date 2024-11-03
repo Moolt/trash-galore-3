@@ -41,6 +41,7 @@
     {"id":{"name":"room_moo_game_01","path":"rooms/room_moo_game_01/room_moo_game_01.yy",},},
     {"id":{"name":"room_moo_game_02","path":"rooms/room_moo_game_02/room_moo_game_02.yy",},},
     {"id":{"name":"room_moo_main","path":"rooms/room_moo_main/room_moo_main.yy",},},
+    {"id":{"name":"scr_api","path":"scripts/scr_api/scr_api.yy",},},
     {"id":{"name":"scr_moo_file_handling","path":"scripts/scr_moo_file_handling/scr_moo_file_handling.yy",},},
     {"id":{"name":"scr_moo_games_metadata","path":"scripts/scr_moo_games_metadata/scr_moo_games_metadata.yy",},},
     {"id":{"name":"spr_moo_thumb_00","path":"sprites/spr_moo_thumb_00/spr_moo_thumb_00.yy",},},

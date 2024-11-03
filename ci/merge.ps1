@@ -52,6 +52,17 @@ Get-ChildItem -Path $tempPath -Directory | ForEach-Object {
         Remove-Item -Path $gameJsonPath -Force
         Write-Host "Processed and deleted $gameJsonPath"
     }
+
+    $apiScriptPath = Join-Path -Path $directoryPath -ChildPath "scripts/scr_api"
+
+    # Check if the directory exists
+    if (Test-Path -Path $apiScriptPath -PathType Container) {
+        # Remove the directory and its contents
+        Remove-Item -Path $apiScriptPath -Recurse -Force
+        Write-Output "Directory '$apiScriptPath' has been deleted."
+    } else {
+        Write-Output "Directory '$apiScriptPath' does not exist."
+    }
 }
 
 # Step 4: Save the cumulative games data to datafiles/games.json in the root directory
