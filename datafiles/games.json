@@ -9,24 +9,26 @@
       "videos": [],
       "achievements": [
         {
-            "id": "aa_success",
-            "name": "Success",
-            "description": "You have succeeded!",
-            "hidden": false,
-            "image": "achievement_spr"
+          "id": "aa_legendary",
+          "name": "Legendary Status",
+          "description": "Achieve a level of greatness that is truly legendary!"
         },
         {
-            "id": "aa_great",
-            "name": "Great",
-            "description": "You are great!"
+          "id": "aa_treasure_hunter",
+          "name": "Treasure Hunter",
+          "description": "Uncover all hidden treasures in the game!"
         },
         {
-          "id": "aa_secret",
-          "name": "Secret",
-          "description": "Wow, you found it!",
-          "hidden": true
-      }
-    ]
+          "id": "aa_master_strategist",
+          "name": "Master Strategist",
+          "description": "Outsmart every enemy with your brilliant tactics!"
+        },
+        {
+          "id": "aa_social_butterfly",
+          "name": "Social Butterfly",
+          "description": "Make friends with every NPC in the game!"
+        }
+      ]
     },
     {
       "name": "Mystic Woods",
@@ -34,7 +36,29 @@
       "description": "Create the cutest 2D games with this top-down RPG asset pack!",
       "start_room": "room_moo_game_01",
       "images": ["spr_moo_thumb_01"],
-      "videos": []
+      "videos": [],
+      "achievements": [
+        {
+          "id": "bb_ultimate_victory",
+          "name": "Ultimate Victory",
+          "description": "Defeat the final boss without taking any damage!"
+        },
+        {
+          "id": "bb_speed_runner",
+          "name": "Speed Runner",
+          "description": "Complete the game in record time!"
+        },
+        {
+          "id": "bb_perfectionist",
+          "name": "Perfectionist",
+          "description": "Achieve 100% completion in all game challenges!"
+        },
+        {
+          "id": "bb_trivia_master",
+          "name": "Trivia Master",
+          "description": "Answer all trivia questions correctly in the game!"
+        }
+      ]
     },
     {
       "name": "Pixel Adventure",
@@ -42,7 +66,19 @@
       "description": "This project contains all the graphic images that are presented in the Demo",
       "start_room": "room_moo_game_02",
       "images": ["spr_moo_thumb_02"],
-      "videos": []
+      "videos": [],
+      "achievements": [
+        {
+          "id": "cc_explorer",
+          "name": "Explorer Extraordinaire",
+          "description": "Visit every location in the game world!"
+        },
+        {
+          "id": "cc_rescue_mission",
+          "name": "Rescue Mission",
+          "description": "Save all characters in distress!"
+        }
+      ]
     }
   ]
 }
