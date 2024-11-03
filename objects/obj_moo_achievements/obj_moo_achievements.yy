@@ -1,11 +1,11 @@
 {
   "$GMObject":"",
-  "%Name":"obj_moo_achievements_controller",
+  "%Name":"obj_moo_achievements",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_moo_achievements_controller",
+  "name":"obj_moo_achievements",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",

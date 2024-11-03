@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_moo_menu_game_selection",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_moo_menu_game_selection",
+  "parent":{
+    "name":"Menus",
+    "path":"folders/Scripts/Menus.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
