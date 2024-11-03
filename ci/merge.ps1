@@ -37,6 +37,17 @@ Get-ChildItem -Path $tempPath -Directory | ForEach-Object {
     $directoryPath = $_.FullName
     Write-Host "Processing directory: $directoryPath"
     
+    $apiScriptPath = Join-Path -Path $directoryPath -ChildPath "scripts/scr_api"
+
+    # Delete api script
+    if (Test-Path -Path $apiScriptPath -PathType Container) {
+        # Remove the directory and its contents
+        Remove-Item -Path $apiScriptPath -Recurse -Force
+        Write-Output "Directory '$apiScriptPath' has been deleted."
+    } else {
+        Write-Output "Directory '$apiScriptPath' does not exist."
+    }
+
     # Execute the stitch merge command
     & stitch debork --target-project="$directoryPath" --force
     & stitch merge --source="$directoryPath" --force
@@ -54,16 +65,6 @@ Get-ChildItem -Path $tempPath -Directory | ForEach-Object {
         Write-Host "Processed and deleted $gameJsonPath"
     }
 
-    $apiScriptPath = Join-Path -Path $directoryPath -ChildPath "scripts/scr_api"
-
-    # Check if the directory exists
-    if (Test-Path -Path $apiScriptPath -PathType Container) {
-        # Remove the directory and its contents
-        Remove-Item -Path $apiScriptPath -Recurse -Force
-        Write-Output "Directory '$apiScriptPath' has been deleted."
-    } else {
-        Write-Output "Directory '$apiScriptPath' does not exist."
-    }
 }
 
 # Step 4:
