@@ -1,11 +1,23 @@
 function game_metadata() constructor {
 	var _private = new _private_game_metadata();
 	
-	games = _private.load_games_list();
-	games_amount = array_length(games);
+	all_games = _private.load_games_list();
+	count = array_length(all_games);
 	
-	game_at = function(_index) {
-		return games[_index];
+	find_at_position = function(_index) {
+		return all_games[_index];
+	}
+	
+	find_by_name = function(_name) {
+		for(var _i = 0; _i < count; _i++) {
+			var _game = all_games[_i];
+			
+			if(_game.name == _name) {
+				return _game;
+			}
+		}
+		
+		return undefined;
 	}
 }
 

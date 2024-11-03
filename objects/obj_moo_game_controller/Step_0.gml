@@ -1,5 +1,5 @@
 function offset_game_selection(_offset) {
-	selected_index = clamp(selected_index + _offset, 0, games.games_amount - 1);
+	selected_index = clamp(selected_index + _offset, 0, games.count - 1);
 }
 
 if(keyboard_check_released(vk_up)) {
@@ -11,5 +11,5 @@ if(keyboard_check_released(vk_down)) {
 }
 
 if(keyboard_check_released(vk_enter)) {
-	room_goto(games.game_at(selected_index).start_room_index);
+	room_goto(games.find_at_position(selected_index).start_room_index);
 }

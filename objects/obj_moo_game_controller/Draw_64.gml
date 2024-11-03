@@ -1,5 +1,5 @@
-for(var _i = 0; _i < games.games_amount; _i++) {
-	var _game = games.game_at(_i);
+for(var _i = 0; _i < games.count; _i++) {
+	var _game = games.find_at_position(_i);
 	//var sprite = asset_get_index(ds_list_find_value(game.images, 0));
 	var _color = _i == selected_index ? c_green : c_white;
 	
