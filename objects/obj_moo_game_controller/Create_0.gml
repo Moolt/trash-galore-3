@@ -1,5 +1,5 @@
 function GameMetadata() constructor {
-	games = load_games_list();
+	games = moo_load_games_list();
 	games_amount = array_length(games);
 	
 	game_at = function(_index) {

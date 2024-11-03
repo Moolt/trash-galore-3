@@ -6,7 +6,7 @@ for(var _i = 0; _i < game_metadata.games_amount; _i++) {
 	draw_text_color(10, 10 + 20 * _i, _game.name, _color, _color, _color, _color, 1);
 	
 	if(_i == selected_index) {
-		var _thumbnail = _game.images_get_asset(0);
+		var _thumbnail = _game.images[0];
 		draw_sprite(_thumbnail, 0, 1041, 10);
 		draw_text_color(10, 768 - 30, _game.description, c_white, c_white, c_white, c_white, 1);
 		draw_text_color(10, 768 - 50, "By " + _game.author, c_white, c_white, c_white, c_white, 1);

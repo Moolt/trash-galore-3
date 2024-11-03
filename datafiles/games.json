@@ -6,7 +6,27 @@
       "description": "Files contain a Unity package and extracted textures for use in other engines.",
       "start_room": "room_moo_game_00",
       "images": ["spr_moo_thumb_00"],
-      "videos": []
+      "videos": [],
+      "achievements": [
+        {
+            "id": "aa_success",
+            "name": "Success",
+            "description": "You have succeeded!",
+            "hidden": false,
+            "image": "achievement_spr"
+        },
+        {
+            "id": "aa_great",
+            "name": "Great",
+            "description": "You are great!"
+        },
+        {
+          "id": "aa_secret",
+          "name": "Secret",
+          "description": "Wow, you found it!",
+          "hidden": true
+      }
+    ]
     },
     {
       "name": "Mystic Woods",
