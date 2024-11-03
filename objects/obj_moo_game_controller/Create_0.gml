@@ -1,13 +1,11 @@
-function GameMetadata() constructor {
-	games = moo_load_games_list();
-	games_amount = array_length(games);
-	
-	game_at = function(_index) {
-		return games[_index];
-	}
+function launcher() constructor {
+	games = new game_metadata(); 
+	achievements = undefined;
 }
 
-game_metadata = new GameMetadata();
-selected_index = 0;
+global.launcher = new launcher();
 
-show_debug_message(game_metadata.games_amount);
+selected_index = 0;
+games = global.launcher.games;
+
+show_debug_message(games.games_amount);
