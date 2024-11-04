@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_moo_games_metadata",
+  "%Name":"scr_moo_service_achievements",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_moo_games_metadata",
+  "name":"scr_moo_service_achievements",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

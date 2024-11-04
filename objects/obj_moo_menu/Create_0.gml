@@ -1,6 +1,6 @@
 global.launcher = {};
-global.launcher.games = new game_metadata();
-global.launcher.achievements = new achievements_handler();
+global.launcher.games = new moo_service_games();
+global.launcher.achievements = new moo_service_achievements();
 
 enum LAUNCHER_STATE {
 	GAME_SELECTION,

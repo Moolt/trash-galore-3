@@ -1,5 +1,5 @@
-function game_metadata() constructor {
-	var _private = new _private_game_metadata();
+function moo_service_games() constructor {
+	var _private = new _private_moo_service_games();
 	
 	all_games = _private.load_games_list();
 	count = array_length(all_games);
@@ -21,9 +21,9 @@ function game_metadata() constructor {
 	}
 }
 
-function _private_game_metadata() constructor {
+function _private_moo_service_games() constructor {
 	load_games_list = function() {
-		var _json_data = json_read_from_file("games.json");
+		var _json_data = moo_json_read_from_file("games.json");
 		var _games_list = [];
 
 		if (not ds_map_exists(_json_data, "games")) {

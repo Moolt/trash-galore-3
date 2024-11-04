@@ -1,5 +1,5 @@
-function achievements_handler() constructor {
-	_private = new _private_achievements();
+function moo_service_achievements() constructor {
+	_private = new _private_moo_service_achievements();
 
 	find_all_by_game = function(_name) {
 		var _game = global.launcher.games.find_by_name(_name);
@@ -44,7 +44,7 @@ function achievements_handler() constructor {
 	}
 }
 
-function _private_achievements() constructor {
+function _private_moo_service_achievements() constructor {
 	subscribers = [];
 	
 	copy_achievements = function() {
