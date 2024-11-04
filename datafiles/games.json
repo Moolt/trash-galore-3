@@ -16,7 +16,8 @@
         {
           "id": "aa_treasure_hunter",
           "name": "Treasure Hunter",
-          "description": "Uncover all hidden treasures in the game!"
+          "description": "Uncover all hidden treasures in the game!",
+          "image": "spr_moo_achievement_icon_paint"
         },
         {
           "id": "aa_master_strategist",

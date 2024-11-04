@@ -26,3 +26,5 @@ function set_state(_new_state) {
 }
 
 menu_handler = menu_handlers[? LAUNCHER_STATE.GAME_SELECTION];
+
+global.launcher.achievements.unlock("aa_treasure_hunter");

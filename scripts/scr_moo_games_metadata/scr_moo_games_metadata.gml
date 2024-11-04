@@ -60,7 +60,7 @@ function _private_game_metadata() constructor {
 			name: _achievement_data[? "name"] ?? "Unknown",
 			description: _achievement_data[? "description"] ?? "",
 			hidden: _achievement_data[? "hidden"] ?? false,
-			image: asset_get_index(_achievement_data[? "image"] ?? "") // TODO: Default asset,
+			image: asset_get_index(_achievement_data[? "image"] ?? "spr_moo_achievement_icon_default")
 		};
 
 		return _achievement_struct;

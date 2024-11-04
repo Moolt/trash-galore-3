@@ -51,6 +51,8 @@
     {"id":{"name":"scr_moo_menu_base","path":"scripts/scr_moo_menu_base/scr_moo_menu_base.yy",},},
     {"id":{"name":"scr_moo_menu_game_selection","path":"scripts/scr_moo_menu_game_selection/scr_moo_menu_game_selection.yy",},},
     {"id":{"name":"scr_moo_menu_in_game","path":"scripts/scr_moo_menu_in_game/scr_moo_menu_in_game.yy",},},
+    {"id":{"name":"spr_moo_achievement_icon_default","path":"sprites/spr_moo_achievement_icon_default/spr_moo_achievement_icon_default.yy",},},
+    {"id":{"name":"spr_moo_achievement_icon_paint","path":"sprites/spr_moo_achievement_icon_paint/spr_moo_achievement_icon_paint.yy",},},
     {"id":{"name":"spr_moo_thumb_00","path":"sprites/spr_moo_thumb_00/spr_moo_thumb_00.yy",},},
     {"id":{"name":"spr_moo_thumb_01","path":"sprites/spr_moo_thumb_01/spr_moo_thumb_01.yy",},},
     {"id":{"name":"spr_moo_thumb_02","path":"sprites/spr_moo_thumb_02/spr_moo_thumb_02.yy",},},
