@@ -20,12 +20,22 @@ function achievements_handler() constructor {
 	}
 	
 	unlock = function(_id) {
+		if(is_undefined(find_by_id(_id))) {
+			show_debug_message("Unknown achievement with id " + _id);
+			return;
+		}
+		
 		_private.persist_unlocked_state_by_id(_id, true);
 		
 		_private.inform_subscribers(find_by_id(_id));
 	}
 	
-	lock = function() {
+	lock = function(_id) {
+		if(is_undefined(find_by_id(_id))) {
+			show_debug_message("Unknown achievement with id " + _id);
+			return;
+		}
+		
 		_private.persist_unlocked_state_by_id(_id, false);
 	}
 	
