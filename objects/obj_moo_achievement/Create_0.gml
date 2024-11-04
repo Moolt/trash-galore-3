@@ -1,6 +1,8 @@
+#macro ACHIEVEMENTS_POPUP_WIDTH 300
+
 achievement = undefined;
-popup_width = 300;
-popup_height = 50;
+popup_width = ACHIEVEMENTS_POPUP_WIDTH;
+popup_height = 0;
 
 image_height = undefined;
 image_width = undefined;
@@ -11,9 +13,18 @@ name_height = undefined;
 text_available_width = undefined;
 line_spacing = undefined;
 
+container = undefined;
+
+function set_container(_container) {
+	container = _container;
+}
+
 function set_achievement(_achievement) {
 	achievement = _achievement;
-	
+	update_size();
+}
+
+function update_size() {
 	image_width = sprite_get_width(achievement.image) * image_scale;
 	image_height = sprite_get_height(achievement.image) * image_scale;
 	
@@ -26,6 +37,10 @@ function set_achievement(_achievement) {
 	var _description_height = string_height_ext(achievement.description, line_spacing, text_available_width);
 	
 	popup_height = max(name_height + _description_height, image_height) + padding_y * 2;
+	
+	if(!is_undefined(container)) {
+		container.on_achievement_size_changed();
+	}
 }
 
-set_achievement(global.launcher.achievements.find_by_id("bb_speed_runner"));
+alarm_set(0, 60 * seconds_until_removal);

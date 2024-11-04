@@ -1,16 +1,63 @@
-/*function ButtonStack(_layer, _x_start = 0, _y_start = 0, _space = 4) constructor {
-	x_start = _x_start;
-	y_start = _y_start;
-	space = _space;
-	layer = _layer;
+#macro ACHIEVEMENTS_LAYER_NAME "Achievements"
 
-	x_current = x_start;
-	y_current = y_start;
+achievements = [];
 
-	add_button = function(_label, _action) {
-		var _button = instance_create_layer(x_current, y_current, layer, obj_moo_achievement);
-		_button.set_button_text(_label);
-		_button.button_action = _action;
-		y_current += _button.button_height + space;
+function add_achievement(_achievement_id) {
+	var _achievement = global.launcher.achievements.find_by_id(_achievement_id);
+	
+	if(!layer_exists(ACHIEVEMENTS_LAYER_NAME)) {
+		layer_create(0, ACHIEVEMENTS_LAYER_NAME);
 	}
-}*/
+	
+	var _instance = instance_create_layer(0, 0, ACHIEVEMENTS_LAYER_NAME, obj_moo_achievement);
+	array_push(achievements, _instance);
+
+	_instance.set_container(self);
+	_instance.set_achievement(_achievement);
+}
+
+function remove_achievement(_achievement_id) {
+	var _index = get_index_by_id(_achievement_id);
+	var _instance = achievements[_index];
+	
+	array_delete(achievements, _index, 1);
+	
+	if(_index == -1) {
+		return;
+	}
+	
+	instance_destroy(_instance);
+}
+
+function on_achievement_size_changed() {
+	var _current_x = window_get_width() - ACHIEVEMENTS_POPUP_WIDTH - padding;
+	var _current_y = window_get_height() - padding;
+	
+	for(var _i = 0; _i < array_length(achievements); _i++) {
+		var _instance = achievements[_i];
+		
+		_current_y = _current_y - _instance.popup_height;
+		_instance.x = _current_x;
+		_instance.y = _current_y;
+		
+		_current_y -= spacing;
+	}
+}
+
+function get_index_by_id(_achievement_id) {
+	for(var _i = 0; _i < array_length(achievements); _i++) {
+		if(!instance_exists(achievements[_i])) {
+			continue;
+		}
+		
+		if(achievements[_i].achievement.id == _achievement_id) {
+			return _i;
+		}
+	}
+	
+	return -1;
+}
+
+global.launcher.achievements.on_unlock(function(_achievement) {
+	add_achievement(_achievement.id);
+});
