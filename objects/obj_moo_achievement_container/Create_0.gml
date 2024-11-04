@@ -27,6 +27,7 @@ function remove_achievement(_achievement_id) {
 	}
 	
 	instance_destroy(_instance);
+	on_achievement_size_changed();
 }
 
 function on_achievement_size_changed() {
