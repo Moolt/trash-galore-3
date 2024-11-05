@@ -20,8 +20,14 @@ function moo_service_achievements() constructor {
 	}
 	
 	unlock = function(_id) {
-		if(is_undefined(find_by_id(_id))) {
+		var _achievement = find_by_id(_id);
+		
+		if(is_undefined(_achievement)) {
 			show_debug_message("Unknown achievement with id " + _id);
+			return;
+		}
+		
+		if(_achievement.unlocked) {
 			return;
 		}
 		

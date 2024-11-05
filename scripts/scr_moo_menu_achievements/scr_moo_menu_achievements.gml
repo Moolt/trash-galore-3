@@ -29,25 +29,24 @@ function moo_menu_achievements(_menu_object): moo_menu_base(_menu_object) constr
 				draw_set_alpha(0.5);
 			}
 			
-			var padding = 10;
-			var spacing = 15;
-			var cell_height = 74;
-			var _vertical_offset = (spacing + cell_height) * _i;
+			var _padding = 10;
+			var _spacing = 15;
+			var _cell_height = 74;
+			var _vertical_offset = (_spacing + _cell_height) * _i;
 			
-			var panel_x_start = padding;
-			var panel_y_start = padding + _vertical_offset;
-			var panel_x_end = window_get_width() - padding;
-			var panel_y_end = padding + cell_height + _vertical_offset;
+			var _panel_x_start = _padding;
+			var _panel_y_start = _padding + _vertical_offset;
+			var _panel_x_end = window_get_width() - _padding;
+			var _panel_y_end = _padding + _cell_height + _vertical_offset;
 			
-			draw_roundrect_ext(panel_x_start, panel_y_start, panel_x_end, panel_y_end, 8, 8, false);
+			draw_roundrect_ext(_panel_x_start, _panel_y_start, _panel_x_end, _panel_y_end, 8, 8, false);
 			
-			draw_sprite(_achievement.image, 0, panel_x_start + 5, panel_y_start + 5);
-	
+			draw_sprite(_achievement.image, 0, _panel_x_start + 5, _panel_y_start + 5);
 	
 			draw_set_color(c_black);
-			draw_text(panel_x_start + 64 + 5, panel_y_start + 5, _achievement.name);
+			draw_text(_panel_x_start + 64 + 5, _panel_y_start + 5, _achievement.name);
 			draw_set_color(c_gray);
-			draw_text(panel_x_start + 64 + 5, panel_y_start + 25, _achievement.description);
+			draw_text(_panel_x_start + 64 + 5, _panel_y_start + 25, _achievement.description);
 			draw_set_color(c_white);
 			draw_set_alpha(1);
 		}
