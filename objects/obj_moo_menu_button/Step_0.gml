@@ -1,0 +1,1 @@
+selected = point_in_rectangle(mouse_x, mouse_y, x_start, y_start, x_end, y_end);
