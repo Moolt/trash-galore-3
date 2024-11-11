@@ -1,15 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_moo_menu_button_stack",
+  "%Name":"obj_moo_drawable",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_moo_menu_button_stack",
+  "name":"obj_moo_drawable",
   "overriddenProperties":[],
   "parent":{
-    "name":"Menu",
-    "path":"folders/Objects/Menu.yy",
+    "name":"UI",
+    "path":"folders/Objects/UI.yy",
   },
   "parentObjectId":null,
   "persistent":false,

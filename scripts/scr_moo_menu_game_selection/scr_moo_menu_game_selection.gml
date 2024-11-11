@@ -1,5 +1,31 @@
 function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) constructor {
 	games = global.launcher.games;
+	ui = global.launcher.ui;
+	ui_group = ui.group();
+	
+	on_show = function() {
+		ui_group = ui.group(function(_group) {
+			_group.stack(window_get_width() / 2, 110, function(_stack) {
+				_stack.add_button("Start", function() {
+					room_goto(games.find_at_position(menu.selected_index).start_room_index);
+					menu.set_state(LAUNCHER_STATE.IN_GAME);
+				});
+				_stack.add_button("Beschreibung", function() {
+					offset_game_selection(-1)
+				});
+				_stack.add_button("Achievements", function() {
+					menu.set_state(LAUNCHER_STATE.ACHIEVEMENTS)
+				});
+				_stack.add_button("Zurück", function() {
+					show_debug_message("hello from button!");
+				});
+			});
+		});
+	}
+	
+	on_hide = function() {
+		ui_group.destroy();
+	}
 	
 	offset_game_selection = function(_offset) {
 		var _new_index = menu.selected_index + _offset;
@@ -16,7 +42,6 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 	
 	step = function() {
 		if(keyboard_check_released(vk_space)) {
-			menu.set_state(LAUNCHER_STATE.ACHIEVEMENTS)
 			return;
 		}
 		
@@ -29,8 +54,7 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 		}
 
 		if(keyboard_check_released(vk_enter)) {
-			room_goto(games.find_at_position(menu.selected_index).start_room_index);
-			menu.set_state(LAUNCHER_STATE.IN_GAME);
+
 		}
 	}
 	
@@ -52,9 +76,11 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 
 		var title = _game.name + " (" + _game.author + ")";
 		var title_pos_x = window_get_width() / 2 - string_width(title) / 2;
-			
+		
 		draw_text(title_pos_x, menu.screen_origin_y + 20, title);
 		draw_set_font(-1);
+		
+		ui_group.draw();
 	}
 	
 	on_escape = function() {

@@ -15,4 +15,10 @@ function moo_menu_base(_menu_object) constructor {
 	
 	on_escape = function() {
 	}
+	
+	on_show = function() {
+	}
+	
+	on_hide = function() {
+	}
 }
