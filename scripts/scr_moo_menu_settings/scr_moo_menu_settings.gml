@@ -30,7 +30,8 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 	draw = function() {
 		var _title_pos_x = window_get_width() / 2 - string_width("Einstellungen") / 2;
 		
-		draw_text(_title_pos_x, menu.screen_origin_y + 20, "Einstellungen");
+		draw_sprite(spr_moo_dark_noise, 0, 0, 0);
+		draw_text(_title_pos_x, menu.tv_screen_y_start + 20, "Einstellungen");
 		draw_set_font(-1);
 		
 		ui_group.draw();

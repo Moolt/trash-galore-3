@@ -17,6 +17,15 @@ enum LAUNCHER_STATE {
 	IN_GAME
 }
 
+tv_screen_x_start = 92;
+tv_screen_y_start = 35;
+
+tv_screen_x_end = 547;
+tv_screen_y_end = 324;
+
+tv_screen_width = tv_screen_x_end - tv_screen_x_start;
+tv_screen_height = tv_screen_y_end - tv_screen_y_start;
+
 selected_index = 0; // Index of game
 
 state_stack = ds_stack_create();
@@ -30,9 +39,6 @@ menu_handlers[? LAUNCHER_STATE.IN_GAME] = new moo_menu_in_game(self);
 menu_handlers[? LAUNCHER_STATE.ACHIEVEMENTS] = new moo_menu_achievements(self);
 
 menu_handler = undefined;
-
-screen_origin_x = 92;
-screen_origin_y = 35;
 
 function set_state(_new_state, _put_on_stack = true) {
 	if(is_undefined(menu_handler)) {

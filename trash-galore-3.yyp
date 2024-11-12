@@ -65,6 +65,7 @@
     {"id":{"name":"scr_moo_service_ui","path":"scripts/scr_moo_service_ui/scr_moo_service_ui.yy",},},
     {"id":{"name":"spr_moo_achievement_icon_default","path":"sprites/spr_moo_achievement_icon_default/spr_moo_achievement_icon_default.yy",},},
     {"id":{"name":"spr_moo_achievement_icon_paint","path":"sprites/spr_moo_achievement_icon_paint/spr_moo_achievement_icon_paint.yy",},},
+    {"id":{"name":"spr_moo_dark_noise","path":"sprites/spr_moo_dark_noise/spr_moo_dark_noise.yy",},},
     {"id":{"name":"spr_moo_menu_overlay","path":"sprites/spr_moo_menu_overlay/spr_moo_menu_overlay.yy",},},
     {"id":{"name":"spr_moo_thumb_00","path":"sprites/spr_moo_thumb_00/spr_moo_thumb_00.yy",},},
     {"id":{"name":"spr_moo_thumb_01","path":"sprites/spr_moo_thumb_01/spr_moo_thumb_01.yy",},},

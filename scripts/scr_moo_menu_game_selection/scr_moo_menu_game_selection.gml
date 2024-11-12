@@ -65,7 +65,7 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 		var _game = games.find_at_position(menu.selected_index);
 		
 		var _thumbnail = _game.images[0];
-		draw_sprite_ext(_thumbnail, 0, menu.screen_origin_x, menu.screen_origin_y, 0.8, 0.8, 0, c_white, 1);
+		draw_sprite_ext(_thumbnail, 0, menu.tv_screen_x_start, menu.tv_screen_y_start, 0.8, 0.8, 0, c_white, 1);
 		draw_text_color(10, 768 - 30, _game.description, c_white, c_white, c_white, c_white, 1);
 		draw_text_color(10, 768 - 50, "By " + _game.author, c_white, c_white, c_white, c_white, 1);
 			
@@ -80,7 +80,7 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 		var title = _game.name + " (" + _game.author + ")";
 		var title_pos_x = window_get_width() / 2 - string_width(title) / 2;
 		
-		draw_text(title_pos_x, menu.screen_origin_y + 20, title);
+		draw_text(title_pos_x, menu.tv_screen_y_start + 20, title);
 		draw_set_font(-1);
 		
 		ui_group.draw();
