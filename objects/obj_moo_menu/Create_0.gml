@@ -55,7 +55,7 @@ function set_state(_new_state, _put_on_stack = true) {
 }
 
 function revert_state() {
-	if(ds_stack_size(state_stack) == 0) {
+	if(ds_stack_size(state_stack) <= 1) {
 		return;
 	}
 	
