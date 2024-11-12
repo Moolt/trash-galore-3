@@ -5,7 +5,7 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 	
 	on_show = function() {
 		ui_group = ui.group(function(_group) {
-			_group.stack(window_get_width() / 2, 110, function(_stack) {
+			_group.stack(window_get_width() / 2, 130, function(_stack) {
 				var _start_button = _stack.button("Start", function() {
 					room_goto(games.find_at_position(menu.selected_index).start_room_index);
 					menu.set_state(LAUNCHER_STATE.IN_GAME);
@@ -18,7 +18,7 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 					menu.set_state(LAUNCHER_STATE.ACHIEVEMENTS)
 				});
 				_stack.button("Zurück", function() {
-					menu.set_state(LAUNCHER_STATE.MAIN);
+					on_escape();
 				});
 				
 				_start_button.select();
@@ -62,7 +62,7 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 	}
 	
 	draw = function() {
-		var _game = games.find_at_position( menu.selected_index);
+		var _game = games.find_at_position(menu.selected_index);
 		
 		var _thumbnail = _game.images[0];
 		draw_sprite_ext(_thumbnail, 0, menu.screen_origin_x, menu.screen_origin_y, 0.8, 0.8, 0, c_white, 1);
@@ -87,6 +87,6 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 	}
 	
 	on_escape = function() {
-		menu.set_state(LAUNCHER_STATE.MAIN);
+		menu.revert_state();
 	}
 }
