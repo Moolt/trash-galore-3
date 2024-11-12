@@ -5,8 +5,8 @@ function set_button_text(_button_text) {
 	var _text_width = string_width(button_text);
 	var _text_height = string_height(button_text);
 
-	button_start_x = x - _text_width / 2;
-	button_start_y = y;
+	button_start_x = x - _text_width / 2 - button_padding_x;
+	button_start_y = y - button_padding_y;
 	button_end_x = button_start_x + _text_width + button_padding_x * 2;
 	button_end_y = button_start_y + _text_height + button_padding_y * 2;
 	button_height = button_end_y - button_start_y;

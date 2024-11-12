@@ -8,7 +8,7 @@ buttons = [];
 x_current = x_start;
 y_current = y_start;
 
-add_button = function(_label, _action) {
+button = function(_label, _action) {
 	var _button = instance_create_layer(x_current, y_current, layer, obj_moo_button);
 	_button.set_button_text(_label);
 	_button.button_action = _action;
