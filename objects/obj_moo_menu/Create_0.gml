@@ -1,3 +1,9 @@
+#macro MOO_GAMES global.launcher.games
+#macro MOO_ACHIEVEMENTS global.launcher.achievements
+#macro MOO_SELECTION global.launcher.selection
+#macro MOO_UI global.launcher.ui
+#macro MOO_AUDIO global.launcher.audio
+
 function create_selection_handler() {
 	return instance_create_layer(0, 0, layer, obj_moo_selection_controller);
 }

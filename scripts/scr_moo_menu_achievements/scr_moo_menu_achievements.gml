@@ -1,6 +1,5 @@
 function moo_menu_achievements(_menu_object): moo_menu_base(_menu_object) constructor {
-	achievements_service = global.launcher.achievements;
-	games_service = global.launcher.games;
+	games_service = MOO_GAMES;
 	
 	current_game = undefined;
 	current_achievements = [];
@@ -11,7 +10,7 @@ function moo_menu_achievements(_menu_object): moo_menu_base(_menu_object) constr
 		}
 		
 		current_game = games_service.find_at_position(menu.selected_index);
-		current_achievements = achievements_service.find_all_by_game(current_game.name);
+		current_achievements = MOO_ACHIEVEMENTS.find_all_by_game(current_game.name);
 	}
 	
 	on_escape = function() {

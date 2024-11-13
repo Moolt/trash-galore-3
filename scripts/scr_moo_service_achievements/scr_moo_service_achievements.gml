@@ -2,7 +2,7 @@ function moo_service_achievements() constructor {
 	_private = new _private_moo_service_achievements();
 
 	find_all_by_game = function(_name) {
-		var _game = global.launcher.games.find_by_name(_name);
+		var _game = MOO_GAMES.find_by_name(_name);
 		var _achievements = _game.achievements;
 		var _results = [];
 		
@@ -54,7 +54,7 @@ function _private_moo_service_achievements() constructor {
 	subscribers = [];
 	
 	copy_achievements = function() {
-		var _games = global.launcher.games.all_games;
+		var _games = MOO_GAMES.all_games;
 		var _achievements_map = ds_map_create();
 		
 		for(var _i = 0; _i < array_length(_games); _i++) {

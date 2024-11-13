@@ -1,13 +1,11 @@
 function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) constructor {
-	games = global.launcher.games;
-	ui = global.launcher.ui;
-	ui_group = ui.group();
+	ui_group = MOO_UI.group();
 	
 	on_show = function() {
-		ui_group = ui.group(function(_group) {
+		ui_group = MOO_UI.group(function(_group) {
 			_group.stack(window_get_width() / 2, 130, function(_stack) {
 				var _start_button = _stack.button("Start", function() {
-					room_goto(games.find_at_position(menu.selected_index).start_room_index);
+					room_goto(MOO_GAMES.find_at_position(menu.selected_index).start_room_index);
 					menu.set_state(LAUNCHER_STATE.IN_GAME);
 				});
 				
@@ -32,12 +30,12 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 	
 	offset_game_selection = function(_offset) {
 		var _new_index = menu.selected_index + _offset;
-		if(_new_index == games.count) {
+		if(_new_index == MOO_GAMES.count) {
 			_new_index = 0;
 		}
 		
 		if(_new_index == -1) {
-			_new_index = games.count - 1;
+			_new_index = MOO_GAMES.count - 1;
 		}
 		
 		menu.selected_index = _new_index;
@@ -54,7 +52,7 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 	}
 	
 	draw = function() {
-		var _game = games.find_at_position(menu.selected_index);
+		var _game = MOO_GAMES.find_at_position(menu.selected_index);
 		
 		var _thumbnail = _game.images[0];
 		draw_sprite_ext(_thumbnail, 0, menu.tv_screen_x_start, menu.tv_screen_y_start, 0.8, 0.8, 0, c_white, 1);

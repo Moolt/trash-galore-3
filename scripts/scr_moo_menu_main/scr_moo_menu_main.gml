@@ -1,9 +1,8 @@
 function moo_menu_main(_menu_object): moo_menu_base(_menu_object) constructor {
-	ui = global.launcher.ui;
-	ui_group = ui.group();
+	ui_group = MOO_UI.group();
 	
 	on_show = function() {
-		ui_group = ui.group(function(_group) {
+		ui_group = MOO_UI.group(function(_group) {
 			_group.stack(window_get_width() / 2, 130, function(_stack) {
 				var _games_button = _stack.button("Spiele", function() {
 					menu.set_state(LAUNCHER_STATE.GAME_SELECTION)

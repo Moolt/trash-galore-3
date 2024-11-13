@@ -3,10 +3,11 @@ function api_goto_main_menu() {
 }
 
 function api_achievement_unlock(_identifier) {
-	global.launcher.achievements.unlock(_identifier);
+	MOO_ACHIEVEMENTS.unlock(_identifier);
 }
 
 // TODO: Lautstärke
+// TODO: Api überdenken
 // TODO: Neue Controls, Options, Slider
 // TODO: Skalierung
 // TODO: Beschreibung / Teletext

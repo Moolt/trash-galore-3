@@ -3,7 +3,7 @@
 achievements = [];
 
 function add_achievement(_achievement_id) {
-	var _achievement = global.launcher.achievements.find_by_id(_achievement_id);
+	var _achievement = MOO_ACHIEVEMENTS.find_by_id(_achievement_id);
 	
 	if(!layer_exists(ACHIEVEMENTS_LAYER_NAME)) {
 		layer_create(0, ACHIEVEMENTS_LAYER_NAME);
@@ -59,6 +59,6 @@ function get_index_by_id(_achievement_id) {
 	return -1;
 }
 
-global.launcher.achievements.on_unlock(function(_achievement) {
+MOO_ACHIEVEMENTS.on_unlock(function(_achievement) {
 	add_achievement(_achievement.id);
 });

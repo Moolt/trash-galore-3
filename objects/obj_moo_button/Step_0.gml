@@ -1,6 +1,6 @@
 event_inherited();
 
-if(selection.current_input_type == INPUT_TYPE.MOUSE) {
+if(MOO_SELECTION.current_input_type == INPUT_TYPE.MOUSE) {
 	var _hover = is_hovering();
 	
 	if(!selected && _hover) {

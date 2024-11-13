@@ -1,5 +1,5 @@
 function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructor {
-	ui = global.launcher.ui;
+	ui = MOO_UI;
 	ui_group = ui.group();
 	
 	on_show = function() {
