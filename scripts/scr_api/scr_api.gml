@@ -6,8 +6,8 @@ function api_achievement_unlock(_identifier) {
 	global.launcher.achievements.unlock(_identifier);
 }
 
-// TODO: Neue Controls, Options, Slider
 // TODO: Lautstärke
+// TODO: Neue Controls, Options, Slider
 // TODO: Skalierung
 // TODO: Beschreibung / Teletext
 // TODO: Game overlay esc

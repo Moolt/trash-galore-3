@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_moo_sounds",
+  "audioGroupId":{
+    "name":"audio_sounds",
+    "path":"audiogroups/audio_sounds",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":1.224,
+  "name":"snd_moo_sounds",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_moo_sounds.mp3",
+  "type":0,
+  "volume":1.0,
+}

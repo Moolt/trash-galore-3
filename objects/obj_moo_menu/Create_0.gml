@@ -7,6 +7,7 @@ global.launcher.games = new moo_service_games();
 global.launcher.achievements = new moo_service_achievements();
 global.launcher.selection = create_selection_handler();
 global.launcher.ui = new moo_service_ui();
+global.launcher.audio = new moo_service_audio();
 
 enum LAUNCHER_STATE {
 	MAIN,
