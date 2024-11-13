@@ -20,6 +20,7 @@ Beispiel:
 API.unlock_achievement("abc_great_success");
 ```
 
+### Steuerung
 Über die Api können wir auch die Steuerung vereinheitlichen, sodass im besten Fall auch Controller-Support mitgeliefert wird. Nutze dafür gerne die mitgelieferten Funktionen, auch wenn dies streng optional ist:
 
 Beispiele:
@@ -28,6 +29,18 @@ API.action_check_pressed(INPUT_ACTION.UI_NAVIGATE_UP);
 API.action_check_released(INPUT_ACTION.MOVE_UP);
 API.action_check(INPUT_ACTION.ACTION_PRIMARY);
 ```
+
+### Audio
+Die Musik- und Sound-Lautstärke lässt sich im Launcher einstellen.
+Wenn du Sounds abspielst, kann du über die API einfach auf die Lautstärke zugreifen:
+
+```
+audio_play_sound(bgm_abc_ambient, 1, false, API.audio_get_music_volume());
+audio_play_sound(snd_abc_crash, 1, false, API.audio_get_sound_volume());
+```
+
+Alternativ kannst du über `Tools -> Audio Groups` die Gruppen `audio_music` und `audio_sounds` hinzufügen und deine Musik / Sounds diesen Gruppen zuordnen. Dann wird die Lautstärke auch ohne Code angepasst.
+
 
 ## game.json
 Die `game.json` landet in den "Included Files". Im Projektverzeichnis entspricht das dem `datafiles` Ordner.
