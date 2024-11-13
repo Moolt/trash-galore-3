@@ -6,13 +6,12 @@ function api_achievement_unlock(_identifier) {
 	global.launcher.achievements.unlock(_identifier);
 }
 
-// TODO: Stick steuerung wieder rein
-// TODO: Controller auch zur Laufzeit prüfen
 // TODO: Neue Controls, Options, Slider
 // TODO: Lautstärke
 // TODO: Skalierung
 // TODO: Beschreibung / Teletext
 // TODO: Game overlay esc
+// TODO: Zwischen quit und back unterscheiden, sodass B mit controller nicht aus dem spiel kickt
 
 enum INPUT_ACTION {
     UI_NAVIGATE_UP,
@@ -75,11 +74,13 @@ global.gamepad_bindings[? INPUT_ACTION.ACTION_SECONDARY] = [gp_face2];
 
 global.gamepad_id = -1; // Default to -1, indicating no gamepad
 
-for (var _i = 0; _i < 12; _i++) {
-    if (gamepad_is_connected(_i)) {
-        global.gamepad_id = _i;
-        break;
-    }
+function find_controller() {
+	for (var _i = 0; _i < 12; _i++) {
+	    if (gamepad_is_connected(_i)) {
+	        global.gamepad_id = _i;
+	        break;
+	    }
+	}
 }
 
 function check_keyboard_any(_action, _check_method) {
@@ -99,6 +100,10 @@ function check_keyboard_any(_action, _check_method) {
 }
 
 function check_gamepad_any(_action, _check_method) {
+	if(global.gamepad_id == -1) {
+        find_controller();
+    }
+	
 	if(global.gamepad_id == -1) {
         return false;
     }
