@@ -1,5 +1,3 @@
-// TODO: Lautstärke
-// TODO: Tv als macro
 // TODO: Neue Controls, Options, Slider
 // TODO: Skalierung
 // TODO: Beschreibung / Teletext

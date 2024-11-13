@@ -21,34 +21,76 @@ enum INPUT_ACTION {
 }
 
 function _api_base() constructor {
+	/**
+	* Navigates back to the main menu.
+	*/
 	function goto_main_menu() {
 		show_debug_message("[Not implemented] Navigating to main menu...");
 	}
 	
+	/**
+	* Unlocks an achievement.
+	* 
+	* @param {string} _identifier - The identifier defined in game.json.
+	*/
 	function achievement_unlock(_identifier) {
 		show_debug_message("[Not implemented] Unlocked achievement " + _identifier);
 	}
 	
+	/**
+	* Checks if an achievement is unlocked.
+	* 
+	* @param {string} _identifier - The identifier defined in game.json.
+	* @returns {boolean} True if the achievement is unlocked, false otherwise.
+	*/
 	function achievement_is_unlocked(_identifier) {
 		return false;
 	}
 	
+	/**
+	* Gets the volume level of the music channel.
+	* 
+	* @returns {number} A value between 0 and 1 representing the music volume.
+	*/
 	function audio_get_music_volume() {
 		return 1;
 	}
 	
+	/**
+	* Gets the volume level of the sound channel.
+	* 
+	* @returns {number} A value between 0 and 1 representing the sound volume.
+	*/
 	function audio_get_sound_volume() {
 		return 1;
 	}
 	
+	/**
+	* Checks if a specific action was pressed in the current frame.
+	* 
+	* @param {Enum.INPUT_ACTION} _action - The input action to check.
+	* @returns {boolean} True if the action was pressed, false otherwise.
+	*/
 	function action_check_pressed(_action) {
 		return global.launcher.controls.check_any(_action, keyboard_check_pressed, gamepad_button_check_pressed);
 	}
 
+	/**
+	* Checks if a specific action was released in the current frame.
+	* 
+	* @param {Enum.INPUT_ACTION} _action - The input action to check.
+	* @returns {boolean} True if the action was released, false otherwise.
+	*/
 	function action_check_released(_action) {
 		return global.launcher.controls.check_any(_action, keyboard_check_released, gamepad_button_check_released);
 	}
 
+	/**
+	* Checks if a specific action is currently being pressed.
+	* 
+	* @param {Enum.INPUT_ACTION} _action - The input action to check.
+	* @returns {boolean} True if the action is currently pressed, false otherwise.
+	*/
 	function action_check(_action) {
 		return global.launcher.controls.check_any(_action, keyboard_check, gamepad_button_check);
 	}
