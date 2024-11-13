@@ -8,7 +8,10 @@ function create_selection_handler() {
 	return instance_create_layer(0, 0, layer, obj_moo_selection_controller);
 }
 
-global.launcher = {};
+if(global[$ "launcher"] == undefined) {
+	global.launcher = {};
+}
+
 global.launcher.games = new moo_service_games();
 global.launcher.achievements = new moo_service_achievements();
 global.launcher.selection = create_selection_handler();

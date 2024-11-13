@@ -42,11 +42,11 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 	}
 	
 	step = function() {
-		if(api_action_check_released(INPUT_ACTION.UI_NAVIGATE_LEFT)) {
+		if(API.action_check_released(INPUT_ACTION.UI_NAVIGATE_LEFT)) {
 			offset_game_selection(-1);
 		}
 
-		if(api_action_check_released(INPUT_ACTION.UI_NAVIGATE_RIGHT)) {
+		if(API.action_check_released(INPUT_ACTION.UI_NAVIGATE_RIGHT)) {
 			offset_game_selection(1);
 		}
 	}

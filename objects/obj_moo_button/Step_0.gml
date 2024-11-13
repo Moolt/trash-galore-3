@@ -16,10 +16,10 @@ current_background_color = button_background;
 current_text_color = text_color;
 
 if(!pressed && selected) {
-	pressed = mouse_check_button_pressed(mb_left) || api_action_check_pressed(INPUT_ACTION.UI_SELECT);
+	pressed = mouse_check_button_pressed(mb_left) || API.action_check_pressed(INPUT_ACTION.UI_SELECT);
 }
 
-if(pressed && (mouse_check_button_released(mb_left) || api_action_check_released(INPUT_ACTION.UI_SELECT))) {
+if(pressed && (mouse_check_button_released(mb_left) || API.action_check_released(INPUT_ACTION.UI_SELECT))) {
 	button_action();
 	pressed = false;
 }

@@ -33,7 +33,7 @@ function check_keyboard_navigation(_key, _instance) {
 		return;
 	}
 	
-	if(api_action_check_released(_key)) {
+	if(API.action_check_released(_key)) {
 		_instance.select();
 	}
 }

@@ -19,7 +19,7 @@ if(previous_mouse_x != mouse_x || previous_mouse_y != mouse_y) {
 	previous_mouse_y = mouse_y;
 }
 
-if(current_input_type != INPUT_TYPE.KEYBOARD && (api_action_check_released(INPUT_ACTION.UI_NAVIGATE_LEFT) || api_action_check_released(INPUT_ACTION.UI_NAVIGATE_UP) || api_action_check_released(INPUT_ACTION.UI_NAVIGATE_RIGHT) || api_action_check_released(INPUT_ACTION.UI_NAVIGATE_DOWN))) {
+if(current_input_type != INPUT_TYPE.KEYBOARD && (API.action_check_released(INPUT_ACTION.UI_NAVIGATE_LEFT) || API.action_check_released(INPUT_ACTION.UI_NAVIGATE_UP) || API.action_check_released(INPUT_ACTION.UI_NAVIGATE_RIGHT) || API.action_check_released(INPUT_ACTION.UI_NAVIGATE_DOWN))) {
 	current_input_type = INPUT_TYPE.KEYBOARD;
 	
 	if(selected_object == undefined) {
