@@ -1,4 +1,4 @@
-if(keyboard_check_released(vk_escape)) {
+if(api_action_check_released(INPUT_ACTION.UI_BACK)) {
 	menu_handler.on_escape();
 	return;
 }

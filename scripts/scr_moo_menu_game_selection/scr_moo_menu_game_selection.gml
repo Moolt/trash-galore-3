@@ -44,20 +44,12 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 	}
 	
 	step = function() {
-		if(keyboard_check_released(vk_space)) {
-			return;
-		}
-		
-		if(keyboard_check_released(vk_left)) {
+		if(api_action_check_released(INPUT_ACTION.UI_NAVIGATE_LEFT)) {
 			offset_game_selection(-1);
 		}
 
-		if(keyboard_check_released(vk_right)) {
+		if(api_action_check_released(INPUT_ACTION.UI_NAVIGATE_RIGHT)) {
 			offset_game_selection(1);
-		}
-
-		if(keyboard_check_released(vk_enter)) {
-
 		}
 	}
 	
