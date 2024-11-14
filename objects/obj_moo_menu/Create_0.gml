@@ -80,3 +80,11 @@ function revert_state() {
 }
 
 set_state(LAUNCHER_STATE.MAIN);
+
+API.persist_real("my_number", 123);
+API.persist_string("my_string", "Hello world!");
+API.persist_boolean("my_boolean", true);
+
+show_debug_message(API.load_real("my_number"));
+show_debug_message(API.load_string("my_string"));
+show_debug_message(API.load_boolean("my_boolean"));

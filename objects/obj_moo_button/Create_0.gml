@@ -19,7 +19,7 @@ pressed = false;
 current_background_color = button_background;
 current_text_color = text_color;
 
-button_action = function() {
+button_action = function(_this) {
 	show_debug_message("Hello world!");
 }
 

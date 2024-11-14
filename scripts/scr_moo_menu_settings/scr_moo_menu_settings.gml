@@ -1,11 +1,20 @@
 function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructor {
 	ui = MOO_UI;
 	ui_group = ui.group();
+	scaling = 1;
 	
 	on_show = function() {
 		ui_group = ui.group(function(_group) {
 			_group.stack(window_get_width() / 2, 130, function(_stack) {
-				var _games_button = _stack.button("Skalierung x 1", function() {
+				var _games_button = _stack.button("Skalierung x 1", function(_btn) {
+					self.scaling = scaling + 1;
+					
+					if(scaling > 3) {
+						scaling = 1;
+					}
+					
+					on_scaling_changed();
+					_btn.set_button_text("Skalierung x " + string(self.scaling));
 				});
 				
 				_stack.button("Vollbild", function() {
@@ -39,5 +48,9 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 	
 	on_escape = function() {
 		menu.revert_state();
+	}
+	
+	on_scaling_changed = function() {
+		show_debug_message("Scaling changed to "+ string(self.scaling));
 	}
 }

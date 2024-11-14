@@ -20,7 +20,7 @@ if(!pressed && selected) {
 }
 
 if(pressed && (mouse_check_button_released(mb_left) || API.action_check_released(INPUT_ACTION.UI_SELECT))) {
-	button_action();
+	button_action(self);
 	pressed = false;
 }
 

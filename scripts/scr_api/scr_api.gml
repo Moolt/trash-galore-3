@@ -101,19 +101,19 @@ function _api_base() constructor {
 	* Persists a number value between game restarts.
 	* 
 	* @param {string} _identifier - The identifier of the value
-	* @param {number} _number - The number value to persist
+	* @param {real} _real - The number value to persist
 	*/
-	function persist_number(_identifier, _number) {
-		in_memory_database[? _identifier] = _number;
+	function persist_real(_identifier, _real) {
+		in_memory_database[? _identifier] = _real;
 	}
 	
 	/**
 	* Loads a previously persisted number value or returns 0 if the identifier is unknown.
 	* 
 	* @param {string} _identifier - The identifier of the value
-	* @returns {number} A previously persisted number value or 0 if the identifier is unknown.
+	* @returns {real} A previously persisted number value or 0 if the identifier is unknown.
 	*/
-	function load_number(_identifier) {
+	function load_real(_identifier) {
 		return in_memory_database[? _identifier] ?? 0;
 	}
 	
@@ -121,10 +121,10 @@ function _api_base() constructor {
 	* Persists a string value between game restarts.
 	* 
 	* @param {string} _identifier - The identifier of the value
-	* @param {number} _string - The string value to persist
+	* @param {string} _string - The string value to persist
 	*/
 	function persist_string(_identifier, _string) {
-		in_memory_database[? _identifier] = _string;		
+		in_memory_database[? _identifier] = _string;
 	}
 	
 	/**
