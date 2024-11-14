@@ -13,11 +13,26 @@ Es enthält folgende Dateien:
 ## scr_api.gml
 
 Stellt die Api bereit, um mit dem Launcher zu kommunizieren.
-Die funktionen lassen sich über `API.` aufrufen und sind über JSDoc dokumentiert. Der GameMaker zeigt dir also an, wie die Funktionen zu nutzen sind.
+Die Funktionen lassen sich über `API.` aufrufen und sind über JSDoc dokumentiert. Der GameMaker zeigt dir also an, wie die Funktionen zu nutzen sind.
+
+Einige Funktionen sind erst vollständig implementiert, sobald dein Spiel im Launcher integriert wird. Wundere dich also nicht, dass z.B. das Freischalten von Achievements nur eine Debug-Nachricht loggt.
 
 Beispiel:
 ```javascript
 API.unlock_achievement("abc_great_success");
+```
+
+### Spielstand speichern und laden
+Die Api stellt einige Funktionen bereit, um den Spielstand zu speichern und zu laden.
+
+```javascript
+API.persist_number("my_number", 123);
+API.persist_string("my_string", "Hello world!");
+API.persist_boolean("my_boolean", true);
+
+show_debug_message(API.load_number("my_number"));
+show_debug_message(API.load_string("my_string"));
+show_debug_message(API.load_boolean("my_boolean"));
 ```
 
 ### Steuerung
@@ -32,7 +47,7 @@ API.action_check(INPUT_ACTION.ACTION_PRIMARY);
 
 ### Audio
 Die Musik- und Sound-Lautstärke lässt sich im Launcher einstellen.
-Wenn du Sounds abspielst, kann du über die API einfach auf die Lautstärke zugreifen:
+Wenn du Sounds abspielst, kann du über die Api einfach auf die Lautstärke zugreifen:
 
 ```
 audio_play_sound(bgm_abc_ambient, 1, false, API.audio_get_music_volume());
@@ -40,7 +55,6 @@ audio_play_sound(snd_abc_crash, 1, false, API.audio_get_sound_volume());
 ```
 
 Alternativ kannst du über `Tools -> Audio Groups` die Gruppen `audio_music` und `audio_sounds` hinzufügen und deine Musik / Sounds diesen Gruppen zuordnen. Dann wird die Lautstärke auch ohne Code angepasst.
-
 
 ## game.json
 Die `game.json` landet in den "Included Files". Im Projektverzeichnis entspricht das dem `datafiles` Ordner.

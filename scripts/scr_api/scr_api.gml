@@ -21,6 +21,8 @@ enum INPUT_ACTION {
 }
 
 function _api_base() constructor {
+	in_memory_database = ds_map_create();
+	
 	/**
 	* Navigates back to the main menu.
 	*/
@@ -93,6 +95,66 @@ function _api_base() constructor {
 	*/
 	function action_check(_action) {
 		return global.launcher.controls.check_any(_action, keyboard_check, gamepad_button_check);
+	}
+	
+	/**
+	* Persists a number value between game restarts.
+	* 
+	* @param {string} _identifier - The identifier of the value
+	* @param {number} _number - The number value to persist
+	*/
+	function persist_number(_identifier, _number) {
+		in_memory_database[? _identifier] = _number;
+	}
+	
+	/**
+	* Loads a previously persisted number value or returns 0 if the identifier is unknown.
+	* 
+	* @param {string} _identifier - The identifier of the value
+	* @returns {number} A previously persisted number value or 0 if the identifier is unknown.
+	*/
+	function load_number(_identifier) {
+		return in_memory_database[? _identifier] ?? 0;
+	}
+	
+	/**
+	* Persists a string value between game restarts.
+	* 
+	* @param {string} _identifier - The identifier of the value
+	* @param {number} _string - The string value to persist
+	*/
+	function persist_string(_identifier, _string) {
+		in_memory_database[? _identifier] = _string;		
+	}
+	
+	/**
+	* Loads a previously persisted string value or returns an empty string if the identifier is unknown.
+	* 
+	* @param {string} _identifier - The identifier of the value
+	* @returns {string} A previously persisted string value or and empty string if the identifier is unknown.
+	*/
+	function load_string(_identifier) {
+		return in_memory_database[? _identifier] ?? "";
+	}
+	
+	/**
+	* Persists a boolean value between game restarts.
+	* 
+	* @param {string} _identifier - The identifier of the value
+	* @param {boolean} _boolean - The boolean value to persist
+	*/
+	function persist_boolean(_identifier, _boolean) {
+		in_memory_database[? _identifier] = _boolean;		
+	}
+	
+	/**
+	* Loads a previously persisted boolean value or returns false if the identifier is unknown.
+	* 
+	* @param {string} _identifier - The identifier of the value
+	* @returns {boolean} A previously persisted boolean value or false if the identifier is unknown.
+	*/
+	function load_boolean(_identifier) {
+		return in_memory_database[? _identifier] ?? false;
 	}
 }
 
