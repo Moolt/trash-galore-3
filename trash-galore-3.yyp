@@ -83,6 +83,7 @@
     {"id":{"name":"spr_moo_thumb_00","path":"sprites/spr_moo_thumb_00/spr_moo_thumb_00.yy",},},
     {"id":{"name":"spr_moo_thumb_01","path":"sprites/spr_moo_thumb_01/spr_moo_thumb_01.yy",},},
     {"id":{"name":"spr_moo_thumb_02","path":"sprites/spr_moo_thumb_02/spr_moo_thumb_02.yy",},},
+    {"id":{"name":"spr_trunx_fullhd","path":"sprites/spr_trunx_fullhd/spr_trunx_fullhd.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",

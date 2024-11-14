@@ -1,5 +1,5 @@
 //window_set_fullscreen(true)
-depth=-15000;
+depth=-1000;
 
 
 
@@ -18,7 +18,7 @@ display_aspect_ratio=display_width/display_height;
 zoom = 1;
 max_zoom = 1;
 
-screen_fps=1;
+screen_fps=0;
 screen_filter=1; 
 screen_fullscreen=0; //comment out once settings are loaded elsewhere?
 screen_scale=2; //comment out once settings are loaded elsewhere?
