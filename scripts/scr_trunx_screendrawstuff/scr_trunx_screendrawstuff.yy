@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_trunx_screendrawstuff",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_trunx_screendrawstuff",
+  "parent":{
+    "name":"DrawScreen",
+    "path":"folders/Objects/DrawScreen.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
