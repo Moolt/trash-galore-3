@@ -19,8 +19,3 @@ else if(keyboard_check_pressed(vk_f4))
 	//ini_write_real("Graphics","Scale",zoom);
 	//ini_close();
 }
-
-if keyboard_check_pressed(vk_f2)
-{
-	screen_fps=!screen_fps;
-}

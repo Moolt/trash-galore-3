@@ -52,11 +52,11 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 		menu.revert_state();
 	}
 	
-	on_scaling_changed = function() 
+	on_scaling_changed = function()
 	{
 		with obj_trunx_draw_screen
 		{
-			zoom=other.scaling;
+			zoom = other.scaling;
 			screen_resize_zoom();
 		}
 		show_debug_message("Scaling changed to "+ string(self.scaling));

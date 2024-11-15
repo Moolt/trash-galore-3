@@ -1,3 +1,5 @@
+// Author: TrunX
+
 function screen_resize_zoom()
 {
 	if window_get_fullscreen()
@@ -28,7 +30,7 @@ function screen_resize_zoom()
 			zoom=1;
         
 		window_set_size(ideal_width*zoom,ideal_height*zoom);
-		alarm[0]=2;
+		window_center();
 	}
 }
 
@@ -47,7 +49,7 @@ function screen_switch_fullscreen()
 	    //surface_resize(application_surface,ideal_width*zoom,ideal_height*zoom); 
 		//surface_resize(application_surface,ideal_width/*zoom*/,ideal_height/*zoom*/);
 		
-		alarm[0]=2; //2
+		window_center();
 	}
 	else
 	{
@@ -81,7 +83,7 @@ function screen_set_fullscreen(_fullscreen)
 	    //surface_resize(application_surface,ideal_width*zoom,ideal_height*zoom); 
 		//surface_resize(application_surface,ideal_width/*zoom*/,ideal_height/*zoom*/);
 		
-		alarm[0]=2; //2
+		window_center();
 	}
 	else
 	{
