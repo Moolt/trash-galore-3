@@ -13,12 +13,12 @@ if(global[$ "launcher"] == undefined) {
 	global.launcher = {};
 }
 
+global.launcher.persist = new moo_service_persistence();
 global.launcher.games = new moo_service_games();
 global.launcher.achievements = new moo_service_achievements();
 global.launcher.selection = create_selection_handler();
 global.launcher.ui = new moo_service_ui();
 global.launcher.audio = new moo_service_audio();
-global.launcher.persist = new moo_service_persistence();
 
 enum LAUNCHER_STATE {
 	MAIN,
