@@ -17,18 +17,12 @@ function moo_service_display() constructor {
 
     // Determine maximal zoom
     if (display_aspect_ratio < ideal_aspect_ratio) {
-        max_zoom = (display_width / ideal_width);
+        max_zoom = display_width / ideal_width;
     } else {
-        max_zoom = (display_height / ideal_height);
+        max_zoom = display_height / ideal_height;
     }
 
-    // Set actual zoom
-    if (screen_scale == -1 || screen_scale == 0) {
-        zoom = max_zoom;
-    } else {
-        zoom = screen_scale;
-    }
-
+	zoom = clamp(screen_scale, 0, max_zoom);
     window_zoom = zoom;
 
     window_set_size(ideal_width * zoom,ideal_height * zoom);
