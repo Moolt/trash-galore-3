@@ -1,7 +1,7 @@
 if(keyboard_check_pressed(vk_f3))
 {
-	zoom++;
-	screen_resize_zoom();
+	service.zoom++;
+	service.screen_resize_zoom();
   
 	//save settings immediatly?
     //ini_open("options.ini");
@@ -11,7 +11,7 @@ if(keyboard_check_pressed(vk_f3))
 }
 else if(keyboard_check_pressed(vk_f4))
 {
-	screen_switch_fullscreen();
+	service.screen_switch_fullscreen();
 	
 	//save settings immediatly?
 	//ini_open("options.ini");
