@@ -100,61 +100,70 @@ function _api_base() constructor {
 	/**
 	* Persists a number value between game restarts.
 	* 
+	* @param {string} _game_name - The name of your game. Preferable the name mentioned in the game.json.
 	* @param {string} _identifier - The identifier of the value
 	* @param {real} _real - The number value to persist
 	*/
-	function persist_real(_identifier, _real) {
+	function write_real(_game_name, _identifier, _real) {
 		in_memory_database[? _identifier] = _real;
 	}
 	
 	/**
 	* Loads a previously persisted number value or returns 0 if the identifier is unknown.
 	* 
+	* @param {string} _game_name - The name of your game. Preferable the name mentioned in the game.json.
 	* @param {string} _identifier - The identifier of the value
+	* @param {real} _default_value - The value to return if no entry for the given _identifier exists
 	* @returns {real} A previously persisted number value or 0 if the identifier is unknown.
 	*/
-	function load_real(_identifier) {
-		return in_memory_database[? _identifier] ?? 0;
+	function read_real(_game_name, _identifier, _default_value = 0) {
+		return in_memory_database[? _identifier] ?? _default_value;
 	}
 	
 	/**
 	* Persists a string value between game restarts.
 	* 
+	* @param {string} _game_name - The name of your game. Preferable the name mentioned in the game.json.
 	* @param {string} _identifier - The identifier of the value
 	* @param {string} _string - The string value to persist
 	*/
-	function persist_string(_identifier, _string) {
+	function write_string(_game_name, _identifier, _string) {
 		in_memory_database[? _identifier] = _string;
 	}
 	
 	/**
 	* Loads a previously persisted string value or returns an empty string if the identifier is unknown.
 	* 
+	* @param {string} _game_name - The name of your game. Preferable the name mentioned in the game.json.
 	* @param {string} _identifier - The identifier of the value
+	* @param {string} _default_value - The value to return if no entry for the given _identifier exists
 	* @returns {string} A previously persisted string value or and empty string if the identifier is unknown.
 	*/
-	function load_string(_identifier) {
-		return in_memory_database[? _identifier] ?? "";
+	function read_string(_game_name, _identifier, _default_value = "") {
+		return in_memory_database[? _identifier] ?? _default_value;
 	}
 	
 	/**
 	* Persists a boolean value between game restarts.
 	* 
+	* @param {string} _game_name - The name of your game. Preferable the name mentioned in the game.json.
 	* @param {string} _identifier - The identifier of the value
-	* @param {boolean} _boolean - The boolean value to persist
+	* @param {bool} _boolean - The boolean value to persist
 	*/
-	function persist_boolean(_identifier, _boolean) {
+	function write_boolean(_game_name, _identifier, _boolean) {
 		in_memory_database[? _identifier] = _boolean;		
 	}
 	
 	/**
 	* Loads a previously persisted boolean value or returns false if the identifier is unknown.
 	* 
+	* @param {string} _game_name - The name of your game. Preferable the name mentioned in the game.json.
 	* @param {string} _identifier - The identifier of the value
-	* @returns {boolean} A previously persisted boolean value or false if the identifier is unknown.
+	* @param {bool} _default_value - The value to return if no entry for the given _identifier exists
+	* @returns {bool} A previously persisted boolean value or false if the identifier is unknown.
 	*/
-	function load_boolean(_identifier) {
-		return in_memory_database[? _identifier] ?? false;
+	function read_boolean(_game_name, _identifier, _default_value = false) {
+		return in_memory_database[? _identifier] ?? _default_value;
 	}
 }
 

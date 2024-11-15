@@ -3,6 +3,7 @@
 #macro MOO_SELECTION global.launcher.selection
 #macro MOO_UI global.launcher.ui
 #macro MOO_AUDIO global.launcher.audio
+#macro MOO_PERSIST global.launcher.persist
 
 function create_selection_handler() {
 	return instance_create_layer(0, 0, layer, obj_moo_selection_controller);
@@ -17,6 +18,7 @@ global.launcher.achievements = new moo_service_achievements();
 global.launcher.selection = create_selection_handler();
 global.launcher.ui = new moo_service_ui();
 global.launcher.audio = new moo_service_audio();
+global.launcher.persist = new moo_service_persistence();
 
 enum LAUNCHER_STATE {
 	MAIN,
@@ -80,11 +82,3 @@ function revert_state() {
 }
 
 set_state(LAUNCHER_STATE.MAIN);
-
-API.persist_real("my_number", 123);
-API.persist_string("my_string", "Hello world!");
-API.persist_boolean("my_boolean", true);
-
-show_debug_message(API.load_real("my_number"));
-show_debug_message(API.load_string("my_string"));
-show_debug_message(API.load_boolean("my_boolean"));
