@@ -3,6 +3,7 @@
 #macro MOO_SELECTION global.launcher.selection
 #macro MOO_UI global.launcher.ui
 #macro MOO_AUDIO global.launcher.audio
+#macro MOO_PERSIST global.launcher.persist
 
 #macro MOO_MENU_WIDTH 640
 #macro MOO_MENU_HEIGHT 360
@@ -15,6 +16,7 @@ if(global[$ "launcher"] == undefined) {
 	global.launcher = {};
 }
 
+global.launcher.persist = new moo_service_persistence();
 global.launcher.games = new moo_service_games();
 global.launcher.achievements = new moo_service_achievements();
 global.launcher.selection = create_selection_handler();

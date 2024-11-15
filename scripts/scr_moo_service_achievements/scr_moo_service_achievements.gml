@@ -73,8 +73,7 @@ function _private_moo_service_achievements() constructor {
 	achievements = copy_achievements();
 	
 	load_unlocked_state_by_id = function(_id) {
-		// TODO: Load persisted state
-		return false;
+		return MOO_PERSIST.read_boolean("achievements", _id, false);
 	}
 	
 	// Initializing unlocked state
@@ -84,7 +83,7 @@ function _private_moo_service_achievements() constructor {
 
 	persist_unlocked_state_by_id = function(_id, _unlocked) {
 		achievements[? _id].unlocked = _unlocked;
-		// TODO: Persist state
+		MOO_PERSIST.write_boolean("achievements", _id, _unlocked);
 	}
 	
 	subscribe = function(_callback) {

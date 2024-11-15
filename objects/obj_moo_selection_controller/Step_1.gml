@@ -1,12 +1,6 @@
 if(next_selection != selected_object) {
 	selected_object = next_selection;
 	
-	if(is_undefined(selected_object)) {
-			show_debug_message("changed selection to undefined");
-	}else{
-		show_debug_message(selected_object);
-	}
-	
 	notify_selectables();
 }
 
