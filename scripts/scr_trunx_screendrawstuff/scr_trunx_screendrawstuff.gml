@@ -68,9 +68,9 @@ function moo_service_display() constructor {
 		window_zoom = zoom;
 		
 		if (display_aspect_ratio < ideal_aspect_ratio) {
-			zoom= display_width / ideal_width;
+			zoom = display_width / ideal_width;
 		} else {
-			zoom= display_height / ideal_height;
+			zoom = display_height / ideal_height;
 		}
 	}
 
