@@ -3,6 +3,7 @@
 Damit du dich auf die Entwicklung deines Spiels konzentrieren kannst habe ich mir Mühe gegeben, das Drumherum möglichst einfach zu gestalten. Ein paar Dinge gibt es trotzdem zu beachten, die ich im Folgenden kurz anspreche.
 
 # Constraints
+* Es gibt keine Vorgaben zur Sprache. Möglicherweise wird die Api diesbezüglich noch erweitert.
 * Die Auflösung ist 640 x 360. Der Launcher bietet die Möglichkeit x2 und x3 zu vergrößern.
 * Bitte kennzeichne alle Ressourcen mit einem Präfix, wie `obj_abc_enemy` oder `spr_abc_apple` damit diese eindeutig sind. Das gilt auch für globale Variablen und Funktionen sowie Structs die in Scripts definiert werden.
 
@@ -26,13 +27,13 @@ API.unlock_achievement("abc_great_success");
 Die Api stellt einige Funktionen bereit, um den Spielstand zu speichern und zu laden.
 
 ```javascript
-API.persist_number("my_number", 123);
-API.persist_string("my_string", "Hello world!");
-API.persist_boolean("my_boolean", true);
+API.write_number("My great game", "my_number", 123);
+API.write_string("My great game", "my_string", "Hello world!");
+API.write_boolean("My great game", "my_boolean", true);
 
-show_debug_message(API.load_number("my_number"));
-show_debug_message(API.load_string("my_string"));
-show_debug_message(API.load_boolean("my_boolean"));
+show_debug_message(API.read_number("My great game", "my_number"));
+show_debug_message(API.read_string("My great game", "my_string"));
+show_debug_message(API.read_boolean("My great game", "my_boolean"));
 ```
 
 ### Steuerung
