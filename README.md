@@ -100,7 +100,7 @@ Die Zugangsdaten sind:
 
 | Nutzername  | Passwort                      |
 | ----------- | ----------------------------- |
-| trashgalore | NWa<Ap2QQFy7>L9Uwb9uSmpY>     |
+| trashgalore | Auf Anfrage                   |
 
 ![filebrowser](.documentation/filebrowser.png)
 
