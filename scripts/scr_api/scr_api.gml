@@ -1,3 +1,5 @@
+// API Version 1.0.0
+
 #macro API global.api
 
 if(global[$ "launcher"] == undefined) {
@@ -164,6 +166,35 @@ function _api_base() constructor {
 	*/
 	function read_boolean(_game_name, _identifier, _default_value = false) {
 		return in_memory_database[? _identifier] ?? _default_value;
+	}
+	
+	/**
+	* Reads the localized value for the given _key or returns the _fallback value.
+	* 
+	* @param {string} _key - A unique key to identify the localized text with
+	* @param {string} _fallback - A fallback value to be returned in case no text for the given _key or locale exists.
+	* @returns {string} A localized string
+	*/
+	function localize(_key, _fallback = "") {
+		return _fallback;
+	}
+	
+	/**
+	* Reads the localized value for the given _key or returns the _fallback value. All {} placeholders will be replaced with the values passed in _args.
+	* 
+	* @param {string} _key - A unique key to identify the localized text with
+	* @param {array} _args - A list of values to be replaced with any {} placeholders in the localized string.
+	* @param {string} _fallback - A fallback value to be returned in case no text for the given _key or locale exists.
+	* @returns {string} A localized string
+	*/
+	function localize_args(_key, _args, _fallback = "") {
+		var _result = _fallback;
+		
+		for(var _i = 0; _i < array_length(_args); _i++) {
+			_result = string_replace(_result, "{}", _args[_i]);
+		}
+		
+		return _result;
 	}
 }
 
