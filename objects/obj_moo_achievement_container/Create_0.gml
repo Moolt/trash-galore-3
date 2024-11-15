@@ -31,8 +31,8 @@ function remove_achievement(_achievement_id) {
 }
 
 function on_achievement_size_changed() {
-	var _current_x = window_get_width() - ACHIEVEMENTS_POPUP_WIDTH - padding;
-	var _current_y = window_get_height() - padding;
+	var _current_x = MOO_MENU_WIDTH - ACHIEVEMENTS_POPUP_WIDTH - padding;
+	var _current_y = MOO_MENU_HEIGHT - padding;
 	
 	for(var _i = 0; _i < array_length(achievements); _i++) {
 		var _instance = achievements[_i];

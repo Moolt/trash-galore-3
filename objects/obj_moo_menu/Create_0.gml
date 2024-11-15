@@ -4,6 +4,9 @@
 #macro MOO_UI global.launcher.ui
 #macro MOO_AUDIO global.launcher.audio
 
+#macro MOO_MENU_WIDTH 640
+#macro MOO_MENU_HEIGHT 360
+
 function create_selection_handler() {
 	return instance_create_layer(0, 0, layer, obj_moo_selection_controller);
 }

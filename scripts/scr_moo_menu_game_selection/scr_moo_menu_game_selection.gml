@@ -3,7 +3,7 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 	
 	on_show = function() {
 		ui_group = MOO_UI.group(function(_group) {
-			_group.stack(window_get_width() / 2, 130, function(_stack) {
+			_group.stack(MOO_MENU_WIDTH / 2, 130, function(_stack) {
 				var _start_button = _stack.button("Start", function() {
 					room_goto(MOO_GAMES.find_at_position(menu.selected_index).start_room_index);
 					menu.set_state(LAUNCHER_STATE.IN_GAME);
@@ -61,14 +61,14 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 			
 		draw_set_alpha(0.2);
 		draw_set_color(c_black);
-		draw_rectangle(0, 0, window_get_width(), window_get_height(), false);
+		draw_rectangle(0, 0, MOO_MENU_WIDTH, MOO_MENU_HEIGHT, false);
 		draw_set_alpha(1);
 		draw_set_color(c_white);
 		
 		// draw_set_font(menu.teletext_font);
 
 		var title = _game.name + " (" + _game.author + ")";
-		var title_pos_x = window_get_width() / 2 - string_width(title) / 2;
+		var title_pos_x = MOO_MENU_WIDTH / 2 - string_width(title) / 2;
 		
 		draw_text(title_pos_x, menu.tv_screen_y_start + 20, title);
 		draw_set_font(-1);
