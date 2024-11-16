@@ -8,8 +8,8 @@ buttons = [];
 x_current = x_start;
 y_current = y_start;
 
-button = function(_label, _action) {
-	var _button = instance_create_layer(x_current, y_current, layer, obj_moo_button);
+__button = function(_label, _action, _object, _params = {}) {
+	var _button = instance_create_layer(x_current, y_current, layer, _object, _params);
 	_button.set_button_text(_label);
 	_button.button_action = _action;
 	y_current += _button.button_height + space;
@@ -31,6 +31,14 @@ button = function(_label, _action) {
 	array_push(buttons, _button);
 	
 	return _button;
+}
+
+button = function(_label, _action, _params = {}) {
+	return __button(_label, _action, obj_moo_button, _params);
+}
+
+button_select = function(_label, _action, _params = {}) {
+	return __button(_label, _action, obj_moo_button_select, _params);
 }
 
 function draw() {

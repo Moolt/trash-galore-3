@@ -10,6 +10,10 @@ instance_right = undefined;
 
 function on_selection_changed(_instance) {
 	selected = _instance == id;
+	child_on_selection_changed(_instance);
+}
+
+function child_on_selection_changed(_instance) {
 }
 
 function select() {

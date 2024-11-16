@@ -31,7 +31,7 @@ function moo_menu_main(_menu_object): moo_menu_base(_menu_object) constructor {
 		draw_text(_title_pos_x, menu.tv_screen_y_start + 20, "Trashgalore 3");
 		draw_set_font(-1);
 		
-		ui_group.draw();
+		MOO_UI.draw();
 	}
 	
 	on_escape = function() {

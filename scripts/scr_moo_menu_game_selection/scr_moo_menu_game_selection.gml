@@ -73,7 +73,7 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 		draw_text(title_pos_x, menu.tv_screen_y_start + 20, title);
 		draw_set_font(-1);
 		
-		ui_group.draw();
+		MOO_UI.draw();
 	}
 	
 	on_escape = function() {

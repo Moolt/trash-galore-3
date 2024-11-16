@@ -57,6 +57,10 @@ function notify_selectables() {
 	for(var _i = 0; _i < array_length(_selectables); _i++) {
 		var _selectable = array_get(_selectables, _i);
 		
+		if(!instance_exists(_selectable)) {
+			continue;
+		}
+		
 		_selectable.on_selection_changed(selected_object);
 	}
 }

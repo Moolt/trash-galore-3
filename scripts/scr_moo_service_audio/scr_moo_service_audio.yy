@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scr_moo_service_audio",
   "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
+    "name":"Services",
+    "path":"folders/Scripts/Services.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",
