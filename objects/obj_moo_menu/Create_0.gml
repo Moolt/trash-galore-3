@@ -20,6 +20,11 @@
 #macro MOO_TV_CENTER_X 285 // Eigentlich 285,5
 #macro MOO_TV_CENTER_Y 179 // Eigentlich 179,5
 
+#macro MOO_TV_TITLE_BASELINE_Y 90
+#macro MOO_TV_CONTENT_Y 130
+#macro MOO_TV_PADDING 34
+#macro MOO_TV_SCALE 0.8219
+
 function create_selection_handler() {
 	return instance_create_layer(0, 0, layer, obj_moo_selection_controller);
 }
@@ -34,6 +39,14 @@ global.launcher.achievements = new moo_service_achievements();
 global.launcher.selection = create_selection_handler();
 global.launcher.ui = new moo_service_ui();
 global.launcher.audio = new moo_service_audio();
+
+title_font = font_add("HomeVideo.ttf", 30, false, false, 32, 128);
+button_font = font_add("HomeVideo.ttf", 25, false, false, 32, 128);
+font_enable_sdf(title_font, true);
+
+global.launcher.font = {};
+global.launcher.font.title = title_font;
+global.launcher.font.button = button_font;
 
 enum LAUNCHER_STATE {
 	MAIN,

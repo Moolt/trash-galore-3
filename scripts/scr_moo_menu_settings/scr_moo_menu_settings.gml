@@ -5,7 +5,7 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 	
 	on_show = function() {
 		ui_group = ui.group(function(_group) {
-			_group.stack(MOO_MENU_WIDTH / 2, 130, function(_stack) {
+			_group.stack(MOO_TV_CENTER_X, MOO_TV_CONTENT_Y, function(_stack) {
 				var _games_button = _stack.button_select("Skalierung x 1", function(_btn) {
 					self.scaling = scaling + 1;
 					
@@ -39,11 +39,8 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 	}
 	
 	draw = function() {
-		var _title_pos_x = MOO_MENU_WIDTH / 2 - string_width("Einstellungen") / 2;
-		
-		draw_sprite(spr_moo_dark_noise, 0, 0, 0);
-		draw_text(_title_pos_x, menu.tv_screen_y_start + 20, "Einstellungen");
-		draw_set_font(-1);
+		draw_rectangle_color(0, 0, MOO_MENU_WIDTH, MOO_MENU_HEIGHT, c_blue, c_blue, c_blue, c_blue, 0);
+		draw_title("Einstellungen");
 		
 		MOO_UI.draw();
 	}

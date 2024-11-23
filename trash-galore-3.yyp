@@ -38,6 +38,8 @@
   ],
   "IncludedFiles":[
     {"$GMIncludedFile":"","%Name":"games.json","CopyToMask":-1,"filePath":"datafiles","name":"games.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"HomeVideo.ttf","CopyToMask":-1,"filePath":"datafiles","name":"HomeVideo.ttf","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"HomeVideoBold.ttf","CopyToMask":-1,"filePath":"datafiles","name":"HomeVideoBold.ttf","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
   ],
   "isEcma":false,
   "LibraryEmitters":[],

@@ -3,7 +3,7 @@ function moo_menu_main(_menu_object): moo_menu_base(_menu_object) constructor {
 	
 	on_show = function() {
 		ui_group = MOO_UI.group(function(_group) {
-			_group.stack(MOO_TV_CENTER_X, 130, function(_stack) {
+			_group.stack(MOO_TV_CENTER_X, MOO_TV_CONTENT_Y, function(_stack) {
 				var _games_button = _stack.button("Spiele", function() {
 					menu.set_state(LAUNCHER_STATE.GAME_SELECTION)
 				});
@@ -25,11 +25,8 @@ function moo_menu_main(_menu_object): moo_menu_base(_menu_object) constructor {
 	}
 	
 	draw = function() {
-		var _title_pos_x = MOO_TV_CENTER_X - string_width("Trashgalore 3") / 2;
-		
 		draw_rectangle_color(0, 0, MOO_MENU_WIDTH, MOO_MENU_HEIGHT, c_blue, c_blue, c_blue, c_blue, 0);
-		draw_text(_title_pos_x, MOO_TV_START_Y + 20, "Trashgalore 3");
-		draw_set_font(-1);
+		draw_title("Trashgalore 3");
 		
 		MOO_UI.draw();
 	}
