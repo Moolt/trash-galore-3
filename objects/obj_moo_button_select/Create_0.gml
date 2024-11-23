@@ -5,13 +5,20 @@ characters_amount_label = 15;
 characters_amount_value = 11;
 
 text_label = "Scaling";
-selected_option = 0;
 
-options = [
-	{ text: "1", value: 1 },
-	{ text: "2", value: 2 },
-	{ text: "3", value: 3 },
-];
+if(is_undefined(default_value)) {
+	default_value = 0;
+}
+
+if(is_undefined(options)) {
+	options = [
+		{ text: "unknown", value: 0 },
+	];
+}
+
+selected_option = array_find_index(options, function(_option) {
+	return _option.value == default_value;
+});
 
 draw_set_font(global.launcher.font.button_normal);
 character_width = string_width("F");
@@ -20,10 +27,10 @@ draw_set_font(-1);
 
 string_pad_center = function(_string, _total_length) {
 	var _total_padding = _total_length - string_length(_string);
-	var _left_padding = _total_padding / 2;
+	var _left_padding = ceil(_total_padding / 2);
 	var _right_padding = _total_padding - _left_padding;
 
-	return string_repeat(" ", _left_padding) + _string + string_repeat(" ", _left_padding);
+	return string_repeat(" ", _left_padding) + _string + string_repeat(" ", _right_padding);
 }
 
 generate_label_text = function() {
@@ -72,6 +79,30 @@ function draw() {
 	draw_set_font(-1);
 }
 
-button_action_internal = function(_this) {
+function offset_option(_offset) {
+	selected_option += _offset;
+	
+	if(selected_option >= array_length(options)) {
+		selected_option = 0;
+	}
+	
+	if(selected_option < 0) {
+		selected_option = array_length(options) -1;
+	}
+	
+	button_action(self, selected_option);
+	button_text = generate_all_text();
+}
+
+offset = function(_offset) {
+}
+
+button_action = function(_this, _value = undefined) {
+	show_debug_message("Hello world!");
+}
+
+function button_action_internal(_this) {
+	offset_option(1);
 	show_debug_message("Hello world from select!");
 }
+
