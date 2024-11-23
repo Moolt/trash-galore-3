@@ -1,12 +1,12 @@
 {
   "$GMObject":"",
-  "%Name":"obj_moo_button_select",
+  "%Name":"obj_moo_button_select_base",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_moo_button_select",
+  "name":"obj_moo_button_select_base",
   "overriddenProperties":[],
   "parent":{
     "name":"UI",
@@ -40,8 +40,6 @@
     {"$GMObjectProperty":"v1","%Name":"text_color_hover","filters":[],"listItems":[],"multiselect":false,"name":"text_color_hover","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"$FF000000","varType":7,},
     {"$GMObjectProperty":"v1","%Name":"text_color_pressed","filters":[],"listItems":[],"multiselect":false,"name":"text_color_pressed","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"$FF333333","varType":7,},
     {"$GMObjectProperty":"v1","%Name":"corner_radius","filters":[],"listItems":[],"multiselect":false,"name":"corner_radius","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"0","varType":0,},
-    {"$GMObjectProperty":"v1","%Name":"default_value","filters":[],"listItems":[],"multiselect":false,"name":"default_value","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"undefined","varType":4,},
-    {"$GMObjectProperty":"v1","%Name":"options","filters":[],"listItems":[],"multiselect":false,"name":"options","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"undefined","varType":4,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

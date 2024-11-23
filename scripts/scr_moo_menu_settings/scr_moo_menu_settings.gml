@@ -6,7 +6,7 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 	on_show = function() {
 		ui_group = ui.group(function(_group) {
 			_group.stack(MOO_TV_CENTER_X, MOO_TV_CONTENT_Y, function(_stack) {
-				var _games_button = _stack.button_select("Scaling", function(_btn, _value) {
+				var _games_button = _stack.button_option("Scaling", function(_btn, _value) {
 					MOO_SETTINGS.set(MOO_SETTING_SCALING, _value);
 				},
 				{
@@ -19,7 +19,7 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 				}
 				);
 				
-				_stack.button_select("Mode", function(_btn, _value) {
+				_stack.button_option("Mode", function(_btn, _value) {
 					MOO_SETTINGS.set(MOO_SETTING_MODE, _value);
 					//with obj_trunx_draw_screen screen_switch_fullscreen();
 				},
@@ -31,10 +31,22 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 					],
 				});
 				
-				_stack.button_select("Musik            ||||||||||·····", function() {
+				_stack.button_slider("Musik", function(_btn, _value) {
+					show_debug_message(_value);
+				},
+				{
+					default_value: 0.5,
+					min_value: 0,
+					max_value: 1
 				});
 				
-				_stack.button_select("Sounds           ||||||||||·····", function() {
+				_stack.button_slider("Sounds", function(_btn, _value) {
+					show_debug_message(_value);
+				},
+				{
+					default_value: 0,
+					min_value: 0,
+					max_value: 1
 				});
 				
 				_stack.button("Zurück", function() {

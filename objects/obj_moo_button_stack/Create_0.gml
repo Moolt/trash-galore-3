@@ -37,8 +37,12 @@ button = function(_label, _action, _params = {}) {
 	return __button(_label, _action, obj_moo_button, _params);
 }
 
-button_select = function(_label, _action, _params = {}) {
-	return __button(_label, _action, obj_moo_button_select, _params);
+button_option = function(_label, _action, _params = {}) {
+	return __button(_label, _action, obj_moo_button_option, _params);
+}
+
+button_slider = function(_label, _action, _params = {}) {
+	return __button(_label, _action, obj_moo_button_slider, _params);
 }
 
 function draw() {

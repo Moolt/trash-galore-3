@@ -2,23 +2,9 @@ event_inherited();
 
 characters_amount_total = 32;
 characters_amount_label = 15;
-characters_amount_value = 11;
+characters_amount_value = 15;
 
-text_label = "Scaling";
-
-if(is_undefined(default_value)) {
-	default_value = 0;
-}
-
-if(is_undefined(options)) {
-	options = [
-		{ text: "unknown", value: 0 },
-	];
-}
-
-selected_option = array_find_index(options, function(_option) {
-	return _option.value == default_value;
-});
+text_label = "unknown";
 
 draw_set_font(global.launcher.font.button_normal);
 character_width = string_width("F");
@@ -41,15 +27,7 @@ generate_label_text = function() {
 }
 
 generate_value_text = function() {
-	var _result = "◀ ";
-	
-	var _shortened_value = options[selected_option].text;
-	_shortened_value = string_copy(_shortened_value, 1, characters_amount_value)
-	
-	_result += string_pad_center(_shortened_value, characters_amount_value);
-	_result += " ▶";
-	
-	return _result;
+	return string_pad_center("", characters_amount_value);
 }
 
 generate_all_text = function() {
@@ -88,29 +66,7 @@ function is_index_selected(_index) {
 	return (_index + 1) >= selected_interactable.index_from && (_index + 1) <= selected_interactable.index_to;
 }
 
-interactables = [
-	{
-		index_from: 18,
-		index_to: 18,
-		action: function(_this) {
-			_this.offset_option(-1);
-		}
-	},
-	{
-		index_from: 20,
-		index_to: 30,
-		action: function(_this) {
-			_this.offset_option(1);
-		}
-	},
-	{
-		index_from: 32,
-		index_to: 32,
-		action: function(_this) {
-			_this.offset_option(1);
-		}
-	},
-];
+interactables = [];
 
 function update_interactables() {
 	for(var _i = 0; _i < array_length(interactables); _i++) {
@@ -141,28 +97,21 @@ function draw() {
 	draw_set_font(-1);
 }
 
-function offset_option(_offset) {
-	selected_option += _offset;
-	
-	if(selected_option >= array_length(options)) {
-		selected_option = 0;
-	}
-	
-	if(selected_option < 0) {
-		selected_option = array_length(options) -1;
-	}
-	
-	button_action(self, options[selected_option].value);
-	button_text = generate_all_text();
-}
-
 button_action = function(_this, _value = undefined) {
-	show_debug_message("Hello world!");
 }
 
-function button_action_internal(_this) {
+button_action_internal = function(_this) {
 	if(MOO_SELECTION.current_input_type == INPUT_TYPE.KEYBOARD) {
-		offset_option(1);
+		handle_input_select();
 	}
+}
+
+handle_input_left = function() {
+}
+
+handle_input_right = function() {
+}
+
+handle_input_select = function() {
 }
 

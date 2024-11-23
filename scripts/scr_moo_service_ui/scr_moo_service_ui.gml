@@ -38,7 +38,7 @@ function moo_service_ui(_parent = undefined) constructor {
 	}
 	
 	function button_select(_x, _y, _text, _callback = undefined, _var_struct = {}) {
-		var _button = instance_create_layer(_x, _y, "Instances", obj_moo_button_select, _var_struct);
+		var _button = instance_create_layer(_x, _y, "Instances", obj_moo_button_select_base, _var_struct);
 		_button.set_button_text(_text);
 		
 		array_push(ui_elements, _button);
