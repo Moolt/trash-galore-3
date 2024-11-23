@@ -13,8 +13,8 @@
     "path":"folders/Objects/UI.yy",
   },
   "parentObjectId":{
-    "name":"obj_moo_button",
-    "path":"objects/obj_moo_button/obj_moo_button.yy",
+    "name":"obj_moo_selectable",
+    "path":"objects/obj_moo_selectable/obj_moo_selectable.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

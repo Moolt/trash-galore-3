@@ -6,7 +6,7 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 	on_show = function() {
 		ui_group = ui.group(function(_group) {
 			_group.stack(MOO_TV_CENTER_X, MOO_TV_CONTENT_Y, function(_stack) {
-				var _games_button = _stack.button_select("Skalierung x 1", function(_btn) {
+				var _games_button = _stack.button_select("Scaling          ◀      1      ▶", function(_btn) {
 					self.scaling = scaling + 1;
 					
 					if(scaling > 3) {
@@ -17,12 +17,15 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 					_btn.set_button_text("Skalierung x " + string(self.scaling));
 				});
 				
-				_stack.button("Vollbild", function() {
+				_stack.button_select("Mode             ◀   Fenster   ▶", function() {
 					with obj_trunx_draw_screen screen_switch_fullscreen();
 					
 				});
 				
-				_stack.button("Lautstärke ------|---", function() {
+				_stack.button_select("Musik            ||||||||||·····", function() {
+				});
+				
+				_stack.button_select("Sounds           ||||||||||·····", function() {
 				});
 				
 				_stack.button("Zurück", function() {
