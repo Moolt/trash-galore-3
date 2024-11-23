@@ -6,19 +6,11 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 	on_show = function() {
 		ui_group = ui.group(function(_group) {
 			_group.stack(MOO_TV_CENTER_X, MOO_TV_CONTENT_Y, function(_stack) {
-				var _games_button = _stack.button_select("Scaling", function(_btn) {
-					return;
-					self.scaling = scaling + 1;
-					
-					if(scaling > 3) {
-						scaling = 1;
-					}
-					
-					on_scaling_changed();
-					_btn.set_button_text("Skalierung x " + string(self.scaling));
+				var _games_button = _stack.button_select("Scaling", function(_btn, _value) {
+					MOO_SETTINGS.set(MOO_SETTING_SCALING, _value);
 				},
 				{
-					default_value: 1,
+					default_value: MOO_SETTINGS.get(MOO_SETTING_SCALING),
 					options: [
 						{ text: "*1", value: 1 },
 						{ text: "*2", value: 2 },
@@ -27,11 +19,12 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 				}
 				);
 				
-				_stack.button_select("Mode", function() {
+				_stack.button_select("Mode", function(_btn, _value) {
+					MOO_SETTINGS.set(MOO_SETTING_MODE, _value);
 					//with obj_trunx_draw_screen screen_switch_fullscreen();
 				},
 				{
-					default_value: 1,
+					default_value: MOO_SETTINGS.get(MOO_SETTING_MODE),
 					options: [
 						{ text: "Window", value: 1 },
 						{ text: "Fullscreen", value: 2 },

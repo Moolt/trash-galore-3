@@ -77,6 +77,7 @@
     {"id":{"name":"scr_moo_service_audio","path":"scripts/scr_moo_service_audio/scr_moo_service_audio.yy",},},
     {"id":{"name":"scr_moo_service_games","path":"scripts/scr_moo_service_games/scr_moo_service_games.yy",},},
     {"id":{"name":"scr_moo_service_persistence","path":"scripts/scr_moo_service_persistence/scr_moo_service_persistence.yy",},},
+    {"id":{"name":"scr_moo_service_settings","path":"scripts/scr_moo_service_settings/scr_moo_service_settings.yy",},},
     {"id":{"name":"scr_moo_service_ui","path":"scripts/scr_moo_service_ui/scr_moo_service_ui.yy",},},
     {"id":{"name":"scr_trunx_screendrawstuff","path":"scripts/scr_trunx_screendrawstuff/scr_trunx_screendrawstuff.yy",},},
     {"id":{"name":"snd_moo_bgm","path":"sounds/snd_moo_bgm/snd_moo_bgm.yy",},},

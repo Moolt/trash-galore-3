@@ -90,7 +90,7 @@ function offset_option(_offset) {
 		selected_option = array_length(options) -1;
 	}
 	
-	button_action(self, selected_option);
+	button_action(self, options[selected_option].value);
 	button_text = generate_all_text();
 }
 
