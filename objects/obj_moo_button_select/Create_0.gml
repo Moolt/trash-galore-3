@@ -69,10 +69,72 @@ function transform_button_text(_button_text) {
 	return generate_all_text();
 }
 
-function draw() {
-	var _font = draw_set_font(selected ? global.launcher.font.button_select :global.launcher.font.button_normal);
+function is_interactable_hovered(_interactable) {
+	var _from_x = button_start_x + (_interactable.index_from - 1) * character_width;
+	var _to_x = button_start_x + _interactable.index_to * character_width;
+	var _from_y = button_start_y;
+	var _to_y = button_end_y;
 	
+	return point_in_rectangle(mouse_x, mouse_y, _from_x, _from_y, _to_x, _to_y);
+}
+
+selected_interactable = undefined;
+
+function is_index_selected(_index) {
+	if(is_undefined(selected_interactable)) {
+		return false;
+	}
+	
+	return (_index + 1) >= selected_interactable.index_from && (_index + 1) <= selected_interactable.index_to;
+}
+
+interactables = [
+	{
+		index_from: 18,
+		index_to: 18,
+		action: function(_this) {
+			_this.offset_option(-1);
+		}
+	},
+	{
+		index_from: 20,
+		index_to: 30,
+		action: function(_this) {
+			_this.offset_option(1);
+		}
+	},
+	{
+		index_from: 32,
+		index_to: 32,
+		action: function(_this) {
+			_this.offset_option(1);
+		}
+	},
+];
+
+function update_interactables() {
+	for(var _i = 0; _i < array_length(interactables); _i++) {
+		var _interactable = interactables[_i];
+	
+		if(is_interactable_hovered(_interactable)) {
+			selected_interactable = _interactable;
+			return;
+		}
+	}
+	
+	selected_interactable = undefined;
+}
+
+function draw() {
 	for(var _i = 1; _i <= string_length(button_text); _i++) {
+		if(MOO_SELECTION.current_input_type == INPUT_TYPE.KEYBOARD) {
+			draw_set_font(selected ? MOO_FONT.button_select : MOO_FONT.button_normal);
+		}
+
+		if(MOO_SELECTION.current_input_type == INPUT_TYPE.MOUSE) {
+			draw_set_font(is_index_selected(_i) && !mouse_check_button(mb_left) ? MOO_FONT.button_select : MOO_FONT.button_normal);
+		}
+		
 		draw_text(button_start_x + character_width * _i, y, string_char_at(button_text, _i));
 	}
 	
@@ -94,15 +156,13 @@ function offset_option(_offset) {
 	button_text = generate_all_text();
 }
 
-offset = function(_offset) {
-}
-
 button_action = function(_this, _value = undefined) {
 	show_debug_message("Hello world!");
 }
 
 function button_action_internal(_this) {
-	offset_option(1);
-	show_debug_message("Hello world from select!");
+	if(MOO_SELECTION.current_input_type == INPUT_TYPE.KEYBOARD) {
+		offset_option(1);
+	}
 }
 

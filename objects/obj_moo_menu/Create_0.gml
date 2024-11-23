@@ -5,6 +5,7 @@
 #macro MOO_AUDIO global.launcher.audio
 #macro MOO_PERSIST global.launcher.persist
 #macro MOO_SETTINGS global.launcher.settings
+#macro MOO_FONT global.launcher.font
 
 #macro MOO_MENU_WIDTH 640
 #macro MOO_MENU_HEIGHT 360
