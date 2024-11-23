@@ -32,19 +32,19 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 				});
 				
 				_stack.button_slider("Musik", function(_btn, _value) {
-					show_debug_message(_value);
+					MOO_SETTINGS.set(MOO_SETTING_VOLUME_MUSIC, _value);
 				},
 				{
-					default_value: 0.5,
+					default_value: MOO_SETTINGS.get(MOO_SETTING_VOLUME_MUSIC),
 					min_value: 0,
 					max_value: 1
 				});
 				
 				_stack.button_slider("Sounds", function(_btn, _value) {
-					show_debug_message(_value);
+					MOO_SETTINGS.set(MOO_SETTING_VOLUME_SOUNDS, _value);
 				},
 				{
-					default_value: 0,
+					default_value: MOO_SETTINGS.get(MOO_SETTING_VOLUME_SOUNDS),
 					min_value: 0,
 					max_value: 1
 				});
