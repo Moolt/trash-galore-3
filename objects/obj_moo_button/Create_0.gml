@@ -1,11 +1,23 @@
 event_inherited();
 
+function get_button_width(_button_text) {
+	return string_width(button_text);
+}
+
+function get_button_height(_button_text) {
+	return string_height(button_text);
+}
+
+function transform_button_text(_button_text) {
+	return _button_text;
+}
+
 function set_button_text(_button_text) {
 	draw_set_font(global.launcher.font.button_normal);
 	
-	button_text = _button_text;
-	var _text_width = string_width(button_text);
-	var _text_height = string_height(button_text);
+	button_text = transform_button_text(_button_text);
+	var _text_width = get_button_width(button_text);
+	var _text_height = get_button_height(button_text);
 
 	button_start_x = x - _text_width / 2 - button_padding_x;
 	button_start_y = y - button_padding_y;
@@ -25,6 +37,10 @@ current_text_color = text_color;
 
 button_action = function(_this) {
 	show_debug_message("Hello world!");
+}
+
+button_action_internal = function(_this) {
+	button_action(_this);
 }
 
 function is_hovering() {
