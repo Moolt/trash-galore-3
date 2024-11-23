@@ -8,6 +8,18 @@
 #macro MOO_MENU_WIDTH 640
 #macro MOO_MENU_HEIGHT 360
 
+#macro MOO_TV_START_X 32
+#macro MOO_TV_START_Y 32 
+
+#macro MOO_TV_END_X 539
+#macro MOO_TV_END_Y 327
+
+#macro MOO_TV_WIDTH 507
+#macro MOO_TV_HEIGHT 295
+
+#macro MOO_TV_CENTER_X 285 // Eigentlich 285,5
+#macro MOO_TV_CENTER_Y 179 // Eigentlich 179,5
+
 function create_selection_handler() {
 	return instance_create_layer(0, 0, layer, obj_moo_selection_controller);
 }
@@ -31,15 +43,6 @@ enum LAUNCHER_STATE {
 	DETAILS,
 	IN_GAME
 }
-
-tv_screen_x_start = 92;
-tv_screen_y_start = 35;
-
-tv_screen_x_end = 547;
-tv_screen_y_end = 324;
-
-tv_screen_width = tv_screen_x_end - tv_screen_x_start;
-tv_screen_height = tv_screen_y_end - tv_screen_y_start;
 
 selected_index = 0; // Index of game
 
