@@ -1,4 +1,4 @@
-// Author: TrunX
+// Heavily based on code by TrunX
 function moo_service_display() constructor {
     ideal_width = MOO_MENU_WIDTH;
     ideal_height = MOO_MENU_HEIGHT;
@@ -11,10 +11,6 @@ function moo_service_display() constructor {
     zoom = 1;
     max_zoom = 1;
 
-    screen_filter = 1; 
-    screen_fullscreen = 0; //comment out once settings are loaded elsewhere?
-    screen_scale = 1; // default scaling
-
     // Determine maximal zoom
     if (display_aspect_ratio < ideal_aspect_ratio) {
         max_zoom = display_width / ideal_width;
@@ -22,19 +18,15 @@ function moo_service_display() constructor {
         max_zoom = display_height / ideal_height;
     }
 
-	zoom = clamp(screen_scale, 0, max_zoom);
     window_zoom = zoom;
 
     window_set_size(ideal_width * zoom,ideal_height * zoom);
     window_center();
 
-    screen_resize_zoom = function()
+    screen_resize_zoom = function(_value)
     {
-        // TODO: Remove and parametrize method instead
-        if(zoom > max_zoom) {
-            zoom = 1;
-        }
-            
+		zoom = clamp(_value, 0, max_zoom);
+        
         window_set_size(ideal_width * zoom,ideal_height * zoom);
         window_center();
     }
@@ -53,8 +45,6 @@ function moo_service_display() constructor {
 	
 	screen_enter_window_mode = function() {
 		window_set_fullscreen(false);
-		
-		screen_fullscreen = 2; // Was sagt dieser Wert aus?
 		zoom = floor(window_zoom);
 		
 		window_set_size(ideal_width * zoom,ideal_height * zoom);
@@ -63,8 +53,6 @@ function moo_service_display() constructor {
 	
 	screen_enter_fullscreen_mode = function() {
 		window_set_fullscreen(true);
-		
-		screen_fullscreen = 1;
 		window_zoom = zoom;
 		
 		if (display_aspect_ratio < ideal_aspect_ratio) {
@@ -73,6 +61,4 @@ function moo_service_display() constructor {
 			zoom = display_height / ideal_height;
 		}
 	}
-
-	screen_set_fullscreen(screen_fullscreen == 1);
 }

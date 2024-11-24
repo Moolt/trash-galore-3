@@ -8,33 +8,30 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 			_group.stack(MOO_TV_CENTER_X, MOO_TV_CONTENT_Y, function(_stack) {
 				var _games_button = _stack.button_option("Scaling", function(_btn, _value) {
 					MOO_SETTINGS.set(MOO_SETTING_SCALING, _value);
-				},
-				{
+				}, {
 					default_value: MOO_SETTINGS.get(MOO_SETTING_SCALING),
 					options: [
-						{ text: "*1", value: 1 },
-						{ text: "*2", value: 2 },
-						{ text: "*3", value: 3 },
+						{ text: "640*360", value: 1 },
+						{ text: "1280*720", value: 2 },
+						{ text: "1920*1080", value: 3 },
+						{ text: "2560*1440", value: 4 },
 					],
 				}
 				);
 				
 				_stack.button_option("Mode", function(_btn, _value) {
-					MOO_SETTINGS.set(MOO_SETTING_MODE, _value);
-					//with obj_trunx_draw_screen screen_switch_fullscreen();
-				},
-				{
+					MOO_SETTINGS.set(MOO_SETTING_MODE, _value);					
+				}, {
 					default_value: MOO_SETTINGS.get(MOO_SETTING_MODE),
 					options: [
-						{ text: "Window", value: 1 },
-						{ text: "Fullscreen", value: 2 },
+						{ text: "Window", value: 0 },
+						{ text: "Fullscreen", value: 1 },
 					],
 				});
 				
 				_stack.button_slider("Musik", function(_btn, _value) {
 					MOO_SETTINGS.set(MOO_SETTING_VOLUME_MUSIC, _value);
-				},
-				{
+				}, {
 					default_value: MOO_SETTINGS.get(MOO_SETTING_VOLUME_MUSIC),
 					min_value: 0,
 					max_value: 1
@@ -42,8 +39,7 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 				
 				_stack.button_slider("Sounds", function(_btn, _value) {
 					MOO_SETTINGS.set(MOO_SETTING_VOLUME_SOUNDS, _value);
-				},
-				{
+				}, {
 					default_value: MOO_SETTINGS.get(MOO_SETTING_VOLUME_SOUNDS),
 					min_value: 0,
 					max_value: 1
@@ -71,15 +67,5 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 	
 	on_escape = function() {
 		menu.revert_state();
-	}
-	
-	on_scaling_changed = function()
-	{
-		with obj_trunx_draw_screen
-		{
-			zoom = other.scaling;
-			screen_resize_zoom();
-		}
-		show_debug_message("Scaling changed to "+ string(self.scaling));
 	}
 }
