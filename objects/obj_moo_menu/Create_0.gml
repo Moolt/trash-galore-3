@@ -47,6 +47,7 @@ global.launcher.settings = new moo_service_settings();
 
 title_font = font_add("HomeVideo.ttf", 30, false, false, 32, 128);
 button_font = font_add("HomeVideo.ttf", 18, false, false, 32, 128);
+achievement_font = font_add("HomeVideo.ttf", 14, false, false, 32, 128);
 button_font_select = font_add("HomeVideoBold.ttf", 18, false, false, 32, 128);
 font_enable_sdf(title_font, true);
 
@@ -54,6 +55,7 @@ global.launcher.font = {};
 global.launcher.font.title = title_font;
 global.launcher.font.button_normal = button_font;
 global.launcher.font.button_select = button_font_select;
+global.launcher.font.achievement = achievement_font;
 
 enum LAUNCHER_STATE {
 	MAIN,
