@@ -20,14 +20,16 @@ function moo_service_screen() constructor {
 
     window_zoom = zoom;
 
-    window_set_size(ideal_width * zoom,ideal_height * zoom);
-    window_center();
-
     screen_resize_zoom = function(_value)
     {
+		if(window_get_fullscreen()) {
+			window_zoom = _value;
+			return;
+		}
+		
 		zoom = clamp(_value, 0, max_zoom);
         
-        window_set_size(ideal_width * zoom,ideal_height * zoom);
+        window_set_size(ideal_width * zoom, ideal_height * zoom);
         window_center();
     }
 
@@ -45,20 +47,14 @@ function moo_service_screen() constructor {
 	
 	screen_enter_window_mode = function() {
 		window_set_fullscreen(false);
-		zoom = floor(window_zoom);
-		
-		window_set_size(ideal_width * zoom,ideal_height * zoom);
-		window_center();
+		screen_resize_zoom(floor(window_zoom));
+		moo_delay(10, function() {
+			window_center();
+		});
 	}
 	
 	screen_enter_fullscreen_mode = function() {
 		window_set_fullscreen(true);
 		window_zoom = zoom;
-		
-		if (display_aspect_ratio < ideal_aspect_ratio) {
-			zoom = display_width / ideal_width;
-		} else {
-			zoom = display_height / ideal_height;
-		}
 	}
 }
