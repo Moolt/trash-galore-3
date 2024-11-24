@@ -4,3 +4,6 @@ if (steps_left <= 0) {
     callback();
     instance_destroy();
 }
+
+
+audio_bus_create()

@@ -36,7 +36,7 @@ current_background_color = button_background;
 current_text_color = text_color;
 
 button_action = function(_this) {
-	show_debug_message("Hello world!");
+	show_debug_message("button action not set");
 }
 
 button_action_internal = function(_this) {
