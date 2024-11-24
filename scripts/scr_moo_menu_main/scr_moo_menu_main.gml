@@ -32,6 +32,12 @@ function moo_menu_main(_menu_object): moo_menu_base(_menu_object) constructor {
 	}
 	
 	on_escape = function() {
-		game_end();
+		game_end_with_transition();
+	}
+	
+	game_end_with_transition = function() {
+		ui_group.show_transition_above_ui(obj_moo_transition_switch_off, function() {
+			game_end();
+		});
 	}
 }

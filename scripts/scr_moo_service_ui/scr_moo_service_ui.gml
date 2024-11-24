@@ -2,6 +2,9 @@ function moo_service_ui(_parent = undefined) constructor {
 	ui_elements = [];
 	parent = _parent;
 	
+	transition_behind_ui = new moo_transition_container();
+	transition_above_ui = new moo_transition_container();
+	
 	function group(_callback = undefined) {
 		var _ui_group = new moo_service_ui(self);
 		array_push(ui_elements, _ui_group);
@@ -37,10 +40,22 @@ function moo_service_ui(_parent = undefined) constructor {
 		return _button;
 	}
 	
+	function show_transition_behind_ui(_instance, _on_destroy = function() {}) {
+		transition_behind_ui.show_transition(_instance, _on_destroy);
+	}
+	
+	function show_transition_above_ui(_instance, _on_destroy = function() {}) {
+		transition_above_ui.show_transition(_instance, _on_destroy);
+	}
+	
 	function draw() {
+		transition_behind_ui.draw();
+		
 		array_foreach(ui_elements, function(_ui_element) {
 			_ui_element.draw();
 		});
+		
+		transition_above_ui.draw();
 	}
 	
 	function destroy() {
@@ -57,5 +72,30 @@ function moo_service_ui(_parent = undefined) constructor {
 		});
 		
 		array_delete(parent.ui_elements, _index, 1);
+	}
+}
+
+function moo_transition_container() constructor {
+	instance = noone;
+
+	function show_transition(_instance, _on_destroy = function() {}) {
+		if(instance_exists(instance)) {
+			instance_destroy(instance);
+		}
+		
+		instance = instance_create_layer(0, 0, "Instances", _instance);
+		instance.on_destroy_callback = _on_destroy;
+	}
+	
+	function draw() {
+		if(instance_exists(instance)) {
+			instance.draw();
+		}
+	}
+	
+	function destroy() {
+		if(instance_exists(instance)) {
+			instance_destroy(instance);
+		}
 	}
 }
