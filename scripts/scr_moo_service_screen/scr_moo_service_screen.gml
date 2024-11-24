@@ -1,5 +1,5 @@
 // Heavily based on code by TrunX
-function moo_service_display() constructor {
+function moo_service_screen() constructor {
     ideal_width = MOO_MENU_WIDTH;
     ideal_height = MOO_MENU_HEIGHT;
     ideal_aspect_ratio = ideal_width / ideal_height;

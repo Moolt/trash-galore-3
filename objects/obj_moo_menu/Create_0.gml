@@ -6,6 +6,7 @@
 #macro MOO_PERSIST global.launcher.persist
 #macro MOO_SETTINGS global.launcher.settings
 #macro MOO_FONT global.launcher.font
+#macro MOO_SCREEN global.launcher.screen
 
 #macro MOO_MENU_WIDTH 640
 #macro MOO_MENU_HEIGHT 360
@@ -41,6 +42,7 @@ global.launcher.achievements = new moo_service_achievements();
 global.launcher.selection = create_selection_handler();
 global.launcher.ui = new moo_service_ui();
 global.launcher.audio = new moo_service_audio();
+global.launcher.screen = new moo_service_screen();
 global.launcher.settings = new moo_service_settings();
 
 title_font = font_add("HomeVideo.ttf", 30, false, false, 32, 128);

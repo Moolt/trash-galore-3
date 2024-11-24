@@ -1,1 +1,0 @@
-service = new moo_service_display();

@@ -5,11 +5,11 @@
 
 function moo_service_settings() constructor {
 	set_scaling = function(_value) {
-		with obj_trunx_draw_screen service.screen_resize_zoom(_value);
+		MOO_SCREEN.screen_resize_zoom(_value);
 	}
 	
 	set_mode = function(_value) {
-		with obj_trunx_draw_screen service.screen_set_fullscreen(_value);
+		MOO_SCREEN.screen_set_fullscreen(_value);
 	}
 	
 	set_music_volume = function(_value) {
