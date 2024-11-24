@@ -4,13 +4,13 @@ if(next_selection != selected_object) {
 	notify_selectables();
 }
 
-if(previous_mouse_x != mouse_x || previous_mouse_y != mouse_y) {
+if(previous_mouse_x != display_mouse_get_x() || previous_mouse_y != display_mouse_get_y()) {
 	if(current_input_type != INPUT_TYPE.MOUSE) {
 		current_input_type = INPUT_TYPE.MOUSE;
 	}
 	
-	previous_mouse_x = mouse_x;
-	previous_mouse_y = mouse_y;
+	previous_mouse_x = display_mouse_get_x();
+	previous_mouse_y = display_mouse_get_y();
 }
 
 if(current_input_type != INPUT_TYPE.KEYBOARD && (API.action_check_released(INPUT_ACTION.UI_NAVIGATE_LEFT) || API.action_check_released(INPUT_ACTION.UI_NAVIGATE_UP) || API.action_check_released(INPUT_ACTION.UI_NAVIGATE_RIGHT) || API.action_check_released(INPUT_ACTION.UI_NAVIGATE_DOWN))) {

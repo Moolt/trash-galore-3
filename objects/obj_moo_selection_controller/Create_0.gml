@@ -8,8 +8,8 @@ next_selection = undefined; // Set selection delayed
 
 current_input_type = INPUT_TYPE.KEYBOARD;
 
-previous_mouse_x = mouse_x;
-previous_mouse_y = mouse_x;
+previous_mouse_x = display_mouse_get_x();
+previous_mouse_y = display_mouse_get_y();
 
 function change_selection(_new_selection) {
 	if(selected_object != _new_selection) {
