@@ -6,20 +6,39 @@ function moo_menu_achievements(_menu_object): moo_menu_base(_menu_object) constr
 	
 	scroll_value = 0;
 	min_scroll = undefined;
+	lines_total = undefined;
+	lines_visible = undefined;
+	
+	ui_group = MOO_UI.group();
+	back_button = undefined;
 	
 	on_state_changed = function(_new_state) {
 		if(_new_state != LAUNCHER_STATE.ACHIEVEMENTS) {
 			return;
 		}
 		
+		ui_group = MOO_UI.group(function(_group) {
+			_group.stack(MOO_TV_CENTER_X, MOO_TV_END_Y - 38, function(_stack) {
+				back_button = _stack.button("Zurück", function() {
+					menu.revert_state();
+				}, {font: MOO_FONT.achievement, font_select: MOO_FONT.achievement_select});
+				
+				back_button.select();
+			});
+		});
+		
 		current_game = games_service.find_at_position(menu.selected_index);
 		current_achievements = MOO_ACHIEVEMENTS.find_all_by_game(current_game.name);
-		array_sort(current_achievements, function (a, b) {
-		    return b.unlocked - a.unlocked;
+		array_sort(current_achievements, function (_a, _b) {
+		    return _b.unlocked - _a.unlocked;
 		});
 		
 		scroll_value = 0;
 		min_scroll = undefined;
+	}
+	
+	on_hide = function() {
+		ui_group.destroy();
 	}
 	
 	on_escape = function() {
@@ -52,7 +71,7 @@ function moo_menu_achievements(_menu_object): moo_menu_base(_menu_object) constr
 		var _text_width = MOO_TV_WIDTH - MOO_TV_PADDING * 2 - _image_width;
 		var _line_height = string_height("F");
 		var _vertical_offset = scroll_value * _line_height;
-		var _viewport_height = (MOO_TV_END_Y - 26) - MOO_TV_CONTENT_Y;
+		var _viewport_height = (MOO_TV_END_Y - 44) - MOO_TV_CONTENT_Y;
 		
 		for(var _i = 0; _i < array_length(current_achievements); _i++) {
 			var _achievement = current_achievements[_i];
@@ -89,6 +108,8 @@ function moo_menu_achievements(_menu_object): moo_menu_base(_menu_object) constr
 			min_scroll = -round((_vertical_offset - _viewport_height) / _line_height);
 			show_debug_message(min_scroll);
 		}
+		
+		ui_group.draw();
 
 		/*var _padding = 10;
 		var _spacing = 4;

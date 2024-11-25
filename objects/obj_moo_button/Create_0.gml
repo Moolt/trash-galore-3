@@ -1,5 +1,13 @@
 event_inherited();
 
+if(is_undefined(font)) {
+	font = MOO_FONT.button_normal;
+}
+
+if(is_undefined(font_select)) {
+	font_select = MOO_FONT.button_select;
+}
+
 function get_button_width(_button_text) {
 	return string_width(button_text);
 }
@@ -13,7 +21,7 @@ function transform_button_text(_button_text) {
 }
 
 function set_button_text(_button_text) {
-	draw_set_font(global.launcher.font.button_normal);
+	draw_set_font(font);
 	
 	button_text = transform_button_text(_button_text);
 	var _text_width = get_button_width(button_text);
@@ -48,7 +56,7 @@ function is_hovering() {
 }
 
 function draw() {
-	var _font = draw_set_font(selected ? global.launcher.font.button_select :global.launcher.font.button_normal);
+	var _font = draw_set_font(selected ? font_select : font);
 	draw_text(button_start_x + button_padding_x, button_start_y + button_padding_y, button_text);
 	draw_set_font(-1);
 }
