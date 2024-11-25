@@ -26,8 +26,6 @@ set_value = function(_value) {
 		return false;
 	}
 	
-	show_debug_message(_new_value);
-
 	value = _new_value;
 	scrollbar_offset = calculate_scrollbar_offset();
 	
