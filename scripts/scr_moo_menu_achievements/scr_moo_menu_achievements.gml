@@ -20,7 +20,7 @@ function moo_menu_achievements(_menu_object): moo_menu_base(_menu_object) constr
 		}
 		
 		ui_group = MOO_UI.group(function(_group) {
-			_group.stack(MOO_TV_CENTER_X, MOO_TV_END_Y - 38, function(_stack) {
+			_group.stack(MOO_TV_CENTER_X, MOO_TV_END_Y - 45, function(_stack) {
 				back_button = _stack.button("Zurück", function() {
 					menu.revert_state();
 				}, {font: MOO_FONT.achievement, font_select: MOO_FONT.achievement_select});
@@ -68,7 +68,7 @@ function moo_menu_achievements(_menu_object): moo_menu_base(_menu_object) constr
 		var _text_width = MOO_TV_WIDTH - MOO_TV_PADDING * 2 - _image_width - 24;
 		var _line_height = string_height("F");
 		var _vertical_offset = get_scroll_value() * _line_height;
-		var _viewport_height = (MOO_TV_END_Y - 44) - MOO_TV_CONTENT_Y;
+		var _viewport_height = (MOO_TV_END_Y - 60) - MOO_TV_CONTENT_Y;
 		
 		for(var _i = 0; _i < array_length(current_achievements); _i++) {
 			var _achievement = current_achievements[_i];
