@@ -4,10 +4,12 @@ function moo_menu_achievements(_menu_object): moo_menu_base(_menu_object) constr
 	current_game = undefined;
 	current_achievements = [];
 	
+	calculated_values = false;
 	scroll_value = 0;
 	min_scroll = undefined;
 	lines_total = undefined;
 	lines_visible = undefined;
+	scrollbar = undefined;
 	
 	ui_group = MOO_UI.group();
 	back_button = undefined;
@@ -33,8 +35,12 @@ function moo_menu_achievements(_menu_object): moo_menu_base(_menu_object) constr
 		    return _b.unlocked - _a.unlocked;
 		});
 		
+		calculated_values = false;
 		scroll_value = 0;
 		min_scroll = undefined;
+		lines_total = undefined;
+		lines_visible = undefined;
+		scrollbar = undefined;
 	}
 	
 	on_hide = function() {
@@ -45,32 +51,23 @@ function moo_menu_achievements(_menu_object): moo_menu_base(_menu_object) constr
 		menu.revert_state();
 	}
 	
-	step = function() {
-		if(is_undefined(min_scroll)) {
-			return;
+	get_scroll_value = function() {
+		if(is_undefined(scrollbar)) {
+			return 0;
 		}
 		
-		if(keyboard_check_released(vk_down) || mouse_wheel_down()) {
-			scroll_value -= 1;
-		}
-		
-		if(keyboard_check_released(vk_up) || mouse_wheel_up()) {
-			scroll_value += 1;
-		}
-		
-		scroll_value = clamp(scroll_value, min_scroll, 0);
+		return -scrollbar.value;
 	}
 	
 	draw = function() {
-		// draw_sprite_part
 		draw_rectangle_color(0, 0, MOO_MENU_WIDTH, MOO_MENU_HEIGHT, c_blue, c_blue, c_blue, c_blue, 0);
 		
 		draw_set_font(MOO_FONT.achievement);
 		
 		var _image_width = 32 + 8;
-		var _text_width = MOO_TV_WIDTH - MOO_TV_PADDING * 2 - _image_width;
+		var _text_width = MOO_TV_WIDTH - MOO_TV_PADDING * 2 - _image_width - 24;
 		var _line_height = string_height("F");
-		var _vertical_offset = scroll_value * _line_height;
+		var _vertical_offset = get_scroll_value() * _line_height;
 		var _viewport_height = (MOO_TV_END_Y - 44) - MOO_TV_CONTENT_Y;
 		
 		for(var _i = 0; _i < array_length(current_achievements); _i++) {
@@ -104,39 +101,22 @@ function moo_menu_achievements(_menu_object): moo_menu_base(_menu_object) constr
 		draw_rectangle_color(0, MOO_TV_CONTENT_Y + _viewport_height, MOO_MENU_WIDTH, MOO_TV_END_Y, c_blue, c_blue, c_blue, c_blue, 0);
 		draw_title("Achievements");
 
-		if(is_undefined(min_scroll)) {
+		if(!calculated_values) {
 			min_scroll = -round((_vertical_offset - _viewport_height) / _line_height);
-			show_debug_message(min_scroll);
+			lines_total = round(_vertical_offset / _line_height);
+			lines_visible = round(_viewport_height / _line_height);
+			calculated_values = true;
+			
+			if(lines_visible < lines_total) {
+				scrollbar = ui_group.vertical_scrollbar(MOO_TV_END_X - MOO_TV_PADDING - 16, MOO_TV_CONTENT_Y, function() {}, {
+					value: 0,
+					height: _viewport_height,
+					value_total: lines_total,
+					value_visible: lines_visible
+				});
+			}
 		}
 		
 		ui_group.draw();
-
-		/*var _padding = 10;
-		var _spacing = 4;
-		var _cell_height = 74;
-		
-		draw_sprite(spr_moo_dark_noise, 0, 0, 0);
-		
-		for(var _i = 0; _i < array_length(current_achievements); _i++) {
-			var _achievement = current_achievements[_i];
-
-			var _background_color = _achievement.unlocked ? c_white : c_black;
-			var _text_color = _achievement.unlocked ? c_black: c_white;
-			
-			var _vertical_offset = (_spacing + _cell_height) * _i;
-			
-			var _panel_x_start = menu.tv_screen_x_start + _padding;
-			var _panel_y_start = menu.tv_screen_y_start + _padding + _vertical_offset;
-			var _panel_x_end = menu.tv_screen_x_end - _padding;
-			var _panel_y_end = menu.tv_screen_y_start + _padding + _cell_height + _vertical_offset;
-			
-			draw_rectangle_color(_panel_x_start, _panel_y_start, _panel_x_end, _panel_y_end, _background_color, _background_color, _background_color, _background_color, false);
-			draw_sprite_ext(_achievement.image, 0, _panel_x_start + 5, _panel_y_start + 5, 0.5, 0.5, 0, c_white, 1);
-	
-			draw_set_color(_text_color);
-			draw_text(_panel_x_start + 32 + _padding, _panel_y_start + 5, _achievement.name);
-			draw_text(_panel_x_start + 32 + _padding, _panel_y_start + 25, _achievement.description);
-			draw_set_color(c_white);
-		}*/
 	}
 }

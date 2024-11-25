@@ -40,6 +40,18 @@ function moo_service_ui(_parent = undefined) constructor {
 		return _button;
 	}
 	
+	function vertical_scrollbar(_x, _y, _action = undefined, _var_struct = {}) {
+		var _scrollbar = instance_create_layer(_x, _y, "Instances", obj_moo_vertical_scroll, _var_struct);
+		
+		if(_action != undefined) {
+			_scrollbar.changed = _action;
+		}
+		
+		array_push(ui_elements, _scrollbar);
+		
+		return _scrollbar;
+	}
+	
 	function show_transition_behind_ui(_instance, _on_destroy = function() {}) {
 		transition_behind_ui.show_transition(_instance, _on_destroy);
 	}

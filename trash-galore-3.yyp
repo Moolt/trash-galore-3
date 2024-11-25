@@ -68,6 +68,7 @@
     {"id":{"name":"obj_moo_transition_colors","path":"objects/obj_moo_transition_colors/obj_moo_transition_colors.yy",},},
     {"id":{"name":"obj_moo_transition_noise","path":"objects/obj_moo_transition_noise/obj_moo_transition_noise.yy",},},
     {"id":{"name":"obj_moo_transition_switch_off","path":"objects/obj_moo_transition_switch_off/obj_moo_transition_switch_off.yy",},},
+    {"id":{"name":"obj_moo_vertical_scroll","path":"objects/obj_moo_vertical_scroll/obj_moo_vertical_scroll.yy",},},
     {"id":{"name":"room_moo_game_00","path":"rooms/room_moo_game_00/room_moo_game_00.yy",},},
     {"id":{"name":"room_moo_game_01","path":"rooms/room_moo_game_01/room_moo_game_01.yy",},},
     {"id":{"name":"room_moo_game_02","path":"rooms/room_moo_game_02/room_moo_game_02.yy",},},
