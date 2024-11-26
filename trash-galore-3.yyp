@@ -3,8 +3,6 @@
   "%Name":"trash-galore-3",
   "AudioGroups":[
     {"$GMAudioGroup":"","%Name":"audiogroup_default","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
-    {"$GMAudioGroup":"","%Name":"audio_music","name":"audio_music","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
-    {"$GMAudioGroup":"","%Name":"audio_sounds","name":"audio_sounds","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
   ],
   "configs":{
     "children":[],
@@ -30,6 +28,7 @@
     {"$GMFolder":"","%Name":"Scripts","folderPath":"folders/Scripts.yy","name":"Scripts","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Menus","folderPath":"folders/Scripts/Menus.yy","name":"Menus","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Services","folderPath":"folders/Scripts/Services.yy","name":"Services","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Utils","folderPath":"folders/Scripts/Utils.yy","name":"Utils","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Sequences","folderPath":"folders/Sequences.yy","name":"Sequences","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Shaders","folderPath":"folders/Shaders.yy","name":"Shaders","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Sounds","folderPath":"folders/Sounds.yy","name":"Sounds","resourceType":"GMFolder","resourceVersion":"2.0",},
@@ -52,7 +51,6 @@
   "resources":[
     {"id":{"name":"obj_moo_achievement_container","path":"objects/obj_moo_achievement_container/obj_moo_achievement_container.yy",},},
     {"id":{"name":"obj_moo_achievement","path":"objects/obj_moo_achievement/obj_moo_achievement.yy",},},
-    {"id":{"name":"obj_moo_audio_loader","path":"objects/obj_moo_audio_loader/obj_moo_audio_loader.yy",},},
     {"id":{"name":"obj_moo_audio_music","path":"objects/obj_moo_audio_music/obj_moo_audio_music.yy",},},
     {"id":{"name":"obj_moo_button_option","path":"objects/obj_moo_button_option/obj_moo_button_option.yy",},},
     {"id":{"name":"obj_moo_button_select_base","path":"objects/obj_moo_button_select_base/obj_moo_button_select_base.yy",},},
@@ -89,6 +87,7 @@
     {"id":{"name":"scr_moo_service_screen","path":"scripts/scr_moo_service_screen/scr_moo_service_screen.yy",},},
     {"id":{"name":"scr_moo_service_settings","path":"scripts/scr_moo_service_settings/scr_moo_service_settings.yy",},},
     {"id":{"name":"scr_moo_service_ui","path":"scripts/scr_moo_service_ui/scr_moo_service_ui.yy",},},
+    {"id":{"name":"scr_moo_sound_manager","path":"scripts/scr_moo_sound_manager/scr_moo_sound_manager.yy",},},
     {"id":{"name":"scr_moo_utils","path":"scripts/scr_moo_utils/scr_moo_utils.yy",},},
     {"id":{"name":"snd_moo_bgm","path":"sounds/snd_moo_bgm/snd_moo_bgm.yy",},},
     {"id":{"name":"snd_moo_music","path":"sounds/snd_moo_music/snd_moo_music.yy",},},

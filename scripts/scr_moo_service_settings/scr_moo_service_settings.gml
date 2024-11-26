@@ -13,11 +13,11 @@ function moo_service_settings() constructor {
 	}
 	
 	set_music_volume = function(_value) {
-		audio_group_set_gain(audio_music, _value, 0);
+		MOO_AUDIO.sound_manager_music.set_gain(_value);
 	}
 	
 	set_sounds_volume = function(_value) {
-		audio_group_set_gain(audio_sounds, _value, 0);
+		MOO_AUDIO.sound_manager_sounds.set_gain(_value);
 	}
 	
 	settings = ds_map_create();

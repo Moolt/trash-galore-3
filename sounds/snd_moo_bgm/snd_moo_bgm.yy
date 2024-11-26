@@ -2,8 +2,8 @@
   "$GMSound":"",
   "%Name":"snd_moo_bgm",
   "audioGroupId":{
-    "name":"audio_music",
-    "path":"audiogroups/audio_music",
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
   },
   "bitDepth":1,
   "bitRate":128,

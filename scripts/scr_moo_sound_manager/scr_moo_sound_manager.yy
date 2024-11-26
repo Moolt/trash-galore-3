@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_moo_file_handling",
+  "%Name":"scr_moo_sound_manager",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_moo_file_handling",
+  "name":"scr_moo_sound_manager",
   "parent":{
     "name":"Utils",
     "path":"folders/Scripts/Utils.yy",
