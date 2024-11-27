@@ -52,7 +52,7 @@ button_action_internal = function(_this) {
 }
 
 function is_hovering() {
-	return point_in_rectangle(mouse_x, mouse_y, button_start_x, button_start_y, button_end_x, button_end_y)
+	return point_in_rectangle(MOO_MOUSE_X, MOO_MOUSE_Y, button_start_x, button_start_y, button_end_x, button_end_y)
 }
 
 function draw() {

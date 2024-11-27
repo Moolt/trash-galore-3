@@ -33,7 +33,7 @@ set_value = function(_value) {
 }
 
 check_hovered = function() {
-	return mouse_x >= x && mouse_x <= (x + width) && mouse_y >= (y - scrollbar_offset) && mouse_y <= (y + scrollbar_height - scrollbar_offset);
+	return MOO_MOUSE_X >= x && MOO_MOUSE_X <= (x + width) && MOO_MOUSE_Y >= (y - scrollbar_offset) && MOO_MOUSE_Y <= (y + scrollbar_height - scrollbar_offset);
 }
 
 draw = function() {

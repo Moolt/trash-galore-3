@@ -8,7 +8,7 @@ if(API.action_check_released(INPUT_ACTION.UI_NAVIGATE_UP) || mouse_wheel_up()) {
 
 if(check_hovered() && mouse_check_button_pressed(mb_left)) {
 	dragging = true;
-	anchor_y = mouse_y;
+	anchor_y = MOO_MOUSE_Y;
 }
 
 if(dragging && mouse_check_button_released(mb_left)) {
@@ -16,8 +16,8 @@ if(dragging && mouse_check_button_released(mb_left)) {
 	anchor_y = -1;
 }
 
-if(dragging && abs(anchor_y - mouse_y) >= increment_height) {
-	var _offset = (anchor_y - mouse_y) < 0 ? 1 : -1;
+if(dragging && abs(anchor_y - MOO_MOUSE_Y) >= increment_height) {
+	var _offset = (anchor_y - MOO_MOUSE_Y) < 0 ? 1 : -1;
 	var _value_changed = set_value(value + _offset);
 	
 	if(_value_changed) {

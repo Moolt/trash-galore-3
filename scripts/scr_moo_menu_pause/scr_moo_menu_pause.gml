@@ -11,6 +11,9 @@ function moo_menu_pause(_menu_object): moo_menu_base(_menu_object) constructor {
 				_stack.button("Einstellungen", function() {
 					menu.set_state(LAUNCHER_STATE.SETTINGS);
 				});
+				_stack.button("Achievements", function() {
+					menu.set_state(LAUNCHER_STATE.ACHIEVEMENTS)
+				});
 				_stack.button("Hauptmenü", function() {
 					API.goto_main_menu();
 				});

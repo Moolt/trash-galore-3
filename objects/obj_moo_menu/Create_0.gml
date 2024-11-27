@@ -28,6 +28,9 @@
 #macro MOO_TV_PADDING 34
 #macro MOO_TV_SCALE 0.8219
 
+#macro MOO_MOUSE_X global.launcher.ui_mouse_x()
+#macro MOO_MOUSE_Y global.launcher.ui_mouse_y()
+
 function create_selection_handler() {
 	return instance_create_layer(0, 0, layer, obj_moo_selection_controller);
 }
@@ -73,6 +76,7 @@ selected_index = 0; // Index of game
 
 state_stack = ds_stack_create();
 state = undefined;
+paused = false;
 
 menu_handlers = ds_map_create();
 menu_handlers[? LAUNCHER_STATE.MAIN] = new moo_menu_main(self);
@@ -98,6 +102,7 @@ function set_state(_new_state, _put_on_stack = true) {
 	}
 	
 	state = _new_state;
+	set_paused(state == LAUNCHER_STATE.PAUSE);
 	
 	menu_handler = menu_handlers[? state];
 	menu_handler.on_state_changed(_new_state);
@@ -117,6 +122,67 @@ function pop_to_state(_new_state) {
 	while(state != _new_state && ds_stack_size(state_stack) > 0) {
 		revert_state();
 	}
+}
+
+// TODO: In sowas wie pause manager auslagern
+function set_paused(_is_paused) {
+	if(_is_paused == paused) {
+		return;
+	}
+	
+	paused = _is_paused;
+	
+	if(paused) {
+		pause();
+	} else {
+		unpause();
+	}
+}
+
+function get_current_surface_settings() {
+	return {
+		surface_width: surface_get_width(application_surface),
+		surface_height: surface_get_height(application_surface),
+		gui_size_width: display_get_gui_width(),
+		gui_size_height: display_get_gui_height(),
+		texfilter: gpu_get_tex_filter()
+	};
+}
+
+function get_scaled_mouse_x() {
+	var _x_scale = MOO_MENU_WIDTH / surface_get_width(application_surface);
+	return mouse_x * _x_scale;
+}
+
+function get_scaled_mouse_y() {
+	var _y_scale = MOO_MENU_HEIGHT / surface_get_height(application_surface);
+	return mouse_y * _y_scale;
+}
+
+global.launcher.ui_mouse_x = get_scaled_mouse_x;
+global.launcher.ui_mouse_y = get_scaled_mouse_y;
+
+function apply_surface_settings(_settings) {
+	//surface_resize(application_surface, _settings.surface_width, _settings.surface_height);
+	display_set_gui_size(_settings.gui_size_width, _settings.gui_size_height);
+	gpu_set_texfilter(_settings.texfilter);
+}
+
+var _game_surface_settings = get_current_surface_settings();
+
+function pause() {
+	_game_surface_settings = get_current_surface_settings();
+	apply_surface_settings({
+		surface_width: MOO_MENU_WIDTH,
+		surface_height: MOO_MENU_HEIGHT,
+		gui_size_width: MOO_MENU_WIDTH,
+		gui_size_height: MOO_MENU_HEIGHT,
+		texfilter: false
+	});
+}
+
+function unpause() {
+	apply_surface_settings(_game_surface_settings);
 }
 
 set_state(LAUNCHER_STATE.MAIN);

@@ -53,7 +53,7 @@ function is_interactable_hovered(_interactable) {
 	var _from_y = button_start_y;
 	var _to_y = button_end_y;
 	
-	return point_in_rectangle(mouse_x, mouse_y, _from_x, _from_y, _to_x, _to_y);
+	return point_in_rectangle(MOO_MOUSE_X, MOO_MOUSE_Y, _from_x, _from_y, _to_x, _to_y);
 }
 
 selected_interactable = undefined;
