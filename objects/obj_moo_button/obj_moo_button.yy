@@ -16,7 +16,7 @@
     "name":"obj_moo_selectable",
     "path":"objects/obj_moo_selectable/obj_moo_selectable.yy",
   },
-  "persistent":false,
+  "persistent":true,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
   "physicsFriction":0.2,

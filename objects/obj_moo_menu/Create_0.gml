@@ -65,7 +65,8 @@ enum LAUNCHER_STATE {
 	GAME_SELECTION,
 	ACHIEVEMENTS,
 	DETAILS,
-	IN_GAME
+	IN_GAME,
+	PAUSE
 }
 
 selected_index = 0; // Index of game
@@ -79,6 +80,7 @@ menu_handlers[? LAUNCHER_STATE.SETTINGS] = new moo_menu_settings(self);
 menu_handlers[? LAUNCHER_STATE.GAME_SELECTION] = new moo_menu_game_selection(self);
 menu_handlers[? LAUNCHER_STATE.IN_GAME] = new moo_menu_in_game(self);
 menu_handlers[? LAUNCHER_STATE.ACHIEVEMENTS] = new moo_menu_achievements(self);
+menu_handlers[? LAUNCHER_STATE.PAUSE] = new moo_menu_pause(self);
 
 menu_handler = undefined;
 
@@ -109,6 +111,12 @@ function revert_state() {
 	
 	var _previous_state = ds_stack_pop(state_stack);
 	set_state(_previous_state, false);
+}
+
+function pop_to_state(_new_state) {
+	while(state != _new_state && ds_stack_size(state_stack) > 0) {
+		revert_state();
+	}
 }
 
 set_state(LAUNCHER_STATE.MAIN);

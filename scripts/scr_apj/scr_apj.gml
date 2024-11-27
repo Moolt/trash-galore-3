@@ -8,6 +8,7 @@
 
 function _api_implementation() : _api_base() constructor {
 	function goto_main_menu() {
+		obj_moo_menu.pop_to_state(LAUNCHER_STATE.GAME_SELECTION);
 		room_goto(asset_get_index("room_moo_main"));
 	}
 	

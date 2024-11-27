@@ -15,7 +15,7 @@
     "name":"obj_moo_button_select_base",
     "path":"objects/obj_moo_button_select_base/obj_moo_button_select_base.yy",
   },
-  "persistent":false,
+  "persistent":true,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
   "physicsFriction":0.2,
