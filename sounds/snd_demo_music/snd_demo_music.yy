@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_demo_music",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":48.744373,
+  "name":"snd_demo_music",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Demo/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_demo_music.mp3",
+  "type":0,
+  "volume":1.0,
+}

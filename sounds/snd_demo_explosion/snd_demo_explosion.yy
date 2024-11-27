@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_demo_explosion",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":0,
+  "conversionMode":0,
+  "duration":0.911655,
+  "name":"snd_demo_explosion",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Demo/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_demo_explosion.wav",
+  "type":0,
+  "volume":1.0,
+}

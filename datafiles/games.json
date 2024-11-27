@@ -1,6 +1,27 @@
 {
   "games": [
     {
+      "name": "Space Rocks",
+      "author": "Moolt",
+      "description": "Schieße auf Steine im Weltall und mache ganz viel Highscore Punkte!",
+      "start_room": "room_demo_space_rocks",
+      "images": ["spr_demo_thumbnail"],
+      "achievements": [
+          {
+            "id": "sr_demo_loser",
+            "name": "Loser",
+            "description": "Sterbe ohne Punkte",
+            "image": "spr_demo_loser"
+          },
+          {
+            "id": "sr_demo_winner",
+            "name": "Winner",
+            "description": "Mache 500 Punkte",
+            "image": "spr_demo_winner"
+          }
+        ]
+    },
+    {
       "name": "Pixel Art Top Down - Basic",
       "author": "Cainos",
       "description": "Files contain a Unity package and extracted textures for use in other engines.",
