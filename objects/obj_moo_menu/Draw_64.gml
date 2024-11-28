@@ -1,4 +1,4 @@
-menu_handler.draw();
+menu_handler.draw_gui();
 
 if(state != LAUNCHER_STATE.IN_GAME) {
 	draw_sprite(spr_moo_menu_grid, 0, 0, 0);

@@ -59,7 +59,7 @@ function moo_menu_achievements(_menu_object): moo_menu_base(_menu_object) constr
 		return -scrollbar.value;
 	}
 	
-	draw = function() {
+	draw_gui = function() {
 		draw_rectangle_color(0, 0, MOO_MENU_WIDTH, MOO_MENU_HEIGHT, c_blue, c_blue, c_blue, c_blue, 0);
 		
 		draw_set_font(MOO_FONT.achievement);

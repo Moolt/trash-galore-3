@@ -2,7 +2,6 @@ function moo_service_pause() constructor {
 	deactivated_instances = [];
 	
 	function pause_instances() {
-		
 	    var _all_instances = moo_instances_find_all();
 
 	    for (var _i = 0; _i < array_length(_all_instances); _i++) {

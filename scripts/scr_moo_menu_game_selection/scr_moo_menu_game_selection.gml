@@ -56,7 +56,7 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 		}
 	}
 	
-	draw = function() {
+	draw_gui = function() {
 		var _game = MOO_GAMES.find_at_position(menu.selected_index);
 		
 		var _thumbnail = _game.images[0];

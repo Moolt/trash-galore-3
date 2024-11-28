@@ -13,6 +13,9 @@ function moo_menu_base(_menu_object) constructor {
 	draw = function() {
 	}
 	
+	draw_gui = function() {
+	}
+	
 	on_escape = function() {
 	}
 	
