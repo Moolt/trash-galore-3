@@ -7,6 +7,7 @@
 #macro MOO_SETTINGS global.launcher.settings
 #macro MOO_FONT global.launcher.font
 #macro MOO_SCREEN global.launcher.screen
+#macro MOO_PAUSE global.launcher.pause
 
 #macro MOO_MENU_WIDTH 640
 #macro MOO_MENU_HEIGHT 360
@@ -39,6 +40,7 @@ if(global[$ "launcher"] == undefined) {
 	global.launcher = {};
 }
 
+global.launcher.pause = new moo_service_pause();
 global.launcher.persist = new moo_service_persistence();
 global.launcher.games = new moo_service_games();
 global.launcher.achievements = new moo_service_achievements();
@@ -102,11 +104,45 @@ function set_state(_new_state, _put_on_stack = true) {
 	}
 	
 	state = _new_state;
-	set_paused(state == LAUNCHER_STATE.PAUSE);
+	evaluate_paused();
 	
 	menu_handler = menu_handlers[? state];
 	menu_handler.on_state_changed(_new_state);
 	menu_handler.on_show();
+}
+
+function evaluate_paused() {
+	if(paused == is_paused()) {
+		return;
+	}
+	
+	paused = !paused;
+	
+	if(paused) {
+		pause();
+	} else {
+		unpause();
+	}
+}
+
+function is_paused() {
+	if(state == LAUNCHER_STATE.PAUSE) {
+		return true;
+	}
+	
+	var _states = ds_stack_create();
+	ds_stack_copy(_states, state_stack);
+	
+	while(!ds_stack_empty(_states)) {
+		var _state = ds_stack_pop(_states);
+		
+		if(_state == LAUNCHER_STATE.PAUSE) {
+			return true;
+		}
+	}
+	
+	ds_stack_destroy(_states);
+	return false;
 }
 
 function revert_state() {
@@ -125,19 +161,6 @@ function pop_to_state(_new_state) {
 }
 
 // TODO: In sowas wie pause manager auslagern
-function set_paused(_is_paused) {
-	if(_is_paused == paused) {
-		return;
-	}
-	
-	paused = _is_paused;
-	
-	if(paused) {
-		pause();
-	} else {
-		unpause();
-	}
-}
 
 function get_current_surface_settings() {
 	return {
@@ -179,10 +202,13 @@ function pause() {
 		gui_size_height: MOO_MENU_HEIGHT,
 		texfilter: false
 	});
+	
+	MOO_PAUSE.pause_instances();
 }
 
 function unpause() {
 	apply_surface_settings(_game_surface_settings);
+	MOO_PAUSE.unpause_instances();
 }
 
 set_state(LAUNCHER_STATE.MAIN);

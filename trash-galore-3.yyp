@@ -93,6 +93,7 @@
     {"id":{"name":"scr_moo_service_achievements","path":"scripts/scr_moo_service_achievements/scr_moo_service_achievements.yy",},},
     {"id":{"name":"scr_moo_service_audio","path":"scripts/scr_moo_service_audio/scr_moo_service_audio.yy",},},
     {"id":{"name":"scr_moo_service_games","path":"scripts/scr_moo_service_games/scr_moo_service_games.yy",},},
+    {"id":{"name":"scr_moo_service_pause","path":"scripts/scr_moo_service_pause/scr_moo_service_pause.yy",},},
     {"id":{"name":"scr_moo_service_persistence","path":"scripts/scr_moo_service_persistence/scr_moo_service_persistence.yy",},},
     {"id":{"name":"scr_moo_service_screen","path":"scripts/scr_moo_service_screen/scr_moo_service_screen.yy",},},
     {"id":{"name":"scr_moo_service_settings","path":"scripts/scr_moo_service_settings/scr_moo_service_settings.yy",},},
