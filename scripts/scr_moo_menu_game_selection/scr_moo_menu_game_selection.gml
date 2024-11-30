@@ -10,7 +10,7 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 				});
 				
 				_stack.button("Beschreibung", function() {
-					offset_game_selection(-1);
+					menu.set_state(LAUNCHER_STATE.DESCRIPTION);
 				});
 				_stack.button("Achievements", function() {
 					menu.set_state(LAUNCHER_STATE.ACHIEVEMENTS)
@@ -60,11 +60,7 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 		var _game = MOO_GAMES.find_at_position(menu.selected_index);
 		
 		var _thumbnail = _game.images[0];
-		draw_sprite_ext(_thumbnail, 0, MOO_TV_START_X, MOO_TV_START_Y, MOO_TV_SCALE, MOO_TV_SCALE, 0, c_white, 1);
-		
-		draw_set_alpha(0.3);
-		draw_rectangle_color(0, 0, MOO_MENU_WIDTH, MOO_MENU_HEIGHT, c_black, c_black, c_black, c_black, 0);
-		draw_set_alpha(1);
+		draw_sprite_ext(_thumbnail, 0, MOO_TV_START_X, MOO_TV_START_Y, MOO_TV_SCALE, MOO_TV_SCALE, 0, c_gray, 1);
 		
 		MOO_UI.draw();
 		draw_title(_game.name);

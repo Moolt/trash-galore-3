@@ -88,6 +88,7 @@
     {"id":{"name":"scr_moo_idle","path":"scripts/scr_moo_idle/scr_moo_idle.yy",},},
     {"id":{"name":"scr_moo_menu_achievements","path":"scripts/scr_moo_menu_achievements/scr_moo_menu_achievements.yy",},},
     {"id":{"name":"scr_moo_menu_base","path":"scripts/scr_moo_menu_base/scr_moo_menu_base.yy",},},
+    {"id":{"name":"scr_moo_menu_description","path":"scripts/scr_moo_menu_description/scr_moo_menu_description.yy",},},
     {"id":{"name":"scr_moo_menu_game_selection","path":"scripts/scr_moo_menu_game_selection/scr_moo_menu_game_selection.yy",},},
     {"id":{"name":"scr_moo_menu_idle","path":"scripts/scr_moo_menu_idle/scr_moo_menu_idle.yy",},},
     {"id":{"name":"scr_moo_menu_in_game","path":"scripts/scr_moo_menu_in_game/scr_moo_menu_in_game.yy",},},
