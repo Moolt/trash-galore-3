@@ -14,11 +14,7 @@ function moo_menu_achievements(_menu_object): moo_menu_base(_menu_object) constr
 	ui_group = MOO_UI.group();
 	back_button = undefined;
 	
-	on_state_changed = function(_new_state) {
-		if(_new_state != LAUNCHER_STATE.ACHIEVEMENTS) {
-			return;
-		}
-		
+	on_show = function() {
 		ui_group = MOO_UI.group(function(_group) {
 			_group.stack(MOO_TV_CENTER_X, MOO_TV_END_Y - 45, function(_stack) {
 				back_button = _stack.button("Zurück", function() {

@@ -14,3 +14,14 @@ function moo_instances_find_all() {
 	
 	return _all_instances;
 }
+
+function moo_destroy_instances_without_prefix(_prefix) {
+	var _all_instances = moo_instances_find_all();
+
+	for (var _i = 0; _i < array_length(_all_instances); _i++) {
+	    var _instance = _all_instances[_i];
+	    if (!string_starts_with(object_get_name(_instance.object_index), _prefix)) {
+	        instance_destroy(_instance);
+	    }
+	}
+}

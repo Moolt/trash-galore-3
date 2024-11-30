@@ -57,6 +57,7 @@
     {"id":{"name":"obj_demo_game","path":"objects/obj_demo_game/obj_demo_game.yy",},},
     {"id":{"name":"obj_demo_player","path":"objects/obj_demo_player/obj_demo_player.yy",},},
     {"id":{"name":"obj_demo_rock_big","path":"objects/obj_demo_rock_big/obj_demo_rock_big.yy",},},
+    {"id":{"name":"obj_foo_moo_persistent_test","path":"objects/obj_foo_moo_persistent_test/obj_foo_moo_persistent_test.yy",},},
     {"id":{"name":"obj_moo_achievement_container","path":"objects/obj_moo_achievement_container/obj_moo_achievement_container.yy",},},
     {"id":{"name":"obj_moo_achievement","path":"objects/obj_moo_achievement/obj_moo_achievement.yy",},},
     {"id":{"name":"obj_moo_audio_music","path":"objects/obj_moo_audio_music/obj_moo_audio_music.yy",},},

@@ -80,7 +80,6 @@ selected_index = 0; // Index of game
 
 state_stack = ds_stack_create();
 state = undefined;
-paused = false;
 
 menu_handlers = ds_map_create();
 menu_handlers[? LAUNCHER_STATE.MAIN] = new moo_menu_main(self);
@@ -99,38 +98,36 @@ function set_state(_new_state, _put_on_stack = true) {
 		menu_handler = menu_handlers[? LAUNCHER_STATE.MAIN];
 	}
 	else {
-		menu_handler.on_state_will_change(_new_state);
+		menu_handler.on_state_will_change(_new_state);  // inform previous menu handler
 		menu_handler.on_hide();
+		
+		var _next_handler = menu_handlers[? _new_state]; // inform current menu handler
+		_next_handler.on_state_will_change(_new_state);
 	}
 	
 	if(_put_on_stack) {
 		ds_stack_push(state_stack, state);
 	}
 	
+	menu_handler.on_state_changed(state); // inform previous menu handler
 	state = _new_state;
-	evaluate_paused();
 	
 	menu_handler = menu_handlers[? state];
-	menu_handler.on_state_changed(_new_state);
+	menu_handler.on_state_changed(_new_state); // inform current menu handler
+	
 	menu_handler.on_show();
 }
 
-function evaluate_paused() {
-	if(paused == is_paused()) {
-		return;
-	}
-	
-	paused = !paused;
-	
-	if(paused) {
-		pause();
-	} else {
-		unpause();
-	}
+function is_paused() {
+	return is_state_in_stack(LAUNCHER_STATE.PAUSE);
 }
 
-function is_paused() {
-	if(state == LAUNCHER_STATE.PAUSE) {
+function is_in_game() {
+	return is_state_in_stack(LAUNCHER_STATE.IN_GAME);
+}
+
+function is_state_in_stack(_state_to_check) {
+	if(state == _state_to_check) {
 		return true;
 	}
 	
@@ -140,7 +137,7 @@ function is_paused() {
 	while(!ds_stack_empty(_states)) {
 		var _state = ds_stack_pop(_states);
 		
-		if(_state == LAUNCHER_STATE.PAUSE) {
+		if(_state == _state_to_check) {
 			return true;
 		}
 	}
@@ -164,18 +161,6 @@ function pop_to_state(_new_state) {
 	}
 }
 
-// TODO: In sowas wie pause manager auslagern
-
-function get_current_surface_settings() {
-	return {
-		surface_width: surface_get_width(application_surface),
-		surface_height: surface_get_height(application_surface),
-		gui_size_width: display_get_gui_width(),
-		gui_size_height: display_get_gui_height(),
-		texfilter: gpu_get_tex_filter()
-	};
-}
-
 function get_scaled_mouse_x() {
 	var _x_scale = MOO_MENU_WIDTH / surface_get_width(application_surface);
 	return mouse_x * _x_scale;
@@ -188,31 +173,5 @@ function get_scaled_mouse_y() {
 
 global.launcher.ui_mouse_x = get_scaled_mouse_x;
 global.launcher.ui_mouse_y = get_scaled_mouse_y;
-
-function apply_surface_settings(_settings) {
-	//surface_resize(application_surface, _settings.surface_width, _settings.surface_height);
-	display_set_gui_size(_settings.gui_size_width, _settings.gui_size_height);
-	gpu_set_texfilter(_settings.texfilter);
-}
-
-var _game_surface_settings = get_current_surface_settings();
-
-function pause() {
-	_game_surface_settings = get_current_surface_settings();
-	apply_surface_settings({
-		surface_width: MOO_MENU_WIDTH,
-		surface_height: MOO_MENU_HEIGHT,
-		gui_size_width: MOO_MENU_WIDTH,
-		gui_size_height: MOO_MENU_HEIGHT,
-		texfilter: false
-	});
-	
-	MOO_PAUSE.pause_instances();
-}
-
-function unpause() {
-	apply_surface_settings(_game_surface_settings);
-	MOO_PAUSE.unpause_instances();
-}
 
 set_state(LAUNCHER_STATE.MAIN);

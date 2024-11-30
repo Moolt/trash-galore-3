@@ -4,17 +4,20 @@ function moo_menu_pause(_menu_object): moo_menu_base(_menu_object) constructor {
 	game_surface = -1;
 	game_surface_buffer = -1;
 	
-	on_state_will_change = function(_new_state) {
-		if(_new_state != LAUNCHER_STATE.IN_GAME && _new_state != LAUNCHER_STATE.GAME_SELECTION) {
-			return;
+	on_state_changed = function(_new_state) {
+		if(!menu.is_in_game()) {
+			MOO_PAUSE.destroy_paused_instances();
 		}
 		
-		if(!buffer_exists(game_surface_buffer)) {
+		if(menu.is_paused() == MOO_PAUSE.is_paused()) {
 			return;
 		}
-		
-		buffer_delete(game_surface_buffer);
-		game_surface_buffer = -1;
+	
+		if(menu.is_paused()) {
+			MOO_PAUSE.pause();
+		} else {
+			MOO_PAUSE.unpause();
+		}
 	}
 	
 	on_show = function() {
@@ -41,6 +44,20 @@ function moo_menu_pause(_menu_object): moo_menu_base(_menu_object) constructor {
 		});
 	}
 	
+	on_hide = function() {
+		ui_group.destroy();
+		
+		if(buffer_exists(game_surface_buffer)) {
+			buffer_delete(game_surface_buffer);
+			game_surface_buffer = -1;
+		}
+		
+		if(surface_exists(game_surface)) {
+			surface_free(game_surface);
+			game_surface = -1;
+		}
+	}
+	
 	capture_game_surface = function() {
 		if(game_surface_buffer != -1) {
 			return;
@@ -61,21 +78,6 @@ function moo_menu_pause(_menu_object): moo_menu_base(_menu_object) constructor {
 		}
 
 		draw_surface(game_surface, 0, 0);
-	}
-	
-	on_hide = function() {
-		ui_group.destroy();
-		
-		surface_free(game_surface);
-		game_surface = -1;
-	}
-	
-	step = function() {
-		if(!surface_exists(game_surface) && surface_exists(application_surface)) {
-			MOO_PAUSE.unpause_instances();
-			capture_game_surface();
-			MOO_PAUSE.pause_instances();
-		}
 	}
 	
 	draw = function() {

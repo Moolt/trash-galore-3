@@ -14,7 +14,7 @@ function moo_menu_description(_menu_object): moo_menu_base(_menu_object) constru
 	ui_group = MOO_UI.group();
 	back_button = undefined;
 	
-	on_state_changed = function(_new_state) {
+	on_show = function(_new_state) {
 		ui_group = MOO_UI.group(function(_group) {
 			_group.stack(MOO_TV_CENTER_X, MOO_TV_END_Y - 45, function(_stack) {
 				back_button = _stack.button("Zurück", function() {
