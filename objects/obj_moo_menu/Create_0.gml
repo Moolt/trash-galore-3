@@ -71,7 +71,8 @@ enum LAUNCHER_STATE {
 	ACHIEVEMENTS,
 	DETAILS,
 	IN_GAME,
-	PAUSE
+	PAUSE,
+	IDLE
 }
 
 selected_index = 0; // Index of game
@@ -87,6 +88,7 @@ menu_handlers[? LAUNCHER_STATE.GAME_SELECTION] = new moo_menu_game_selection(sel
 menu_handlers[? LAUNCHER_STATE.IN_GAME] = new moo_menu_in_game(self);
 menu_handlers[? LAUNCHER_STATE.ACHIEVEMENTS] = new moo_menu_achievements(self);
 menu_handlers[? LAUNCHER_STATE.PAUSE] = new moo_menu_pause(self);
+menu_handlers[? LAUNCHER_STATE.IDLE] = new moo_menu_idle(self);
 
 menu_handler = undefined;
 

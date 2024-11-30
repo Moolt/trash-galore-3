@@ -44,4 +44,8 @@ function moo_menu_base(_menu_object) constructor {
 		draw_centered_text(_title_text, MOO_TV_TITLE_BASELINE_Y, _scale);
 		draw_set_font(-1);
 	}
+	
+	is_showing = function() {
+		return menu.menu_handler == self;
+	}
 }
