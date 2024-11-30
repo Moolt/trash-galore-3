@@ -1,1 +1,1 @@
-API.play_music(snd_moo_bgm);
+API.play_music(snd_moo_bgm, 1, true);

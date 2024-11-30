@@ -77,15 +77,13 @@ function moo_menu_achievements(_menu_object): moo_menu_base(_menu_object) constr
 
 			var _panel_x_start = MOO_TV_START_X + MOO_TV_PADDING;
 			var _panel_y_start = MOO_TV_CONTENT_Y + _vertical_offset;
-			//var _panel_x_end = MOO_TV_END_X - MOO_TV_PADDING;
-			//var _panel_y_end = menu.tv_screen_y_start + _padding + _cell_height + _vertical_offset;
 			
 			if(_achievement.unlocked) {
 				draw_sprite(spr_moo_achievement_unlocked, 0, _panel_x_start, _panel_y_start + 2);
-				draw_sprite_ext(spr_moo_achievement_locked_sample, 0, _panel_x_start, _panel_y_start + 2, 1, 1, 0, c_blue, 1);
+				draw_sprite_ext(_achievement.image, 0, _panel_x_start, _panel_y_start + 2, 1, 1, 0, c_blue, 1);
 			} else {
 				draw_sprite(spr_moo_achievement_locked, 0, _panel_x_start, _panel_y_start + 2);
-				draw_sprite(spr_moo_achievement_locked_sample, 0, _panel_x_start, _panel_y_start + 2);
+				draw_sprite(_achievement.image, 0, _panel_x_start, _panel_y_start + 2);
 			}
 			
 			draw_set_color(c_white);

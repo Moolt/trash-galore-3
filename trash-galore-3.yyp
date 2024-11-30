@@ -118,8 +118,6 @@
     {"id":{"name":"spr_demo_thumbnail","path":"sprites/spr_demo_thumbnail/spr_demo_thumbnail.yy",},},
     {"id":{"name":"spr_demo_winner","path":"sprites/spr_demo_winner/spr_demo_winner.yy",},},
     {"id":{"name":"spr_moo_achievement_icon_default","path":"sprites/spr_moo_achievement_icon_default/spr_moo_achievement_icon_default.yy",},},
-    {"id":{"name":"spr_moo_achievement_icon_paint","path":"sprites/spr_moo_achievement_icon_paint/spr_moo_achievement_icon_paint.yy",},},
-    {"id":{"name":"spr_moo_achievement_locked_sample","path":"sprites/spr_moo_achievement_locked_sample/spr_moo_achievement_locked_sample.yy",},},
     {"id":{"name":"spr_moo_achievement_locked","path":"sprites/spr_moo_achievement_locked/spr_moo_achievement_locked.yy",},},
     {"id":{"name":"spr_moo_achievement_unlocked","path":"sprites/spr_moo_achievement_unlocked/spr_moo_achievement_unlocked.yy",},},
     {"id":{"name":"spr_moo_dark_noise","path":"sprites/spr_moo_dark_noise/spr_moo_dark_noise.yy",},},
