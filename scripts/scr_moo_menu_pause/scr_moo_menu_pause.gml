@@ -5,17 +5,37 @@ function moo_menu_pause(_menu_object): moo_menu_base(_menu_object) constructor {
 	game_surface_buffer = -1;
 	
 	on_state_changed = function(_new_state) {
+		handle_paused_state();
+		handle_surface_cleanup();
+	}
+	
+	handle_paused_state = function() {
 		if(menu.is_paused() == MOO_PAUSE.is_paused()) {
 			return;
 		}
 	
 		if(menu.is_paused()) {
-			show_debug_message("pause");
 			MOO_PAUSE.pause();
 		} else {
-			show_debug_message("unpause");
 			MOO_PAUSE.unpause();
 		}
+	}
+	
+	handle_surface_cleanup = function() {
+		if(menu.is_paused()) {
+			return;
+		}
+		
+		if(buffer_exists(game_surface_buffer)) {
+			buffer_delete(game_surface_buffer);
+		}
+		
+		if(surface_exists(game_surface)) {
+			surface_free(game_surface);
+		}
+		
+		game_surface_buffer = -1;
+		game_surface = -1;
 	}
 	
 	on_show = function() {
@@ -44,17 +64,6 @@ function moo_menu_pause(_menu_object): moo_menu_base(_menu_object) constructor {
 	
 	on_hide = function() {
 		ui_group.destroy();
-		
-		if(buffer_exists(game_surface_buffer)) {
-			buffer_delete(game_surface_buffer);
-		}
-		
-		if(surface_exists(game_surface)) {
-			surface_free(game_surface);
-		}
-		
-		game_surface_buffer = -1;
-		game_surface = -1;
 	}
 	
 	capture_game_surface = function() {

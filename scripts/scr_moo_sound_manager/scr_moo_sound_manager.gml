@@ -79,7 +79,6 @@ function moo_sound_manager() constructor {
     }
 	
 	function unpause_all() {
-		show_debug_message("unpause music");
 		if(array_length(paused_sounds) == 0) {
 			return;
 		}
