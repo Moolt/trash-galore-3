@@ -45,8 +45,38 @@ button_slider = function(_label, _action, _params = {}) {
 	return __button(_label, _action, obj_moo_button_slider, _params);
 }
 
-function draw() {
+draw = function() {
 	array_foreach(buttons, function(_button) {
 		_button.draw();
 	});
+}
+
+get_selected_index = function() {
+	for(var _i = 0; _i < array_length(buttons); _i++) {
+		if(buttons[_i].selected) {
+			return _i;
+		}
+	}
+	
+	return -1;
+}
+
+set_selected_index = function(_index) {
+	if(_index == -1 || _index >= array_length(buttons)) {
+		return;
+	}
+	
+	buttons[_index].select();
+}
+
+set_selected_index_or_first = function(_index) {
+	if(_index == -1 || _index >= array_length(buttons)) {
+		_index = 0;
+	}
+	
+	buttons[_index].select();
+}
+
+select_first = function() {
+	set_selected_index(0);
 }

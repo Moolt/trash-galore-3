@@ -1,10 +1,16 @@
 function moo_menu_pause(_menu_object): moo_menu_base(_menu_object) constructor {
 	ui_group = MOO_UI.group();
+	ui_stack = undefined;
+	selected_index = -1;
 	
 	game_surface = -1;
 	game_surface_buffer = -1;
 	
 	on_state_changed = function(_new_state) {
+		if(!menu.is_state_in_stack(LAUNCHER_STATE.PAUSE)) {
+			selected_index = -1;
+		}
+		
 		handle_paused_state();
 		handle_surface_cleanup();
 	}
@@ -42,7 +48,7 @@ function moo_menu_pause(_menu_object): moo_menu_base(_menu_object) constructor {
 		capture_game_surface();
 		
 		ui_group = MOO_UI.group(function(_group) {
-			_group.stack(MOO_TV_CENTER_X, MOO_TV_CONTENT_Y, function(_stack) {
+			ui_stack = _group.stack(MOO_TV_CENTER_X, MOO_TV_CONTENT_Y, function(_stack) {
 				var _games_button = _stack.button("Weiter", function() {
 					menu.revert_state();
 				});
@@ -59,10 +65,13 @@ function moo_menu_pause(_menu_object): moo_menu_base(_menu_object) constructor {
 				
 				_games_button.select();
 			});
+			
+			ui_stack.set_selected_index_or_first(selected_index);
 		});
 	}
 	
 	on_hide = function() {
+		selected_index = ui_stack.get_selected_index();
 		ui_group.destroy();
 	}
 	
