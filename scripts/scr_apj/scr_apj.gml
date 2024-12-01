@@ -9,8 +9,8 @@
 function _api_implementation() : _api_base() constructor {
 	function goto_main_menu() {
 		moo_destroy_instances_without_prefix("obj_moo_");
-		obj_moo_menu.pop_to_state(LAUNCHER_STATE.GAME_SELECTION);
 		room_goto(asset_get_index("room_moo_main"));
+		obj_moo_menu.pop_to_state(LAUNCHER_STATE.GAME_SELECTION);
 	}
 	
 	function achievement_unlock(_identifier) {

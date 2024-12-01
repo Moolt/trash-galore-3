@@ -68,7 +68,11 @@ function moo_service_pause() constructor {
 			return;
 		}
 		
-		apply_gui_size(gui_settings);
+		apply_gui_size({
+			gui_size_width: MOO_GUI_WIDTH,
+			gui_size_height: MOO_GUI_HEIGHT,
+			texfilter: MOO_GUI_TEXFILTER
+		});
 		unpause_instances();
 		MOO_AUDIO.sound_manager_music.unpause_all();
 		MOO_AUDIO.sound_manager_sounds.unpause_all();

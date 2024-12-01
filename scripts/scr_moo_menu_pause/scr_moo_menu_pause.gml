@@ -5,12 +5,6 @@ function moo_menu_pause(_menu_object): moo_menu_base(_menu_object) constructor {
 	game_surface_buffer = -1;
 	
 	on_state_changed = function(_new_state) {
-		if(!menu.is_in_game()) {
-			show_debug_message("should delete instances");
-			MOO_PAUSE.destroy_paused_instances();
-			return;
-		}
-		
 		if(menu.is_paused() == MOO_PAUSE.is_paused()) {
 			return;
 		}

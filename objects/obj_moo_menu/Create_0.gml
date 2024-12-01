@@ -32,6 +32,10 @@
 #macro MOO_MOUSE_X global.launcher.ui_mouse_x()
 #macro MOO_MOUSE_Y global.launcher.ui_mouse_y()
 
+#macro MOO_GUI_WIDTH global.launcher.gui.width
+#macro MOO_GUI_HEIGHT global.launcher.gui.height
+#macro MOO_GUI_TEXFILTER global.launcher.gui.texfilter
+
 function create_selection_handler() {
 	return instance_create_layer(0, 0, layer, obj_moo_selection_controller);
 }
@@ -64,16 +68,18 @@ global.launcher.font.button_select = button_font_select;
 global.launcher.font.achievement = achievement_font;
 global.launcher.font.achievement_select = achievement_font_select;
 
+global.launcher.gui = {};
+
 enum LAUNCHER_STATE {
-	MAIN,
-	SETTINGS,
-	GAME_SELECTION,
-	ACHIEVEMENTS,
-	DETAILS,
-	IN_GAME,
-	PAUSE,
-	IDLE,
-	DESCRIPTION
+	MAIN = 1,
+	SETTINGS = 2,
+	GAME_SELECTION = 3,
+	ACHIEVEMENTS = 4,
+	DETAILS = 5,
+	IN_GAME = 6,
+	PAUSE = 7,
+	IDLE = 8,
+	DESCRIPTION = 9
 }
 
 selected_index = 0; // Index of game
@@ -140,7 +146,7 @@ function is_state_in_stack(_state_to_check) {
 		if(_state == _state_to_check) {
 			return true;
 		}
-	}
+	} 
 	
 	ds_stack_destroy(_states);
 	return false;
