@@ -1,6 +1,7 @@
 function moo_sound_manager() constructor {
     gain = 1;
     playing_sounds = [];
+	paused_sounds = [];
 
     function play_sound_ext(_struct) {
 		var _sound_instance = audio_play_sound_ext(_struct);
@@ -57,6 +58,43 @@ function moo_sound_manager() constructor {
             }
         }
     }
+	
+	function pause_all() {
+		if(array_length(paused_sounds) > 0) {
+			return;
+		}
+		
+		cleanup();
+		
+        for (var _i = array_length(playing_sounds) - 1; _i >= 0; _i--) {
+            var _sound_data = playing_sounds[_i];
+			
+			if(audio_is_paused(_sound_data.instance)) {
+				continue;
+			}
+			
+			audio_pause_sound(_sound_data.instance);
+			array_push(paused_sounds, _sound_data.instance);
+        }
+    }
+	
+	function unpause_all() {
+		if(array_length(paused_sounds) == 0) {
+			return;
+		}
+		
+		for (var _i = array_length(paused_sounds) - 1; _i >= 0; _i--) {
+            var _sound = paused_sounds[_i];
+			
+			if(!audio_is_playing(_sound)) {
+				continue;
+			}
+			
+			audio_resume_sound(_sound);
+        }
+		
+		paused_sounds = [];
+	}
 
     return {
         play_sound: play_sound,

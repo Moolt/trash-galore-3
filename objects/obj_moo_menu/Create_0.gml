@@ -109,9 +109,9 @@ function set_state(_new_state, _put_on_stack = true) {
 		ds_stack_push(state_stack, state);
 	}
 	
-	menu_handler.on_state_changed(state); // inform previous menu handler
 	state = _new_state;
 	
+	menu_handler.on_state_changed(_new_state); // inform previous menu handler
 	menu_handler = menu_handlers[? state];
 	menu_handler.on_state_changed(_new_state); // inform current menu handler
 	

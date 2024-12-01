@@ -58,6 +58,8 @@ function moo_service_pause() constructor {
 		});
 	
 		pause_instances();
+		MOO_AUDIO.sound_manager_music.pause_all();
+		MOO_AUDIO.sound_manager_sounds.pause_all();
 		paused = true;
 	}
 
@@ -68,6 +70,8 @@ function moo_service_pause() constructor {
 		
 		apply_gui_size(gui_settings);
 		unpause_instances();
+		MOO_AUDIO.sound_manager_music.unpause_all();
+		MOO_AUDIO.sound_manager_sounds.unpause_all();
 		
 		paused = false;
 	}
