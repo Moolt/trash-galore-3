@@ -3,6 +3,7 @@
 achievement = undefined;
 popup_width = ACHIEVEMENTS_POPUP_WIDTH;
 popup_height = 0;
+vertical_offset = 0;
 
 image_height = undefined;
 image_width = undefined;

@@ -31,17 +31,15 @@ function remove_achievement(_achievement_id) {
 }
 
 function on_achievement_size_changed() {
-	var _current_x = MOO_MENU_WIDTH - ACHIEVEMENTS_POPUP_WIDTH - padding;
-	var _current_y = MOO_MENU_HEIGHT - padding;
+	var _vertical_offset = 0;
 	
 	for(var _i = 0; _i < array_length(achievements); _i++) {
 		var _instance = achievements[_i];
 		
-		_current_y = _current_y - _instance.popup_height;
-		_instance.x = _current_x;
-		_instance.y = _current_y;
+		_instance.vertical_offset = _vertical_offset;
 		
-		_current_y -= spacing;
+		_vertical_offset += _instance.popup_height;
+		_vertical_offset += spacing;
 	}
 }
 
