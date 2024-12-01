@@ -6,21 +6,29 @@ function moo_sound_manager() constructor {
     function play_sound_ext(_struct) {
 		var _sound_instance = audio_play_sound_ext(_struct);
         register_sound(_sound_instance);
+		
+		return _sound_instance;
     }
 
     function play_sound_on(_sound, _emitter, _loop = false, _gain = 1, _pitch = 1, _listener_mask = 0xFFFFFFFF) {
 		var _sound_instance = audio_play_sound_on(_sound, _emitter, _loop, _gain, _pitch, _listener_mask);
         register_sound(_sound_instance);
+		
+		return _sound_instance;
     }
 
     function play_sound_at(_sound, _x, _y, _z, _falloff_ref = 1, _falloff_max = 100, _falloff_factor = 1, _loop = false, _gain = 1, _pitch = 1, _listener_mask = 0xFFFFFFFF) {
 		var _sound_instance = audio_play_sound_at(_sound, _x, _y, _z, _falloff_ref, _falloff_max, _falloff_factor, _loop, _gain, _pitch, _listener_mask);
         register_sound(_sound_instance);
+		
+		return _sound_instance;
     }
 
     function play_sound(_sound, _priority = 1, _loop = false, _gain = 1, _offset = 0, _pitch = 1, _listener_mask = 0xFFFFFFFF) {
         var _sound_instance = audio_play_sound(_sound, _priority, _loop, _gain, _offset, _pitch, _listener_mask);
         register_sound(_sound_instance);
+		
+		return _sound_instance;
     }
 
     /// @param _sound_instance {Sound.Id} Sound priority (default: 1)

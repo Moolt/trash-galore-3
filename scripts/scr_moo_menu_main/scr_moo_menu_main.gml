@@ -47,6 +47,7 @@ function moo_menu_main(_menu_object): moo_menu_base(_menu_object) constructor {
 	}
 	
 	game_end_with_transition = function() {
+		API.play_sound(snd_moo_tv_turn_off);
 		ui_group.show_transition_above_ui(obj_moo_transition_switch_off, function() {
 			game_end();
 		});

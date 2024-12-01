@@ -48,6 +48,7 @@ button_action = function(_this) {
 }
 
 button_action_internal = function(_this) {
+	API.play_sound(snd_moo_ui_click, 0, false, 0.7);
 	button_action(_this);
 }
 

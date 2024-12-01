@@ -1,1 +1,1 @@
-audio_stop_sound(snd_moo_bgm);
+audio_stop_sound(music);

@@ -168,12 +168,12 @@ function pop_to_state(_new_state) {
 }
 
 function get_scaled_mouse_x() {
-	var _x_scale = MOO_MENU_WIDTH / surface_get_width(application_surface);
+	var _x_scale = MOO_MENU_WIDTH / room_width;
 	return mouse_x * _x_scale;
 }
 
 function get_scaled_mouse_y() {
-	var _y_scale = MOO_MENU_HEIGHT / surface_get_height(application_surface);
+	var _y_scale = MOO_MENU_HEIGHT / room_height;
 	return mouse_y * _y_scale;
 }
 

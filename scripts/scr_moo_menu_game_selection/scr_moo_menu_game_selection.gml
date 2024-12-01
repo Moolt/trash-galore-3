@@ -42,6 +42,7 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 	}
 	
 	offset_game_selection = function(_offset) {
+		API.play_sound(snd_moo_tv_noise, 0, false, 0.4, 0, 1 + random(0.05));
 		ui_group.show_transition_behind_ui(obj_moo_transition_noise);
 		
 		var _new_index = menu.selected_index + _offset;

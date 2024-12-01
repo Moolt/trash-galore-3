@@ -45,3 +45,5 @@ function update_size() {
 }
 
 alarm_set(0, 60 * seconds_until_removal);
+
+API.play_sound(snd_moo_achievement);
