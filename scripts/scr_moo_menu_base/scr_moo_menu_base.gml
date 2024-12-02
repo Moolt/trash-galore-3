@@ -50,6 +50,13 @@ function moo_menu_base(_menu_object) constructor {
 		return menu.menu_handler == self;
 	}
 	
+	draw_shared_background_or_default = function() {
+		var _thumbnail = get_shared_background_or_default(spr_moo_menu_background_default);
+		var _bg_color = _thumbnail == spr_moo_menu_background_default ? c_white : c_gray;
+
+		draw_sprite_ext(_thumbnail, 0, MOO_TV_START_X, MOO_TV_START_Y, MOO_TV_SCALE, MOO_TV_SCALE, 0, _bg_color, 1);
+	}
+	
 	get_shared_background_or_default = function(_default) {
 		if(ds_map_exists(shared_backgrounds, menu.state)) {
 			return shared_backgrounds[? menu.state];

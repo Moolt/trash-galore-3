@@ -30,6 +30,9 @@ function moo_menu_scroll_base(_menu_object): moo_menu_base(_menu_object) constru
 	on_init = function() {
 	}
 	
+	on_clear = function() {
+	}
+	
 	init_values = function() {
 		line_height = get_line_height();
 		viewport_height = (MOO_TV_END_Y - 60) - MOO_TV_CONTENT_Y;
@@ -55,6 +58,8 @@ function moo_menu_scroll_base(_menu_object): moo_menu_base(_menu_object) constru
 		
 		scrollbar = undefined;
 		back_button = undefined;
+		
+		on_clear();
 	}
 	
 	on_escape = function() {
@@ -93,7 +98,6 @@ function moo_menu_scroll_base(_menu_object): moo_menu_base(_menu_object) constru
 		var _bg_color = _thumbnail == spr_moo_menu_background_default ? c_white : c_gray;
 
 		draw_sprite_ext(_thumbnail, 0, MOO_TV_START_X, MOO_TV_START_Y, MOO_TV_SCALE, MOO_TV_SCALE, 0, _bg_color, 1);
-		
 		draw_content();
 		
 		// This is just wild guessing of numbers, i have no idea why this function behaves so chaotic
