@@ -2,6 +2,7 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 	ui_group = MOO_UI.group();
 	ui_stack = undefined;
 	selected_index = -1;
+	selected_game = undefined;
 	
 	on_state_changed = function(_new_state) {
 		if(!menu.is_state_in_stack(LAUNCHER_STATE.GAME_SELECTION)) {
@@ -34,6 +35,8 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 			_group.button(MOO_TV_START_X + MOO_TV_PADDING, MOO_TV_CENTER_Y, "◀", function() { offset_game_selection(-1); });
 			_group.button(MOO_TV_END_X - MOO_TV_PADDING, MOO_TV_CENTER_Y, "▶", function() { offset_game_selection(1); });
 		});
+		
+		offset_game_selection(0);
 	}
 	
 	on_hide = function() {
@@ -42,8 +45,10 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 	}
 	
 	offset_game_selection = function(_offset) {
-		API.play_sound(snd_moo_tv_noise, 0, false, 0.4, 0, 1 + random(0.05));
-		ui_group.show_transition_behind_ui(obj_moo_transition_noise);
+		if(_offset != 0) {
+			API.play_sound(snd_moo_tv_noise, 0, false, 0.4, 0, 1 + random(0.05));
+			ui_group.show_transition_behind_ui(obj_moo_transition_noise);
+		}
 		
 		var _new_index = menu.selected_index + _offset;
 		if(_new_index == MOO_GAMES.count) {
@@ -55,6 +60,9 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 		}
 		
 		menu.selected_index = _new_index;
+		selected_game = MOO_GAMES.find_at_position(menu.selected_index);
+		
+		set_shared_background(LAUNCHER_STATE.GAME_SELECTION, selected_game.images[0]);
 	}
 	
 	step = function() {
@@ -68,14 +76,12 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 	}
 	
 	draw_gui = function() {
-		var _game = MOO_GAMES.find_at_position(menu.selected_index);
-		
-		var _thumbnail = _game.images[0];
-		draw_sprite_ext(_thumbnail, 0, MOO_TV_START_X, MOO_TV_START_Y, MOO_TV_SCALE, MOO_TV_SCALE, 0, c_gray, 1);
+		var _background = get_shared_background_or_default(spr_moo_menu_background_default);
+		draw_sprite_ext(_background, 0, MOO_TV_START_X, MOO_TV_START_Y, MOO_TV_SCALE, MOO_TV_SCALE, 0, c_gray, 1);
 		
 		MOO_UI.draw();
-		draw_title(_game.name);
-		draw_centered_text("by " + _game.author, MOO_TV_END_Y - MOO_TV_PADDING + 10, 0.35);
+		draw_title(selected_game.name);
+		draw_centered_text("by " + selected_game.author, MOO_TV_END_Y - MOO_TV_PADDING + 10, 0.35);
 	}
 	
 	on_escape = function() {

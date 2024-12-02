@@ -9,7 +9,7 @@
   "bitRate":128,
   "compression":0,
   "conversionMode":0,
-  "duration":58.01796,
+  "duration":152.0065,
   "name":"snd_moo_bgm",
   "parent":{
     "name":"Sounds",

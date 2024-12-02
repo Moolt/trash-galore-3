@@ -1,5 +1,6 @@
 function moo_menu_base(_menu_object) constructor {
 	menu = _menu_object;
+	static shared_backgrounds = ds_map_create();
 	
 	on_state_will_change = function(_new_state) {
 	}
@@ -47,5 +48,30 @@ function moo_menu_base(_menu_object) constructor {
 	
 	is_showing = function() {
 		return menu.menu_handler == self;
+	}
+	
+	get_shared_background_or_default = function(_default) {
+		if(ds_map_exists(shared_backgrounds, menu.state)) {
+			return shared_backgrounds[? menu.state];
+		}
+		
+		var _states = ds_stack_create();
+		ds_stack_copy(_states, menu.state_stack);
+
+		while(!ds_stack_empty(_states)) {
+			var _state = ds_stack_pop(_states);
+		
+			if(ds_map_exists(shared_backgrounds, _state)) {
+				return shared_backgrounds[? _state];
+			}
+		}
+		
+		ds_stack_clear(_states);
+	
+		return _default;
+	}
+	
+	set_shared_background = function(_state, _sprite) {
+		shared_backgrounds[? _state] = _sprite;
 	}
 }
