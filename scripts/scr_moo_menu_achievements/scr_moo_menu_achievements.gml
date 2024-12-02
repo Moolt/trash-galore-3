@@ -50,7 +50,6 @@ function moo_menu_achievements(_menu_object): moo_menu_scroll_base(_menu_object)
 		return _content_height;
 	}
 	
-	// In map auslangern!
 	get_achievement_sprite = function(_achievement) {
 		if(ds_map_exists(icons, _achievement.id)) {
 			return icons[$ _achievement.id];
