@@ -82,7 +82,7 @@ Get-ChildItem -Path $tempPath -Directory | ForEach-Object {
 
 # Step 4:
 Start-Job -ScriptBlock { & stitch open --project .\trash-galore-3.yyp }
-Start-Sleep -Seconds 30
+Start-Sleep -Seconds 45
 Stop-Process -Name "GameMaker"
 
 # Step 5: Save the cumulative games data to datafiles/games.json in the root directory
