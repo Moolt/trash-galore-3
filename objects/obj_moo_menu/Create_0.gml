@@ -168,13 +168,13 @@ function pop_to_state(_new_state) {
 }
 
 function get_scaled_mouse_x() {
-	var _x_scale = MOO_MENU_WIDTH / room_width;
-	return mouse_x * _x_scale;
+	var _x_scale = MOO_MENU_WIDTH / window_get_width();
+	return window_mouse_get_x() * _x_scale;
 }
 
 function get_scaled_mouse_y() {
-	var _y_scale = MOO_MENU_HEIGHT / room_height;
-	return mouse_y * _y_scale;
+	var _y_scale = MOO_MENU_HEIGHT / window_get_height();
+	return window_mouse_get_y() * _y_scale;
 }
 
 global.launcher.ui_mouse_x = get_scaled_mouse_x;
