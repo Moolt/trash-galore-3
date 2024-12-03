@@ -369,10 +369,10 @@ function _controls() constructor {
 	gamepad_bindings[? INPUT_ACTION.UI_QUIT] = [gp_start];
 
 	// Movement
-	gamepad_bindings[? INPUT_ACTION.MOVE_UP] = [gp_axislv];
-	gamepad_bindings[? INPUT_ACTION.MOVE_DOWN] = [gp_axislv];
-	gamepad_bindings[? INPUT_ACTION.MOVE_LEFT] = [gp_axislh];
-	gamepad_bindings[? INPUT_ACTION.MOVE_RIGHT] = [gp_axislh];
+	gamepad_bindings[? INPUT_ACTION.MOVE_UP] = [gp_padu];
+	gamepad_bindings[? INPUT_ACTION.MOVE_DOWN] = [gp_padd];
+	gamepad_bindings[? INPUT_ACTION.MOVE_LEFT] = [gp_padl];
+	gamepad_bindings[? INPUT_ACTION.MOVE_RIGHT] = [gp_padr];
 
 	// Gameplay Actions
 	gamepad_bindings[? INPUT_ACTION.ACTION_PRIMARY] = [gp_face1];

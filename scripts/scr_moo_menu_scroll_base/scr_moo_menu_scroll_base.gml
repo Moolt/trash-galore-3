@@ -62,7 +62,7 @@ function moo_menu_scroll_base(_menu_object): moo_menu_base(_menu_object) constru
 		on_clear();
 	}
 	
-	on_escape = function() {
+	on_back = function() {
 		menu.revert_state();
 	}
 	

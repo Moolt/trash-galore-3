@@ -25,7 +25,7 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 					menu.set_state(LAUNCHER_STATE.ACHIEVEMENTS)
 				});
 				_stack.button("Zurück", function() {
-					on_escape();
+					on_back();
 				});
 				
 			});
@@ -84,7 +84,7 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 		draw_centered_text("by " + selected_game.author, MOO_TV_END_Y - MOO_TV_PADDING + 10, 0.35);
 	}
 	
-	on_escape = function() {
+	on_back = function() {
 		menu.revert_state();
 	}
 }

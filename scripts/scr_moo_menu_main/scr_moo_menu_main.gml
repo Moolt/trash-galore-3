@@ -20,7 +20,7 @@ function moo_menu_main(_menu_object): moo_menu_base(_menu_object) constructor {
 					menu.set_state(LAUNCHER_STATE.SETTINGS);
 				});
 				_stack.button("Beenden", function() {
-					on_escape();
+					on_back();
 				});
 				
 				_games_button.select();
@@ -42,7 +42,7 @@ function moo_menu_main(_menu_object): moo_menu_base(_menu_object) constructor {
 		MOO_UI.draw();
 	}
 	
-	on_escape = function() {
+	on_back = function() {
 		game_end_with_transition();
 	}
 	

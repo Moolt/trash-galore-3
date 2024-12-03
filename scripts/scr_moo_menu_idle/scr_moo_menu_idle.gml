@@ -3,10 +3,6 @@ function moo_menu_idle(_menu_object): moo_menu_base(_menu_object) constructor {
 	prev_mouse = display_mouse_get_x() + display_mouse_get_y();
 	idle = instance_create_layer(0, 0, "Instances", obj_moo_idle);
 	
-	on_escape = function() {
-		menu.revert_state();
-	}
-	
 	on_show = function() {
 		dvd_instance = instance_create_layer(0, 0, "Instances", obj_moo_dvd);
 	}

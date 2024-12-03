@@ -17,7 +17,10 @@ function moo_menu_base(_menu_object) constructor {
 	draw_gui = function() {
 	}
 	
-	on_escape = function() {
+	on_back = function() {
+	}
+	
+	on_quit = function() {
 	}
 	
 	on_show = function() {
