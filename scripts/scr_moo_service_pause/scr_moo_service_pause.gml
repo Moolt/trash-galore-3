@@ -35,6 +35,7 @@ function moo_service_pause() constructor {
 			return;
 		}
 	
+		MOO_TIME_SOURCE.pause();
 		pause_instances();
 		MOO_AUDIO.sound_manager_music.pause_all();
 		MOO_AUDIO.sound_manager_sounds.pause_all();
@@ -46,6 +47,7 @@ function moo_service_pause() constructor {
 			return;
 		}
 		
+		MOO_TIME_SOURCE.resume();
 		unpause_instances();
 		MOO_AUDIO.sound_manager_music.unpause_all();
 		MOO_AUDIO.sound_manager_sounds.unpause_all();

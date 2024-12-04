@@ -8,6 +8,7 @@
 #macro MOO_FONT global.launcher.font
 #macro MOO_SCREEN global.launcher.screen
 #macro MOO_PAUSE global.launcher.pause
+#macro MOO_TIME_SOURCE global.launcher.time_source
 
 #macro MOO_MENU_WIDTH 640
 #macro MOO_MENU_HEIGHT 360
@@ -44,6 +45,7 @@ if(global[$ "launcher"] == undefined) {
 	global.launcher = {};
 }
 
+global.launcher.time_source = new moo_time_source_service();
 global.launcher.pause = new moo_service_pause();
 global.launcher.persist = new moo_service_persistence();
 global.launcher.games = new moo_service_games();

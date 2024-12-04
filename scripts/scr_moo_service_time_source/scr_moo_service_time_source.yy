@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_moo_service_time_source",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_moo_service_time_source",
+  "parent":{
+    "name":"Services",
+    "path":"folders/Scripts/Services.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
