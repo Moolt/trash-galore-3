@@ -5,12 +5,12 @@ if(is_undefined(achievement)) {
 	return;
 }
 
+draw_set_font(-1);
+
 var _x_start = window_get_width() - popup_width - margin;
 var _x_end = window_get_width() - margin;
 var _y_start = window_get_height() - popup_height - vertical_offset - margin;
 var _y_end = window_get_height() - vertical_offset - margin;
-
-draw_text(_x_start, _y_start, "foo");
 
 draw_set_color(container_color);
 draw_roundrect_ext(_x_start, _y_start, _x_end, _y_end, corner_radius, corner_radius,  0);

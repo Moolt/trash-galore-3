@@ -26,6 +26,8 @@ function set_achievement(_achievement) {
 }
 
 function update_size() {
+	draw_set_font(-1);
+	
 	image_width = sprite_get_width(achievement.image) * image_scale;
 	image_height = sprite_get_height(achievement.image) * image_scale;
 	
