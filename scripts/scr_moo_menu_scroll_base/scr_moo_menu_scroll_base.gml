@@ -62,8 +62,10 @@ function moo_menu_scroll_base(_menu_object): moo_menu_base(_menu_object) constru
 		on_clear();
 	}
 	
-	on_back = function() {
-		menu.revert_state();
+	on_return = function(_is_back, _is_quit) {
+		if(_is_back) {
+			menu.revert_state();
+		}
 	}
 	
 	get_scroll_value = function() {

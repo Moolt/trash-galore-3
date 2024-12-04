@@ -96,11 +96,7 @@ function moo_menu_pause(_menu_object): moo_menu_base(_menu_object) constructor {
 		MOO_UI.draw();
 	}
 	
-	on_back = function() {
-		menu.revert_state();
-	}
-	
-	on_quit = function() {
+	on_return = function(_is_back, _is_quit) {
 		menu.revert_state();
 	}
 }

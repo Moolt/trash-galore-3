@@ -1,11 +1,8 @@
-if(API.action_check_released(INPUT_ACTION.UI_QUIT)) {
-	menu_handler.on_quit();
-	return;
-}
+var _is_quit = API.action_check_released(INPUT_ACTION.UI_QUIT);
+var _is_back = API.action_check_released(INPUT_ACTION.UI_BACK);
 
-if(API.action_check_released(INPUT_ACTION.UI_BACK)) {
-	menu_handler.on_back();
-	return;
+if(_is_quit || _is_back) {
+	menu_handler.on_return(_is_back, _is_quit);
 }
 
 menu_handler.step();

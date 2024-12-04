@@ -16,8 +16,10 @@ function moo_menu_in_game(_menu_object): moo_menu_base(_menu_object) constructor
 			});
 		}
 	}
-		
-	on_quit = function() {
-		menu.set_state(LAUNCHER_STATE.PAUSE);
+	
+	on_return = function(_is_back, _is_quit) {
+		if(_is_quit) {
+			menu.set_state(LAUNCHER_STATE.PAUSE);
+		}
 	}
 }

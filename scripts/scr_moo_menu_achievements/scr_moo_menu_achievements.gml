@@ -77,7 +77,6 @@ function moo_menu_achievements(_menu_object): moo_menu_scroll_base(_menu_object)
     
 	    return _result;
 	}
-
 	
 	draw_content = function() {
 		draw_set_font(MOO_FONT.achievement);

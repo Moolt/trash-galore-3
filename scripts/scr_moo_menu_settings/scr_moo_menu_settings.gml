@@ -48,7 +48,7 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 				});
 				
 				_stack.button("Zurück", function() {
-					on_back();
+					menu.revert_state();
 				});
 				
 				_games_button.select();
@@ -67,7 +67,9 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 		draw_title("Einstellungen");
 	}
 	
-	on_back = function() {
-		menu.revert_state();
+	on_return = function(_is_back, _is_quit) {
+		if(_is_back) {
+			menu.revert_state();
+		}
 	}
 }
