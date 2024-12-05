@@ -11,6 +11,9 @@ function moo_menu_achievements(_menu_object): moo_menu_scroll_base(_menu_object)
 	on_init = function() {
 		current_game = MOO_GAMES.find_at_position(menu.selected_index);
 		current_achievements = MOO_ACHIEVEMENTS.find_all_by_game(current_game.name);
+		current_achievements = array_filter(current_achievements, function(_achievement) {
+			return (_achievement.hidden && _achievement.unlocked) || !_achievement.hidden;
+		})
 		array_sort(current_achievements, function (_a, _b) {
 		    return _b.unlocked - _a.unlocked;
 		});
