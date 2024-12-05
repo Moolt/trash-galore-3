@@ -20,7 +20,7 @@ function moo_menu_main(_menu_object): moo_menu_base(_menu_object) constructor {
 					menu.set_state(LAUNCHER_STATE.SETTINGS);
 				});
 				_stack.button("Beenden", function() {
-					menu.revert_state();
+					game_end_with_transition();
 				});
 				
 				_games_button.select();
