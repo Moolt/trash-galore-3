@@ -1,4 +1,5 @@
 function moo_service_pause() constructor {
+	previous_cursor = cr_default;
 	deactivated_instances = [];
 	paused = false;
 
@@ -35,6 +36,9 @@ function moo_service_pause() constructor {
 			return;
 		}
 	
+		previous_cursor = window_get_cursor();
+		window_set_cursor(cr_default);
+		
 		MOO_TIME_SOURCE.pause();
 		pause_instances();
 		MOO_AUDIO.sound_manager_music.pause_all();
@@ -46,6 +50,9 @@ function moo_service_pause() constructor {
 		if(!paused) {
 			return;
 		}
+		
+		window_set_cursor(previous_cursor);
+		previous_cursor = cr_default;
 		
 		MOO_TIME_SOURCE.resume();
 		unpause_instances();
