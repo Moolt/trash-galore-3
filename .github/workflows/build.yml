@@ -59,25 +59,10 @@ jobs:
           name: target-linux.AppImage
           path: build/target-linux.AppImage
 
-  build_html:
-    runs-on: self-hosted
-    name: Build HTML
-    needs: merge
-    steps:
-      - name: Run HTML build script
-        run: ./ci/build_html.ps1
-        shell: pwsh
-
-      - name: Upload HTML artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: target-html.zip
-          path: build/target-html.zip
-
   release:
     runs-on: self-hosted
     name: Create GitHub Release
-    needs: [build_windows, build_linux, build_html]
+    needs: [build_windows, build_linux]
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -99,12 +84,6 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: target-linux.AppImage
-          path: build
-
-      - name: Download HTML artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: target-html.zip
           path: build
 
       - name: Create GitHub Release
@@ -135,15 +114,5 @@ jobs:
           asset_path: build/target-linux.AppImage
           asset_name: target-linux.AppImage
           asset_content_type: application/octet-stream
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload HTML artifact to release
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/target-html.zip
-          asset_name: target-html.zip
-          asset_content_type: application/zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
