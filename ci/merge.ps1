@@ -96,8 +96,8 @@ Write-Host "Temporary unpacking directory 'gamemaker_packages' has been deleted.
 
 # Step 7: Handles nested datafiles directory caused by stitch
 # Define the source and destination directories
-$nestedDir = "../datafiles/datafiles"
-$parentDir = "../datafiles"
+$nestedDir = "./datafiles/datafiles"
+$parentDir = "./datafiles"
 
 # Check if the nested directory exists
 if (Test-Path -Path $nestedDir) {
