@@ -77,7 +77,6 @@ Get-ChildItem -Path $tempPath -Directory | ForEach-Object {
         Remove-Item -Path $gameJsonPath -Force
         Write-Host "Processed and deleted $gameJsonPath"
     }
-
 }
 
 # Step 4: Handles nested datafiles directory caused by stitch
@@ -108,6 +107,15 @@ if (Test-Path -Path $nestedDir) {
 } else {
     Write-Host "Nested directory does not exist. No action taken."
 }
+
+# Read the content of the file
+$content = Get-Content -Path $projectPath
+
+# Replace the string "datafiles/datafiles" with "datafiles"
+$updatedContent = $content -replace "datafiles/datafiles", "datafiles"
+
+# Write the updated content back to the output file
+Set-Content -Path $projectPath -Value $updatedContent
 
 # Step 5:
 Start-Job -ScriptBlock { & stitch open --project .\trash-galore-3.yyp }
