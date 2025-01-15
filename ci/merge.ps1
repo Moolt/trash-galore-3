@@ -93,3 +93,32 @@ Write-Host "Accumulated games JSON saved to $gamesJsonPath"
 # Step 6: Delete the gamemaker_packages directory and its contents
 Remove-Item -Path $tempPath -Recurse -Force
 Write-Host "Temporary unpacking directory 'gamemaker_packages' has been deleted."
+
+# Step 7: Handles nested datafiles directory caused by stitch
+# Define the source and destination directories
+$nestedDir = "../datafiles/datafiles"
+$parentDir = "../datafiles"
+
+# Check if the nested directory exists
+if (Test-Path -Path $nestedDir) {
+    Write-Host "Nested directory found. Moving contents..."
+
+    # Get all files and directories in the nested directory
+    Get-ChildItem -Path $nestedDir -Force | ForEach-Object {
+        # Move each item to the parent directory
+        Move-Item -Path $_.FullName -Destination $parentDir -Force
+    }
+
+    # Verify if the nested directory is empty
+    if ((Get-ChildItem -Path $nestedDir -Force).Count -eq 0) {
+        Write-Host "Contents moved successfully. Removing nested directory..."
+
+        # Remove the nested directory
+        Remove-Item -Path $nestedDir -Force -Recurse
+        Write-Host "Nested directory removed."
+    } else {
+        Write-Host "Nested directory is not empty. Check for hidden or inaccessible files."
+    }
+} else {
+    Write-Host "Nested directory does not exist. No action taken."
+}
