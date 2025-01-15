@@ -80,21 +80,7 @@ Get-ChildItem -Path $tempPath -Directory | ForEach-Object {
 
 }
 
-# Step 4:
-Start-Job -ScriptBlock { & stitch open --project .\trash-galore-3.yyp }
-Start-Sleep -Seconds 60
-Stop-Process -Name "GameMaker"
-
-# Step 5: Save the cumulative games data to datafiles/games.json in the root directory
-$finalJson = @{ games = $gamesArray } | ConvertTo-Json -Depth 5
-Set-Content -Path $gamesJsonPath -Value $finalJson
-Write-Host "Accumulated games JSON saved to $gamesJsonPath"
-
-# Step 6: Delete the gamemaker_packages directory and its contents
-Remove-Item -Path $tempPath -Recurse -Force
-Write-Host "Temporary unpacking directory 'gamemaker_packages' has been deleted."
-
-# Step 7: Handles nested datafiles directory caused by stitch
+# Step 4: Handles nested datafiles directory caused by stitch
 # Define the source and destination directories
 $nestedDir = "./datafiles/datafiles"
 $parentDir = "./datafiles"
@@ -122,3 +108,17 @@ if (Test-Path -Path $nestedDir) {
 } else {
     Write-Host "Nested directory does not exist. No action taken."
 }
+
+# Step 5:
+Start-Job -ScriptBlock { & stitch open --project .\trash-galore-3.yyp }
+Start-Sleep -Seconds 60
+Stop-Process -Name "GameMaker"
+
+# Step 6: Save the cumulative games data to datafiles/games.json in the root directory
+$finalJson = @{ games = $gamesArray } | ConvertTo-Json -Depth 5
+Set-Content -Path $gamesJsonPath -Value $finalJson
+Write-Host "Accumulated games JSON saved to $gamesJsonPath"
+
+# Step 7: Delete the gamemaker_packages directory and its contents
+Remove-Item -Path $tempPath -Recurse -Force
+Write-Host "Temporary unpacking directory 'gamemaker_packages' has been deleted."
