@@ -117,6 +117,11 @@ $updatedContent = $content -replace "datafiles/datafiles", "datafiles"
 # Write the updated content back to the output file
 Set-Content -Path $projectPath -Value $updatedContent
 
+# Assure game.json is deleted
+if (Test-Path "./datafiles/game.json") {
+    Remove-Item -Path "./datafiles/game.json"
+}
+
 # Step 5:
 Start-Job -ScriptBlock { & stitch open --project .\trash-galore-3.yyp }
 Start-Sleep -Seconds 60
