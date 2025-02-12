@@ -15,6 +15,9 @@ function moo_menu_in_game(_menu_object): moo_menu_base(_menu_object) constructor
 				MOO_PAUSE.unpause();
 				moo_destroy_instances_without_prefix("obj_moo_");
 				window_set_cursor(cr_default);
+                draw_set_halign(fa_left);
+                draw_set_valign(fa_top);
+                draw_set_font(-1);
 			});
 		}
 	}

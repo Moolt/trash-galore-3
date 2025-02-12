@@ -1,5 +1,9 @@
 function moo_service_pause() constructor {
 	previous_cursor = cr_default;
+    previous_valign = fa_left;
+    previous_halign = fa_top;
+    previous_font = -1;
+    
 	deactivated_instances = [];
 	paused = false;
 
@@ -38,6 +42,15 @@ function moo_service_pause() constructor {
 	
 		previous_cursor = window_get_cursor();
 		window_set_cursor(cr_default);
+        
+        previous_halign = draw_get_halign();
+        draw_set_halign(fa_left);
+        
+        previous_valign = draw_get_valign();
+        draw_set_valign(fa_top);
+        
+        previous_font = draw_get_font();
+        draw_set_font(-1);
 		
 		MOO_TIME_SOURCE.pause();
 		pause_instances();
@@ -50,9 +63,18 @@ function moo_service_pause() constructor {
 		if(!paused) {
 			return;
 		}
-		
+        
 		window_set_cursor(previous_cursor);
 		previous_cursor = cr_default;
+        
+        draw_set_halign(previous_halign);
+        previous_halign = fa_left;
+        
+        draw_set_valign(previous_valign);
+        previous_valign = fa_top;
+        
+        draw_set_font(previous_font);
+        previous_font = -1;
 		
 		MOO_TIME_SOURCE.resume();
 		unpause_instances();
