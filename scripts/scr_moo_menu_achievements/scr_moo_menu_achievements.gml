@@ -15,8 +15,20 @@ function moo_menu_achievements(_menu_object): moo_menu_scroll_base(_menu_object)
 			return (_achievement.hidden && _achievement.unlocked) || !_achievement.hidden;
 		})
 		array_sort(current_achievements, function (_a, _b) {
-		    return _b.unlocked - _a.unlocked;
-		});
+            if(_a.unlocked != _b.unlocked) {
+                return _b.unlocked - _a.unlocked;
+            }
+            
+            if (_a.id < _b.id) {
+                return -1;
+            }
+            else if (_a.id > _b.id) {
+                return 1;
+            }
+            else
+                return 0;
+            }
+        );
 		
 		icons = ds_map_create();
 	}
