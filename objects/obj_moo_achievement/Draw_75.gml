@@ -1,3 +1,6 @@
+draw_set_valign(fa_top);
+draw_set_halign(fa_left);
+
 display_set_gui_size(window_get_width(), window_get_height());
 gpu_set_texfilter(true);
 
