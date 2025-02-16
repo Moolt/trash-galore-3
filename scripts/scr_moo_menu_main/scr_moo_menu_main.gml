@@ -7,6 +7,10 @@ function moo_menu_main(_menu_object): moo_menu_base(_menu_object) constructor {
 		if(!menu.is_state_in_stack(LAUNCHER_STATE.MAIN)) {
 			selected_index = -1;
 		}
+		
+		if(_new_state == LAUNCHER_STATE.MAIN) {
+			menu.set_selected_index(-1);
+		}
 	}
 	
 	on_show = function() {
@@ -49,6 +53,7 @@ function moo_menu_main(_menu_object): moo_menu_base(_menu_object) constructor {
 	}
 	
 	game_end_with_transition = function() {
+		MOO_EVENT.fire(LAUNCHER_EVENT.LAUNCHER_WILL_QUIT);
 		API.play_sound(snd_moo_tv_turn_off);
 		ui_group.show_transition_above_ui(obj_moo_transition_switch_off, function() {
 			game_end();

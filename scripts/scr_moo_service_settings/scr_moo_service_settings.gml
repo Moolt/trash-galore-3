@@ -6,18 +6,22 @@
 function moo_service_settings() constructor {
 	set_scaling = function(_value) {
 		MOO_SCREEN.screen_resize_zoom(_value);
+		MOO_EVENT.fire(LAUNCHER_EVENT.SETTINGS_SCALING_CHANGED, _value);
 	}
 	
 	set_mode = function(_value) {
 		MOO_SCREEN.screen_set_fullscreen(_value);
+		MOO_EVENT.fire(LAUNCHER_EVENT.SETTINGS_MODE_CHANGED, _value);
 	}
 	
 	set_music_volume = function(_value) {
 		MOO_AUDIO.sound_manager_music.set_gain(_value);
+		MOO_EVENT.fire(LAUNCHER_EVENT.SETTINGS_MUSIC_VOLUME_CHANGED, _value);
 	}
 	
 	set_sounds_volume = function(_value) {
 		MOO_AUDIO.sound_manager_sounds.set_gain(_value);
+		MOO_EVENT.fire(LAUNCHER_EVENT.SETTINGS_SOUNDS_VOLUME_CHANGED, _value);
 	}
 	
 	settings = ds_map_create();

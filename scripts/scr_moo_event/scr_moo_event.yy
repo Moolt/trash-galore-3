@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"scr_moo_event",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_moo_event",
+  "parent":{
+    "name":"Services",
+    "path":"folders/Scripts/Services.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

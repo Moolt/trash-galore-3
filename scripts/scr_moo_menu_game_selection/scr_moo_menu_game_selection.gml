@@ -45,6 +45,11 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 	}
 	
 	offset_game_selection = function(_offset) {
+		// Will initially be -1 when user navigated from the main menu.
+		if(menu.selected_index == -1) {
+			menu.set_selected_index(0);
+		}
+		
 		if(_offset != 0) {
 			API.play_sound(snd_moo_tv_noise, 0, false, 0.4, 0, 1 + random(0.05));
 			ui_group.show_transition_behind_ui(obj_moo_transition_noise);
@@ -59,7 +64,7 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 			_new_index = MOO_GAMES.count - 1;
 		}
 		
-		menu.selected_index = _new_index;
+		menu.set_selected_index(_new_index);
 		selected_game = MOO_GAMES.find_at_position(menu.selected_index);
 		
 		set_shared_background(LAUNCHER_STATE.GAME_SELECTION, selected_game.images[0]);

@@ -9,6 +9,7 @@
 #macro MOO_SCREEN global.launcher.screen
 #macro MOO_PAUSE global.launcher.pause
 #macro MOO_TIME_SOURCE global.launcher.time_source
+#macro MOO_EVENT global.launcher.event
 
 #macro MOO_MENU_WIDTH 640
 #macro MOO_MENU_HEIGHT 360
@@ -45,6 +46,7 @@ if(global[$ "launcher"] == undefined) {
 	global.launcher = {};
 }
 
+global.launcher.event = new moo_service_event();
 global.launcher.time_source = new moo_time_source_service();
 global.launcher.pause = new moo_service_pause();
 global.launcher.persist = new moo_service_persistence();
@@ -85,6 +87,13 @@ enum LAUNCHER_STATE {
 }
 
 selected_index = 0; // Index of game
+
+function set_selected_index(_value) {
+	if(selected_index != _value) {
+		selected_index = _value;
+		MOO_EVENT.fire(LAUNCHER_EVENT.LAUNCHER_GAME_SELECTION_CHANGED, _value);
+	}
+}
 
 state_stack = ds_stack_create();
 state = undefined;
