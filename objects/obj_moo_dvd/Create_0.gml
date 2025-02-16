@@ -1,5 +1,5 @@
-speed_x = 4;
-speed_y = 4;
+speed_x = 1.5;
+speed_y = 1.5;
 color = c_white;
 
 x = MOO_TV_CENTER_X + random(8);
