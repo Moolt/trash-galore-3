@@ -18,13 +18,13 @@ function moo_menu_game_selection(_menu_object): moo_menu_base(_menu_object) cons
 					menu.set_state(LAUNCHER_STATE.IN_GAME);
 				});
 				
-				_stack.button("Beschreibung", function() {
+				_stack.button("Description", function() {
 					menu.set_state(LAUNCHER_STATE.DESCRIPTION);
 				});
 				_stack.button("Achievements", function() {
 					menu.set_state(LAUNCHER_STATE.ACHIEVEMENTS)
 				});
-				_stack.button("Zurück", function() {
+				_stack.button("Back", function() {
 					menu.revert_state();
 				});
 				

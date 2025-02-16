@@ -6,7 +6,7 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 	on_show = function() {
 		ui_group = ui.group(function(_group) {
 			_group.stack(MOO_TV_CENTER_X, MOO_TV_CONTENT_Y, function(_stack) {
-				var _games_button = _stack.button_option("Scaling", function(_btn, _value) {
+				var _games_button = _stack.button_option("Resolution", function(_btn, _value) {
 					ui_group.show_transition_behind_ui(obj_moo_transition_colors);
 					MOO_SETTINGS.set(MOO_SETTING_SCALING, _value);
 				}, {
@@ -31,7 +31,7 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 					],
 				});
 				
-				_stack.button_slider("Musik", function(_btn, _value) {
+				_stack.button_slider("Music", function(_btn, _value) {
 					MOO_SETTINGS.set(MOO_SETTING_VOLUME_MUSIC, _value);
 				}, {
 					default_value: MOO_SETTINGS.get(MOO_SETTING_VOLUME_MUSIC),
@@ -47,7 +47,7 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 					max_value: 1
 				});
 				
-				_stack.button("Zurück", function() {
+				_stack.button("Back", function() {
 					menu.revert_state();
 				});
 				
@@ -64,7 +64,7 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 		draw_shared_background_or_default();
 		
 		MOO_UI.draw();
-		draw_title("Einstellungen");
+		draw_title("Settings");
 	}
 	
 	on_return = function(_is_back, _is_quit) {

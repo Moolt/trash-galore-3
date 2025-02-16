@@ -43,17 +43,17 @@ function moo_menu_pause(_menu_object): moo_menu_base(_menu_object) constructor {
 	on_show = function() {
 		ui_group = MOO_UI.group(function(_group) {
 			ui_stack = _group.stack(MOO_TV_CENTER_X, MOO_TV_CONTENT_Y, function(_stack) {
-				var _games_button = _stack.button("Weiter", function() {
+				var _games_button = _stack.button("Continue", function() {
 					menu.revert_state();
 				});
 				
-				_stack.button("Einstellungen", function() {
+				_stack.button("Settings", function() {
 					menu.set_state(LAUNCHER_STATE.SETTINGS);
 				});
 				_stack.button("Achievements", function() {
 					menu.set_state(LAUNCHER_STATE.ACHIEVEMENTS)
 				});
-				_stack.button("Hauptmenü", function() {
+				_stack.button("Main Menu", function() {
 					API.goto_main_menu();
 				});
 				

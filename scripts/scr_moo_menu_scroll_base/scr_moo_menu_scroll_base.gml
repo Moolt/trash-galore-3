@@ -15,7 +15,7 @@ function moo_menu_scroll_base(_menu_object): moo_menu_base(_menu_object) constru
 	on_show = function(_new_state) {
 		ui_group = MOO_UI.group(function(_group) {
 			_group.stack(MOO_TV_CENTER_X, MOO_TV_END_Y - 45, function(_stack) {
-				back_button = _stack.button("Zurück", function() {
+				back_button = _stack.button("Back", function() {
 					menu.revert_state();
 				}, {font: MOO_FONT.achievement, font_select: MOO_FONT.achievement_select});
 				

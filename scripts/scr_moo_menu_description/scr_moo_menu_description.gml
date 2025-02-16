@@ -8,7 +8,7 @@ function moo_menu_description(_menu_object): moo_menu_scroll_base(_menu_object) 
 	}
 
 	get_title = function() {
-		return "Beschreibung";
+		return "Description";
 	}
 
 	get_content_height = function() {
