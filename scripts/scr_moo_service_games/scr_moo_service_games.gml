@@ -19,6 +19,12 @@ function moo_service_games() constructor {
 		
 		return undefined;
 	}
+	
+	get_selected_index = function() {
+		with(obj_moo_menu) {
+			return selected_index;
+		}
+	}
 }
 
 function _private_moo_service_games() constructor {
