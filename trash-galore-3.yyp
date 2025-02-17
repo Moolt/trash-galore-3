@@ -56,7 +56,6 @@
   },
   "name":"trash-galore-3",
   "resources":[
-    {"id":{"name":"anim_moo_knob_curve","path":"animcurves/anim_moo_knob_curve/anim_moo_knob_curve.yy",},},
     {"id":{"name":"obj_demo_bullet","path":"objects/obj_demo_bullet/obj_demo_bullet.yy",},},
     {"id":{"name":"obj_demo_game","path":"objects/obj_demo_game/obj_demo_game.yy",},},
     {"id":{"name":"obj_demo_player","path":"objects/obj_demo_player/obj_demo_player.yy",},},
@@ -76,6 +75,7 @@
     {"id":{"name":"obj_moo_drawable","path":"objects/obj_moo_drawable/obj_moo_drawable.yy",},},
     {"id":{"name":"obj_moo_dvd","path":"objects/obj_moo_dvd/obj_moo_dvd.yy",},},
     {"id":{"name":"obj_moo_idle","path":"objects/obj_moo_idle/obj_moo_idle.yy",},},
+    {"id":{"name":"obj_moo_knob","path":"objects/obj_moo_knob/obj_moo_knob.yy",},},
     {"id":{"name":"obj_moo_menu","path":"objects/obj_moo_menu/obj_moo_menu.yy",},},
     {"id":{"name":"obj_moo_selectable","path":"objects/obj_moo_selectable/obj_moo_selectable.yy",},},
     {"id":{"name":"obj_moo_selection_controller","path":"objects/obj_moo_selection_controller/obj_moo_selection_controller.yy",},},

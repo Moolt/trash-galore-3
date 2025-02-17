@@ -1,0 +1,1 @@
+MOO_EVENT.unsubscribe(event, self);

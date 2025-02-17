@@ -192,3 +192,60 @@ global.launcher.ui_mouse_x = get_scaled_mouse_x;
 global.launcher.ui_mouse_y = get_scaled_mouse_y;
 
 set_state(LAUNCHER_STATE.MAIN);
+
+tv_panel = MOO_UI.group(function(_group) {
+	_group.knob(594, 89, {
+			event: LAUNCHER_EVENT.LAUNCHER_GAME_SELECTION_CHANGED,
+			sprite_base: spr_moo_knob_large_base,
+			sprite_handle: spr_moo_knob_large_handle,
+			default_value: selected_index,
+			min_value: -1,
+			max_value: MOO_GAMES.count - 1,
+			value_steps: MOO_GAMES.count,
+		}
+	);
+	
+	_group.knob(581, 264, {
+			event: LAUNCHER_EVENT.SETTINGS_SCALING_CHANGED,
+			sprite_base: spr_moo_knob_small_base,
+			sprite_handle: spr_moo_knob_small_handle,
+			default_value: MOO_SETTINGS.get(MOO_SETTING_SCALING),
+			min_value: 1,
+			max_value: 4,
+			value_steps: 4,
+		}
+	);
+	
+	_group.knob(609, 264, {
+			event: LAUNCHER_EVENT.SETTINGS_MODE_CHANGED,
+			sprite_base: spr_moo_knob_small_base,
+			sprite_handle: spr_moo_knob_small_handle,
+			default_value: MOO_SETTINGS.get(MOO_SETTING_MODE),
+			min_value: 0,
+			max_value: 1,
+			value_steps: 1,
+		}
+	);
+	
+	_group.knob(581, 293, {
+			event: LAUNCHER_EVENT.SETTINGS_MUSIC_VOLUME_CHANGED,
+			sprite_base: spr_moo_knob_small_base,
+			sprite_handle: spr_moo_knob_small_handle,
+			default_value: MOO_SETTINGS.get(MOO_SETTING_VOLUME_MUSIC),
+			min_value: 0,
+			max_value: 1,
+			value_steps: 16,
+		}
+	);
+	
+	_group.knob(609, 293, {
+			event: LAUNCHER_EVENT.SETTINGS_SOUNDS_VOLUME_CHANGED,
+			sprite_base: spr_moo_knob_small_base,
+			sprite_handle: spr_moo_knob_small_handle,
+			default_value: MOO_SETTINGS.get(MOO_SETTING_VOLUME_SOUNDS),
+			min_value: 0,
+			max_value: 1,
+			value_steps: 16,
+		}
+	);
+});
