@@ -194,6 +194,13 @@ global.launcher.ui_mouse_y = get_scaled_mouse_y;
 set_state(LAUNCHER_STATE.MAIN);
 
 tv_panel = MOO_UI.group(function(_group) {
+	_group.seven_segment(574, 23, {
+			get_value: function() {
+				return MOO_GAMES.get_selected_index() + 1;
+			}
+		}
+	);
+	
 	_group.knob(594, 89, {
 			event: LAUNCHER_EVENT.LAUNCHER_GAME_SELECTION_CHANGED,
 			sprite_base: spr_moo_knob_large_base,

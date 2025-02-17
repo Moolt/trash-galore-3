@@ -60,6 +60,14 @@ function moo_service_ui(_parent = undefined) constructor {
 		return _knob;
 	}
 	
+	function seven_segment(_x, _y, _var_struct = {}) {
+		var _seven_segment = instance_create_layer(_x, _y, "Instances", obj_moo_seven_segment, _var_struct);
+		
+		array_push(ui_elements, _seven_segment);
+		
+		return _seven_segment;
+	}
+	
 	function show_transition_behind_ui(_instance, _on_destroy = function() {}) {
 		transition_behind_ui.show_transition(_instance, _on_destroy);
 	}

@@ -10,8 +10,8 @@
   "name":"obj_moo_knob",
   "overriddenProperties":[],
   "parent":{
-    "name":"Knobs",
-    "path":"folders/Objects/UI/Knobs.yy",
+    "name":"TVPanel",
+    "path":"folders/Objects/UI/TVPanel.yy",
   },
   "parentObjectId":{
     "name":"obj_moo_drawable",
