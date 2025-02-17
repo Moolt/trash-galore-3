@@ -9,8 +9,8 @@
   "name":"tmp_event_test",
   "overriddenProperties":[],
   "parent":{
-    "name":"Objects",
-    "path":"folders/Objects.yy",
+    "name":"Knobs",
+    "path":"folders/Objects/UI/Knobs.yy",
   },
   "parentObjectId":null,
   "persistent":false,
