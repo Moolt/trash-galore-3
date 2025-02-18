@@ -68,6 +68,14 @@ function moo_service_ui(_parent = undefined) constructor {
 		return _seven_segment;
 	}
 	
+	function tvswitch(_x, _y, _var_struct = {}) {
+		var _tvswitch = instance_create_layer(_x, _y, "Instances", obj_moo_switch, _var_struct);
+		
+		array_push(ui_elements, _tvswitch);
+		
+		return _tvswitch;
+	}
+	
 	function show_transition_behind_ui(_instance, _on_destroy = function() {}) {
 		transition_behind_ui.show_transition(_instance, _on_destroy);
 	}

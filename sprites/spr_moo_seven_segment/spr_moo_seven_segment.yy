@@ -34,8 +34,8 @@
   "nineSlice":null,
   "origin":0,
   "parent":{
-    "name":"tv",
-    "path":"folders/Sprites/tv.yy",
+    "name":"seven_segment",
+    "path":"folders/Sprites/tv/seven_segment.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

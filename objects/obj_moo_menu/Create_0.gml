@@ -255,4 +255,6 @@ tv_panel = MOO_UI.group(function(_group) {
 			value_steps: 16,
 		}
 	);
+	
+	_group.tvswitch(595, 329);
 });
