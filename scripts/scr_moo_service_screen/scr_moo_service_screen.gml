@@ -20,6 +20,12 @@ function moo_service_screen() constructor {
 
     window_zoom = zoom;
 
+	center_window_if_desktop = function() {
+		if (os_browser == browser_not_a_browser) {
+			window_center();
+		}
+	}
+
     screen_resize_zoom = function(_value)
     {
 		if(window_get_fullscreen()) {
@@ -30,7 +36,7 @@ function moo_service_screen() constructor {
 		zoom = clamp(_value, 0, max_zoom);
         
         window_set_size(ideal_width * zoom, ideal_height * zoom);
-        window_center();
+        center_window_if_desktop();
     }
 
 	screen_set_fullscreen = function(_is_fullscreen) {
@@ -49,7 +55,7 @@ function moo_service_screen() constructor {
 		window_set_fullscreen(false);
 		screen_resize_zoom(floor(window_zoom));
 		moo_delay(10, function() {
-			window_center();
+			center_window_if_desktop();
 		});
 	}
 	
