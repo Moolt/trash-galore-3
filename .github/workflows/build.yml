@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - master
-      - html5
   repository_dispatch:
     types:
       - webhook
