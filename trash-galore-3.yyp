@@ -48,8 +48,7 @@
   ],
   "IncludedFiles":[
     {"$GMIncludedFile":"","%Name":"games.json","CopyToMask":-1,"filePath":"datafiles","name":"games.json","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
-    {"$GMIncludedFile":"","%Name":"HomeVideo.ttf","CopyToMask":-1,"filePath":"datafiles","name":"HomeVideo.ttf","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
-    {"$GMIncludedFile":"","%Name":"HomeVideoBold.ttf","CopyToMask":-1,"filePath":"datafiles","name":"HomeVideoBold.ttf","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"save.ini","CopyToMask":-1,"filePath":"datafiles","name":"save.ini","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
   ],
   "isEcma":false,
   "LibraryEmitters":[],
@@ -58,6 +57,11 @@
   },
   "name":"trash-galore-3",
   "resources":[
+    {"id":{"name":"fnt_moo_achievement_select","path":"fonts/fnt_moo_achievement_select/fnt_moo_achievement_select.yy",},},
+    {"id":{"name":"fnt_moo_achievement","path":"fonts/fnt_moo_achievement/fnt_moo_achievement.yy",},},
+    {"id":{"name":"fnt_moo_button_select","path":"fonts/fnt_moo_button_select/fnt_moo_button_select.yy",},},
+    {"id":{"name":"fnt_moo_button","path":"fonts/fnt_moo_button/fnt_moo_button.yy",},},
+    {"id":{"name":"fnt_moo_title","path":"fonts/fnt_moo_title/fnt_moo_title.yy",},},
     {"id":{"name":"obj_demo_bullet","path":"objects/obj_demo_bullet/obj_demo_bullet.yy",},},
     {"id":{"name":"obj_demo_game","path":"objects/obj_demo_game/obj_demo_game.yy",},},
     {"id":{"name":"obj_demo_player","path":"objects/obj_demo_player/obj_demo_player.yy",},},
