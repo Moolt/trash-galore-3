@@ -111,7 +111,7 @@
   },
   "hinting":0,
   "includeTTF":false,
-  "interpreter":0,
+  "interpreter":1,
   "italic":false,
   "kerningPairs":[],
   "last":0,
