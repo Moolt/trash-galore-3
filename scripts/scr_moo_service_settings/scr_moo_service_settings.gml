@@ -25,8 +25,8 @@ function moo_service_settings() constructor {
 	}
 	
 	settings = ds_map_create();
-	settings[? MOO_SETTING_SCALING] = { default_value: 1, handler: set_scaling };
 	settings[? MOO_SETTING_MODE] = { default_value: 0, handler: set_mode };
+	settings[? MOO_SETTING_SCALING] = { default_value: 1, handler: set_scaling };
 	settings[? MOO_SETTING_VOLUME_MUSIC] = { default_value: 0.6, handler: set_music_volume };
 	settings[? MOO_SETTING_VOLUME_SOUNDS] = { default_value: 0.6, handler: set_sounds_volume };
 	
