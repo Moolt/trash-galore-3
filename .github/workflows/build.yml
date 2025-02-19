@@ -43,7 +43,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: trash-galore-3-windows.zip
-          path: build/trash-galore-3-windows.zip
+          path: build/target-windows.zip
 
   build_linux:
     runs-on: self-hosted
@@ -58,7 +58,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: trash-galore-3-linux.AppImage
-          path: build/trash-galore-3-linux.AppImage
+          path: build/target-linux.AppImage
 
   build_html:
     runs-on: self-hosted
@@ -73,7 +73,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: trash-galore-3-html.zip
-          path: build/trash-galore-3-html.zip
+          path: build/target-html.zip
 
   release:
     runs-on: self-hosted
@@ -123,7 +123,7 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/trash-galore-3-windows.zip
+          asset_path: build/target-windows.zip
           asset_name: trash-galore-3-windows.zip
           asset_content_type: application/zip
         env:
@@ -133,7 +133,7 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/trash-galore-3-linux.AppImage
+          asset_path: build/target-linux.AppImage
           asset_name: trash-galore-3-linux.AppImage
           asset_content_type: application/octet-stream
         env:
@@ -143,7 +143,7 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/trash-galore-3-html.zip
+          asset_path: build/target-html.zip
           asset_name: trash-galore-3-html.zip
           asset_content_type: application/zip
         env:
