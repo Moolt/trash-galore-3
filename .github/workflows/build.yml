@@ -41,8 +41,8 @@ jobs:
       - name: Upload Windows artifact
         uses: actions/upload-artifact@v4
         with:
-          name: target-windows.zip
-          path: build/target-windows.zip
+          name: trash-galore-3-windows.zip
+          path: build/trash-galore-3-windows.zip
 
   build_linux:
     runs-on: self-hosted
@@ -56,13 +56,28 @@ jobs:
       - name: Upload Linux artifact
         uses: actions/upload-artifact@v4
         with:
-          name: target-linux.AppImage
-          path: build/target-linux.AppImage
+          name: trash-galore-3-linux.AppImage
+          path: build/trash-galore-3-linux.AppImage
+
+  build_html:
+    runs-on: self-hosted
+    name: Build HTML
+    needs: merge
+    steps:
+      - name: Run HTML build script
+        run: ./ci/build_html.ps1
+        shell: pwsh
+
+      - name: Upload HTML artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: trash-galore-3-html.zip
+          path: build/trash-galore-3-html.zip
 
   release:
     runs-on: self-hosted
     name: Create GitHub Release
-    needs: [build_windows, build_linux]
+    needs: [build_windows, build_linux, build_html]
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -77,13 +92,19 @@ jobs:
       - name: Download Windows artifact
         uses: actions/download-artifact@v4
         with:
-          name: target-windows.zip
+          name: trash-galore-3-windows.zip
           path: build
 
       - name: Download Linux artifact
         uses: actions/download-artifact@v4
         with:
-          name: target-linux.AppImage
+          name: trash-galore-3-linux.AppImage
+          path: build
+
+      - name: Download HTML artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: trash-galore-3-html.zip
           path: build
 
       - name: Create GitHub Release
@@ -101,8 +122,8 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/target-windows.zip
-          asset_name: target-windows.zip
+          asset_path: build/trash-galore-3-windows.zip
+          asset_name: trash-galore-3-windows.zip
           asset_content_type: application/zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -111,8 +132,18 @@ jobs:
         uses: actions/upload-release-asset@v1
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/target-linux.AppImage
-          asset_name: target-linux.AppImage
+          asset_path: build/trash-galore-3-linux.AppImage
+          asset_name: trash-galore-3-linux.AppImage
           asset_content_type: application/octet-stream
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload HTML artifact to release
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: build/trash-galore-3-html.zip
+          asset_name: trash-galore-3-html.zip
+          asset_content_type: application/zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
