@@ -20,5 +20,5 @@ function moo_file_text_read_string_all(_file_path) {
 
 function moo_json_read_from_file(_file_path) {
 	var _string_content = moo_file_text_read_string_all(_file_path);
-	return json_decode(_string_content);
+	return json_parse(_string_content);
 }

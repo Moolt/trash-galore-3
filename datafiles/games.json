@@ -7,19 +7,19 @@
       "start_room": "room_demo_space_rocks",
       "images": ["spr_demo_thumbnail"],
       "achievements": [
-          {
-            "id": "sr_demo_loser",
-            "name": "Loser",
-            "description": "Sterbe ohne Punkte",
-            "image": "spr_demo_loser"
-          },
-          {
-            "id": "sr_demo_winner",
-            "name": "Winner",
-            "description": "Mache 500 Punkte",
-            "image": "spr_demo_winner"
-          }
-        ]
+        {
+          "id": "sr_demo_loser",
+          "name": "Loser",
+          "description": "Sterbe ohne Punkte",
+          "image": "spr_demo_loser"
+        },
+        {
+          "id": "sr_demo_winner",
+          "name": "Winner",
+          "description": "Mache 500 Punkte",
+          "image": "spr_demo_winner"
+        }
+      ]
     },
     {
       "name": "Pixel Art Top Down - Basic",
@@ -37,7 +37,7 @@
         {
           "id": "aa_treasure_hunter",
           "name": "Treasure Hunter",
-          "description": "Uncover all hidden treasures in the game!",
+          "description": "Uncover all hidden treasures in the game!"
         },
         {
           "id": "aa_master_strategist",
