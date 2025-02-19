@@ -20,16 +20,18 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 				}
 				);
 				
-				_stack.button_option("Mode", function(_btn, _value) {
-					ui_group.show_transition_behind_ui(obj_moo_transition_colors);
-					MOO_SETTINGS.set(MOO_SETTING_MODE, _value);			
-				}, {
-					default_value: MOO_SETTINGS.get(MOO_SETTING_MODE),
-					options: [
-						{ text: "Window", value: 0 },
-						{ text: "Fullscreen", value: 1 },
-					],
-				});
+				if (os_browser == browser_not_a_browser) {
+					_stack.button_option("Mode", function(_btn, _value) {
+						ui_group.show_transition_behind_ui(obj_moo_transition_colors);
+						MOO_SETTINGS.set(MOO_SETTING_MODE, _value);			
+					}, {
+						default_value: MOO_SETTINGS.get(MOO_SETTING_MODE),
+						options: [
+							{ text: "Window", value: 0 },
+							{ text: "Fullscreen", value: 1 },
+						],
+					});
+				}
 				
 				_stack.button_slider("Music", function(_btn, _value) {
 					MOO_SETTINGS.set(MOO_SETTING_VOLUME_MUSIC, _value);
