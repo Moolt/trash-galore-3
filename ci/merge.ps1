@@ -129,7 +129,7 @@ Stop-Process -Name "GameMaker"
 
 Start-Sleep -Seconds 10
 
-Start-Job -ScriptBlock { & stitch open --project .\trash-galore-3.yyp --ide 2024.8.1.171 --runtime 2024.11.0.226 }
+Start-Job -ScriptBlock { & stitch open --project .\trash-galore-3.yyp --ide 2024.11.0.179 --runtime 2024.11.0.226 }
 Start-Sleep -Seconds 60
 Stop-Process -Name "GameMaker"
 
