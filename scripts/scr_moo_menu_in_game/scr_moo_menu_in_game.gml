@@ -18,6 +18,7 @@ function moo_menu_in_game(_menu_object): moo_menu_base(_menu_object) constructor
                 draw_set_halign(fa_left);
                 draw_set_valign(fa_top);
                 draw_set_font(-1);
+				display_reset(0, 0);
 			});
 		}
 	}
