@@ -123,7 +123,7 @@ if (Test-Path "./datafiles/game.json") {
 }
 
 # Step 5:
-Start-Job -ScriptBlock { & stitch open --project .\trash-galore-3.yyp }
+Start-Job -ScriptBlock { & stitch open --project .\trash-galore-3.yyp --ide 2024.8.1.171 --runtime 2024.8.1.218 }
 Start-Sleep -Seconds 60
 Stop-Process -Name "GameMaker"
 
