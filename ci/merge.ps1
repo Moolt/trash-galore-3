@@ -127,6 +127,10 @@ Start-Job -ScriptBlock { & stitch open --project .\trash-galore-3.yyp --ide 2024
 Start-Sleep -Seconds 60
 Stop-Process -Name "GameMaker"
 
+Start-Job -ScriptBlock { & stitch open --project .\trash-galore-3.yyp --ide 2024.8.1.171 --runtime 2024.11.0.226 }
+Start-Sleep -Seconds 60
+Stop-Process -Name "GameMaker"
+
 # Step 6: Save the cumulative games data to datafiles/games.json in the root directory
 $finalJson = @{ games = $gamesArray } | ConvertTo-Json -Depth 5
 Set-Content -Path $gamesJsonPath -Value $finalJson
