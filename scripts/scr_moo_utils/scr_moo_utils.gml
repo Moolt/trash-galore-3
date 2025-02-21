@@ -1,3 +1,11 @@
+function moo_is_running_on_desktop() {
+	return os_browser == browser_not_a_browser;
+}
+
+function moo_is_running_in_browser() {
+	return os_browser != browser_not_a_browser;
+}
+
 function moo_delay(_steps, _callback) {
     var _instance = instance_create_layer(0, 0, "Instances", obj_moo_delay);
     _instance.steps_left = _steps;

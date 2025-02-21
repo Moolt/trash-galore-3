@@ -57,13 +57,23 @@ global.launcher.ui = new moo_service_ui();
 global.launcher.audio = new moo_service_audio();
 global.launcher.screen = new moo_service_screen();
 global.launcher.settings = new moo_service_settings();
-
 global.launcher.font = {};
-global.launcher.font.title = fnt_moo_title;
-global.launcher.font.button_normal = fnt_moo_button;
-global.launcher.font.button_select = fnt_moo_button_select;
-global.launcher.font.achievement = fnt_moo_achievement;
-global.launcher.font.achievement_select = fnt_moo_achievement_select;
+
+if(moo_is_running_on_desktop()) {
+	global.launcher.font.title = font_add("HomeVideo.ttf", 30, false, false, 32, 128);
+	global.launcher.font.button_normal = font_add("HomeVideo.ttf", 18, false, false, 32, 128);
+	global.launcher.font.button_select = font_add("HomeVideoBold.ttf", 18, false, false, 32, 128);
+	global.launcher.font.achievement = font_add("HomeVideo.ttf", 14, false, false, 32, 128);
+	global.launcher.font.achievement_select = font_add("HomeVideoBold.ttf", 14, false, false, 32, 128);
+
+	font_enable_sdf(global.launcher.font.title, true);
+} else {
+	global.launcher.font.title = fnt_moo_title;
+	global.launcher.font.button_normal = fnt_moo_button;
+	global.launcher.font.button_select = fnt_moo_button_select;
+	global.launcher.font.achievement = fnt_moo_achievement;
+	global.launcher.font.achievement_select = fnt_moo_achievement_select;
+}
 
 global.launcher.gui = {};
 

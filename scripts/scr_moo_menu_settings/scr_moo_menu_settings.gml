@@ -20,7 +20,7 @@ function moo_menu_settings(_menu_object): moo_menu_base(_menu_object) constructo
 				}
 				);
 				
-				if (os_browser == browser_not_a_browser) {
+				if (moo_is_running_on_desktop()) {
 					_stack.button_option("Mode", function(_btn, _value) {
 						ui_group.show_transition_behind_ui(obj_moo_transition_colors);
 						MOO_SETTINGS.set(MOO_SETTING_MODE, _value);			

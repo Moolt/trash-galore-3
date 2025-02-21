@@ -21,7 +21,7 @@ function moo_service_screen() constructor {
     window_zoom = zoom;
 
 	center_window_if_desktop = function() {
-		if (os_browser == browser_not_a_browser) {
+		if (moo_is_running_on_desktop()) {
 			window_center();
 		}
 	}
